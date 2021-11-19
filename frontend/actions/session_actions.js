@@ -22,7 +22,7 @@ const receiveErrors = errors => ({
 export const login = user => dispatch => (
   SessionApiUtil.login(user)
     .then(user => dispatch(receiveCurrentUser(user)))
-    .catch(error => dispatch(receiveErrors(error)))
+    // .catch(error => dispatch(receiveErrors(error)))
 )
 
 export const logout = () => dispatch => (
@@ -33,5 +33,5 @@ export const logout = () => dispatch => (
 export const signup = user => dispatch => (
   UsersApiUtil.signup(user)
     .then(user => dispatch(receiveCurrentUser(user)))
-    .catch(error => dispatch(receiveErrors(error)))
+    // .catch(error => dispatch(receiveErrors(error)))
 )
