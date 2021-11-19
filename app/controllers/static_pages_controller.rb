@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
     render :root
   end
   
+  def other
+    redirect_to :root
+  end
 end
