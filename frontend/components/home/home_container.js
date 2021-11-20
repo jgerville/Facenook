@@ -1,4 +1,5 @@
 import { connect } from "react-redux"
+import { login, logout, signup } from "../../actions/session_actions"
 import Home from "./Home"
 
 const mapStateToProps = ({session, entities: {users}}) => ({
@@ -6,7 +7,9 @@ const mapStateToProps = ({session, entities: {users}}) => ({
 })
 
 const mapDispatchToProps = {
-  logout: () => dispatch(logout())
+  login: () => dispatch(login()),
+  logout: () => dispatch(logout()),
+  signup: () => dispatch(signup()),
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
