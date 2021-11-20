@@ -18,10 +18,12 @@ const LoginForm = ({errors, login}) => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" onChange={update('email')} value={email}/>
-      <input type="password" onChange={update('password')} value={password} />
-      <input type="submit" value="Log In"/>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <input type="text" onChange={update('email')} value={email} placeholder="Email" />
+      <input type="password" onChange={update('password')} value={password} placeholder="Password" />
+      <button className="login-button" type="submit">Log In</button>
+      <hr />
+      <button className="create-account-button">Create new account</button>
     </form>
   )
 }
