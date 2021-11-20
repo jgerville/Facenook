@@ -22,7 +22,7 @@ const LoginForm = ({errors, login}) => {
       <input type="text" onChange={update('email')} value={email} placeholder="Email" />
       <input type="password" onChange={update('password')} value={password} placeholder="Password" />
       <button className="login-button" type="submit">Log In</button>
-      <hr />
+      <div className="separator" />
       <button className="create-account-button">Create new account</button>
     </form>
   )
