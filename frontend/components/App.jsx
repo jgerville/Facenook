@@ -4,8 +4,6 @@ import HomeContainer from './home/home_container';
 
 const App = () => (
   <div>
-    <h1>Facenook</h1>
-
     <Routes>
       <Route path="/" element={<HomeContainer />}></Route>
     </Routes>

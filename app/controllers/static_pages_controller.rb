@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
   end
   
   def other
+    p "got here"
     redirect_to :root
   end
 end
