@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const TopNav = ({currentUser}) => {
 
@@ -6,7 +7,7 @@ const TopNav = ({currentUser}) => {
     <nav className="top-nav">
       <ul>
         <li><a href="#">test</a></li>
-        <li><a href="#">2</a></li>
+        <li><Link to="/2" >user2</Link></li>
         <li className="user-link"><a href="#">{currentUser.fname}</a></li>
         <li><a href="#">4</a></li>
       </ul>

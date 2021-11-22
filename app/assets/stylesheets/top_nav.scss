@@ -1,9 +1,9 @@
 $light-grey: #DADDE1;
 
 .top-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   background: rgb(36, 37, 38);
   
   // border-bottom: 1px solid $light-grey;

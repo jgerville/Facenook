@@ -12,6 +12,17 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    # add a check to see if they are a friend
+    if @user
+      render "api/users/show"
+    else
+      render json: ["The user doesn't exist or isn't your friend."], status: 404
+    end
+
+  end
+
   private
 
   def user_params
