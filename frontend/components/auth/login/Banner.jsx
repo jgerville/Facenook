@@ -1,6 +1,6 @@
 import React from 'react'
-import LogoLarge from "../graphics/LogoLarge";
-import Tagline from "../graphics/Tagline";
+import LogoLarge from "../../graphics/LogoLarge";
+import Tagline from "../../graphics/Tagline";
 
 const Banner = () => (
   <div className="banner">

@@ -1,0 +1,149 @@
+$light-grey: #DADDE1;
+$middle-grey: #F4F6F7;
+$contrast-grey: #777777;
+$dark-grey: #606770;
+$light-green: #42b72a;
+$dark-green: #04A402;
+$black-ish: #1C1E21;
+$border: 1px solid $light-grey !default;
+
+.outer-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+
+  .inner-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    text-align: left;
+    width: 350px;
+    border-radius: 4px;
+    box-shadow: 0 0 6px -4px;
+
+
+    .signup-header {
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      
+      h3 {
+        font-size: 26px;
+        line-height: 1.5;
+        font-weight: 700;
+        margin-left: 15px;
+        margin-top: 5px;
+      }
+      
+      p {
+        margin-left: 15px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: $dark-grey;
+      }
+      
+      .close-signup-page {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    }
+    
+    .signup-form {
+      border-top: $border;
+      padding-top: 10px;
+
+      * {
+        margin-left: 15px;
+      }
+
+      input[type=email], input[type=password] {
+        width: 298px;
+        background-color: $middle-grey;
+      }
+      
+      .signup-fname {
+        width: 133px;
+        margin: 0 5px 10px 0;
+        background-color: $middle-grey;
+      }
+
+      .signup-lname {
+        width: 133px;
+        margin: 0 5px 10px;
+        background-color: $middle-grey;
+      }
+
+      label {
+        font-size: 10px;
+        color: $dark-grey;
+        display: block;
+      }
+
+      select {
+        font-size: 12px;
+        color: $black-ish;
+        border-radius: 4px;
+        width: 97px;
+        margin-top: 2px;
+        margin-bottom: 5px;
+        padding: 5px 0 5px 0;
+        border: $border;
+      }
+
+      .general-gender-label {
+        margin-top: 5px;
+        // margin-bottom: -2px;
+      }
+
+      .gender-label {
+        position: relative;
+        display: inline-block;
+        font-size: 12px;
+        color: $black-ish;
+        border: $border;
+        border-radius: 4px;
+        padding: 5px 0 5px 5px;
+        width: 90px;
+
+        input {
+          position: absolute;
+          right: -8px;
+        }
+      }
+
+      p {
+        font-size: 9px;
+        color: $contrast-grey;
+        margin: 15px;
+        line-height: 1.2;
+      }
+
+      .signup-button {
+        position: relative;
+        left: 75px;
+        border: $border;
+        border-radius: 4px;
+        background-color: $dark-green;
+        font-weight: 700;
+        font-size: 16px;
+        padding: 5px 55px;
+        color: white;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+
+
+
+

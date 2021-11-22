@@ -38,6 +38,10 @@ $border: 1px solid $light-grey !default;
     color: white;
   }
 
+  .login-button:hover {
+    background-color: #3975EA;
+  }
+
   .separator {
     border-top: $border;
     margin: 10px 15px;
@@ -53,6 +57,10 @@ $border: 1px solid $light-grey !default;
     max-width: 200px;
     padding: 10px;
     margin: 10px auto 10px;
+  }
+
+  .create-account-button:hover {
+    background-color: #54a152;
   }
 }
 

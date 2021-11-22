@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LoginPage from '../auth/LoginPage';
+import LoginPage from '../auth/login/LoginPage';
 
 const Home = ({currentUser}) => (
   <>
