@@ -6,6 +6,7 @@ const App = () => (
   <div className="app-container">
     <Routes>
       <Route path="/" element={<HomeContainer />}></Route>
+      <Route path="/:userId" element={}></Route>
     </Routes>
   </div>
 )

@@ -9,7 +9,7 @@ const Home = ({currentUser}) => (
     {currentUser
     ?
     <>
-      <TopNav />
+      <TopNav currentUser={currentUser} />
       <Feed />
     </>
     : <LoginPage />
