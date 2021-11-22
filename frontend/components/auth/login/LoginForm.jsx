@@ -30,6 +30,8 @@ const LoginForm = ({errors, login, openModal}) => {
       <input 
         type="password" onChange={update('password')} 
         value={password} placeholder="Password" />
+      {errors.session && errors.session.response.data.map((error, idx) =>
+        <p key={idx}>{error}</p>)}
       <button className="login-button" type="submit">Log In</button>
       <div className="separator" />
       <button className="create-account-button" onClick={openSignup}>
