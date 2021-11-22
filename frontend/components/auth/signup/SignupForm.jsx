@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import moment from 'moment';
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 const DAYS = [];
@@ -24,6 +25,7 @@ const SignupForm = ({errors, signup, closeModal}) => {
 
   const submit = e => {
     e.preventDefault();
+    if (tooYoung()) return;
     const user = {
       user: {
         fname,
@@ -36,6 +38,19 @@ const SignupForm = ({errors, signup, closeModal}) => {
     }
     signup(user);
   }
+
+  const tooYoung = () => {
+    const birthday = moment(`${month} ${day} ${year}`);
+    const now = moment();
+    return now.diff(birthday, 'years') <= 13;
+  }
+
+  const setName = setter => e => {
+    let value = e.target.value;
+    if (value.length < 1) return setter("")
+    value = value[0].toUpperCase() + value.substr(1).toLowerCase();
+    setter(value)
+  }
   
   return (
     <>
@@ -46,8 +61,8 @@ const SignupForm = ({errors, signup, closeModal}) => {
       </div>
 
       <form className="signup-form" onSubmit={submit}>
-        <input required className="signup-fname" type="text" placeholder="First name" value={fname} onChange={e => setFname(e.target.value)}/>
-        <input required className="signup-lname" type="text" placeholder="Last name" value={lname} onChange={e => setLname(e.target.value)}/>
+        <input required className="signup-fname" type="text" placeholder="First name" value={fname} onChange={setName(setFname)}/>
+        <input required className="signup-lname" type="text" placeholder="Last name" value={lname} onChange={setName(setLname)}/>
 
         <input required type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}/>
         <input required type="password" placeholder="New password" value={password} onChange={e => setPassword(e.target.value)}/>
