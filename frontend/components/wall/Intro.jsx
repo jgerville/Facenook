@@ -6,7 +6,6 @@ const Intro = ({wallOwner}) => {
 
   
   return (
-    !wallOwner ? null :
     <section className="wall-intro">
       <h3>Intro</h3>
       <ul>

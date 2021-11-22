@@ -2,6 +2,8 @@ $light-grey: #DADDE1;
 
 .top-nav {
   position: fixed;
+  height: 45px;
+  width: 100%;
   top: 0;
   z-index: 2;
   background: rgb(36, 37, 38);
@@ -17,4 +19,8 @@ $light-grey: #DADDE1;
   li {
     padding: 10px;
   }
+}
+
+.top-nav + * {
+  margin-top: 45px;
 }
