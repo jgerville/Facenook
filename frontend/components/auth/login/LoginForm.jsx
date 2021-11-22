@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SignupPage from '../signup/SignupPage';
 
-const LoginForm = ({errors, login}) => {
+const LoginForm = ({errors, login, openModal}) => {
   const [{email, password}, setValues] = useState({
     email: "", password: ""
   })
@@ -17,13 +17,13 @@ const LoginForm = ({errors, login}) => {
 
   const openSignup = e => {
     e.preventDefault();
-    setShowSignup(true);
+    openModal();
   }
 
-  const closeSignup = e => {
-    e.preventDefault();
-    setShowSignup(false);
-  }
+  // const closeSignup = e => {
+  //   e.preventDefault();
+  //   setShowSignup(false);
+  // }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,7 +43,7 @@ const LoginForm = ({errors, login}) => {
       <button className="create-account-button" onClick={openSignup}>
         Create new account
       </button>
-      {showSignup && <SignupPage close={closeSignup} />}
+      {/* {showSignup && <SignupPage close={closeSignup} />} */}
     </form>
   )
 }

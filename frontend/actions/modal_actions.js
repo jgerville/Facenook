@@ -6,7 +6,6 @@ export const openModal = component => ({
   component
 })
 
-export const closeModal = component => ({
+export const closeModal = () => ({
   type: CLOSE_MODAL,
-  component
 })
