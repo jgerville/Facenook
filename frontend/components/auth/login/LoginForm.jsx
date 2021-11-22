@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
-import SignupPage from '../signup/SignupPage';
 
 const LoginForm = ({errors, login, openModal}) => {
   const [{email, password}, setValues] = useState({
     email: "", password: ""
   })
-
-  const [showSignup, setShowSignup] = useState(false);
 
   const update = field => (
     e => setValues(oldValues => ({
@@ -19,11 +16,6 @@ const LoginForm = ({errors, login, openModal}) => {
     e.preventDefault();
     openModal();
   }
-
-  // const closeSignup = e => {
-  //   e.preventDefault();
-  //   setShowSignup(false);
-  // }
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,7 +35,6 @@ const LoginForm = ({errors, login, openModal}) => {
       <button className="create-account-button" onClick={openSignup}>
         Create new account
       </button>
-      {/* {showSignup && <SignupPage close={closeSignup} />} */}
     </form>
   )
 }

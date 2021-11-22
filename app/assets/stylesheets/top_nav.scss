@@ -1,0 +1,20 @@
+$light-grey: #DADDE1;
+
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgb(36, 37, 38);
+  
+  // border-bottom: 1px solid $light-grey;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  li {
+    padding: 10px;
+  }
+}
