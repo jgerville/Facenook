@@ -100,6 +100,7 @@ const SignupForm = ({ errors, signup, closeModal }) => {
 
       <form className="signup-form" onSubmit={submit}>
         <input
+          autoFocus
           required
           className="signup-fname"
           type="text"

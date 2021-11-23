@@ -31,6 +31,8 @@ const LoginForm = ({ errors, login, openModal }) => {
     <form className="login-form" onSubmit={handleSubmit}>
       <input
         type="text"
+        autoFocus
+        required
         onChange={update("email")}
         value={email}
         placeholder="Email"
@@ -38,6 +40,7 @@ const LoginForm = ({ errors, login, openModal }) => {
 
       <input
         type="password"
+        required
         onChange={update("password")}
         value={password}
         placeholder="Password"
