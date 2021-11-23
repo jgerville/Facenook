@@ -11,7 +11,8 @@ const WallAbout = ({wallOwner, isMine}) => {
 }
 
 WallAbout.propTypes = {
-
+  wallOwner: PropTypes.object.isRequired,
+  isMine: PropTypes.bool.isRequired,
 }
 
 export default WallAbout

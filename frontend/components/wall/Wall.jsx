@@ -11,7 +11,7 @@ const Wall = ({ currentUser, wallOwner, getWallInfo, isMine }) => {
   }, []);
 
   return !wallOwner ? null : (
-    <main>
+    <>
       <WallHeader wallOwner={wallOwner} />
       <Routes>
         <Route exact strict path="/" element={<WallContent wallOwner={wallOwner} />} />
@@ -20,7 +20,7 @@ const Wall = ({ currentUser, wallOwner, getWallInfo, isMine }) => {
           element={<WallAbout wallOwner={wallOwner} isMine={isMine} />}
         />
       </Routes>
-    </main>
+    </>
   );
 };
 

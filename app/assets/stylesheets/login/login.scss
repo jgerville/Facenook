@@ -137,6 +137,10 @@ $border: 1px solid $light-grey !default;
     margin-top: 108px;
     background: white;
     height: 180px;
+
+    span {
+      display: inline-block;
+    }
   }
 }
 

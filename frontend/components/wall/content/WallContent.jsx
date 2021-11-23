@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import Intro from './Intro';
 
 const WallContent = ({ wallOwner }) => (
-  <div className="wall-content">
-    <Intro wallOwner={wallOwner} />
-  </div>
+  <main className="wall-content">
+    <div className="side-content">
+      <Intro wallOwner={wallOwner} />
+    </div>
+    <div className="post-placeholder"></div>
+  </main>
 )
 
 WallContent.propTypes = {
