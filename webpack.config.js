@@ -1,6 +1,6 @@
 const path = require('path');
 
-const config = {
+module.exports = {
   context: __dirname,
   entry: "./frontend/facenook.jsx",
   output: {
@@ -21,17 +21,8 @@ const config = {
       }
     ]
   },
+  devtool: 'source-map',
   resolve: {
     extensions: [".js", ".jsx", "*"]
   }
 };
-
-module.exports = (env, argv) => {
-  target: 'node'
-  if (argv.mode === 'production') {
-    config.devtool = 'source-map';
-  } else {
-    config.devtool = 'eval-source-map';
-  }
-  return config;
-}
