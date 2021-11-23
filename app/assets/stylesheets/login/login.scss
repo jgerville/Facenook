@@ -47,6 +47,7 @@ $border: 1px solid $light-grey !default;
     font-weight: 700;
     font-size: 20px;
     color: white;
+    border: none;
   }
 
   .login-button:hover {
@@ -68,6 +69,7 @@ $border: 1px solid $light-grey !default;
     max-width: 250px;
     padding: 12.5px;
     margin: 12.5px auto 12.5px;
+    border: none;
   }
 
   .create-account-button:hover {
