@@ -6,6 +6,7 @@ import Wall from "./Wall";
 const mapStateToProps = ({ session, entities: { users } }, ownProps) => ({
   currentUser: users[session.id],
   wallOwner: users[ownProps.params.userId],
+  isMine: session.id === ownProps.params.userId,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import WallNav from "./WallNav";
 
 const WallHeader = ({ wallOwner }) => (
-  <header>
+  <header className="wall-header">
     {/* <CoverPhoto /> */}
-    <h2>
+    <div className="cover-photo-sub">(cover photo)</div>
+    <h1 className="full-name">
       {wallOwner.fname} {wallOwner.lname}
-    </h2>
+    </h1>
     <WallNav />
   </header>
 );

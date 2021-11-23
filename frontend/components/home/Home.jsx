@@ -13,7 +13,7 @@ const Home = ({ currentUser }) => (
         <TopNav currentUser={currentUser} />
         <Routes>
           <Route path="/" element={<Feed />} />
-          <Route path="/:userId" element={<WallContainer />} />
+          <Route path="/:userId/*" element={<WallContainer />} />
         </Routes>
       </>
     ) : (

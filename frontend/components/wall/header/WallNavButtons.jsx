@@ -3,10 +3,10 @@ import React from "react";
 const WallNavButtons = () => (
   <ul className="wall-nav-buttons">
     <li>
-      <button>Friends</button>
+      <button><i className="fas fa-user-friends"/>Friends</button>
     </li>
     <li>
-      <button>Message</button>
+      <button><i className="fas fa-comment-dots"></i>Message</button>
     </li>
     <li>
       <button>...</button>
