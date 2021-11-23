@@ -12,8 +12,6 @@ const LoginForm = ({ errors, login, openModal }) => {
       [field]: e.target.value,
     }));
 
-  console.log(errors.response);
-
   const openSignup = (e) => {
     e.preventDefault();
     openModal();
