@@ -1,7 +1,10 @@
 $light-grey: #DADDE1;
+$badge-background: #3A3B3C;
 
 .top-nav {
   position: fixed;
+  display: flex;
+  align-items: center;
   height: 55px;
   width: 100%;
   top: 0;
@@ -11,16 +14,29 @@ $light-grey: #DADDE1;
   // border-bottom: 1px solid $light-grey;
 
   ul {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
 
-  li {
-    color: white;
-    padding: 10px;
+    li {
+      color: white;
+      padding: 10px;
+
+      .badge {
+        border-radius: 20px;
+        background: $badge-background;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 }
+
+  
 
 .top-nav + * {
   margin-top: 55px;

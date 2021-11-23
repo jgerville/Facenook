@@ -16,7 +16,11 @@ const TopNav = ({ currentUser }) => {
           <a href="#">{currentUser.fname}</a>
         </li>
         <li>
-          <a href="#">4</a>
+          <a href="#">
+            <div className="badge">
+              <i className="fas fa-caret-down"></i>
+            </div>
+          </a>
         </li>
       </ul>
     </nav>

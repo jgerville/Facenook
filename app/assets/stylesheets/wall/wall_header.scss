@@ -2,10 +2,13 @@ $dark-grey-bg: #242526;
 $button-bg: #3A3B3C;
 $name-text: #E4E6EA;
 $link-text: #B0B3B8;
+$separator: #3E3F41;
+
+$active-link: #2E89FF;
 
 header.wall-header {
   display: grid;
-  grid-template-rows: 335px 88px 60px;
+  grid-template-rows: 350px 83px 68px 4px;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   background: $dark-grey-bg;
@@ -18,17 +21,20 @@ header.wall-header {
     height: 100%;
   }
 
-  .full-name {
+  h1.full-name {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     text-align: center;
     color: $name-text;
     font-size: 32px;
+    font-weight: 600;
   }
 
   .wall-nav {
+    border-top: 1px solid $separator;
     grid-column: 1 / span 3;
     grid-row: 3 / 4;
+    height: 100%;
     padding: 0 16px;
     display: flex;
     justify-content: space-between;
@@ -36,11 +42,27 @@ header.wall-header {
 
     .wall-nav-links {
       display: flex;
+      height: 100%;
 
       li {
+        display: flex;
+        align-items: center;
+        height: 100%;
         font-size: 16px;
         color: $link-text;
-        padding: 0 16px;
+
+        a {
+          display: flex;
+          align-items: center;
+          height: 100%;
+          padding: 0 16px;
+        }
+
+        a.active {
+          border-bottom: 4px solid $active-link;
+          border-radius: 2px;
+          color: $active-link;
+        }
       }
     }
 
