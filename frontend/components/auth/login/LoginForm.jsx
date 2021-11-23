@@ -40,7 +40,7 @@ const LoginForm = ({ errors, login, openModal }) => {
         placeholder="Password"
       />
 
-      {errors.response &&
+      {errors.response && (Array.isArray(errors.response.data)) &&
         errors.response.data.map((error, idx) => (
           <p className="login-error" key={idx}>
             {error}

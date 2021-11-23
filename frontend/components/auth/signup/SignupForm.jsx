@@ -34,12 +34,17 @@ const SignupForm = ({ errors, signup, closeModal }) => {
   const [year, setYear] = useState("2021");
   const [gender, setGender] = useState();
 
-  const [ageError, setAgeError] = useState(false);
+  const [ageError, setAgeError] = useState(true);
 
   const firstRender = useRef(true);
+  const [changedAge, setChangedAge] = useState(false);
 
   const submit = (e) => {
     e.preventDefault();
+    if (!changedAge) {
+      setChangedAge(true);
+      return;
+    }
     if (ageError) return;
     const user = {
       user: {
@@ -68,6 +73,7 @@ const SignupForm = ({ errors, signup, closeModal }) => {
     if (firstRender.current) {
       firstRender.current = false;
     } else {
+      setChangedAge(true);
       checkAge();
     }
   }, [month, day, year]);
@@ -80,6 +86,7 @@ const SignupForm = ({ errors, signup, closeModal }) => {
   };
 
   const setBirthDate = (setter) => (e) => {
+    setChangedAge(true);
     setter(e.target.value);
   };
 
@@ -126,7 +133,7 @@ const SignupForm = ({ errors, signup, closeModal }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        {ageError && (
+        {ageError && changedAge && (
           <p className="signup-error">
             {"You must be at least 13 years old to sign up."}
           </p>
@@ -192,7 +199,7 @@ const SignupForm = ({ errors, signup, closeModal }) => {
           network!
         </p>
 
-        {errors.response &&
+        {errors.response && (Array.isArray(errors.response.data)) &&
           errors.response.data.map((error, idx) => (
             <p className="signup-error" key={idx}>
               {error}
