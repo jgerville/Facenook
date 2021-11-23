@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from 'prop-types';
 import moment from "moment";
 
 const MONTHS = [
@@ -211,6 +212,12 @@ const SignupForm = ({ errors, signup, closeModal }) => {
       </form>
     </>
   );
+};
+
+SignupForm.propTypes = {
+  errors: PropTypes.array,
+  signup: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };
 
 export default SignupForm;

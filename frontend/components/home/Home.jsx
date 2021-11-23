@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "../auth/login/LoginPage";
 import Feed from "../feed/Feed";
@@ -20,5 +21,9 @@ const Home = ({ currentUser }) => (
     )}
   </>
 );
+
+Home.propTypes = {
+  currentUser: PropTypes.object,
+}
 
 export default Home;

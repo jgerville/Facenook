@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import WallNav from "./WallNav";
 
 const WallHeader = ({ wallOwner }) => (
@@ -10,5 +11,9 @@ const WallHeader = ({ wallOwner }) => (
     <WallNav />
   </header>
 );
+
+WallHeader.propTypes = {
+  wallOwner: PropTypes.object.isRequired,
+}
 
 export default WallHeader;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const LoginForm = ({ errors, login, openModal }) => {
   const [{ email, password }, setValues] = useState({
@@ -46,7 +47,8 @@ const LoginForm = ({ errors, login, openModal }) => {
         placeholder="Password"
       />
 
-      {errors.response && (Array.isArray(errors.response.data)) &&
+      {errors.response &&
+        Array.isArray(errors.response.data) &&
         errors.response.data.map((error, idx) => (
           <p className="login-error" key={idx}>
             {error}
@@ -68,6 +70,12 @@ const LoginForm = ({ errors, login, openModal }) => {
       </button>
     </form>
   );
+};
+
+LoginForm.propTypes = {
+  errors: PropTypes.array,
+  login: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
 };
 
 export default LoginForm;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 
 const Intro = ({ wallOwner }) => {
@@ -53,5 +54,9 @@ const Intro = ({ wallOwner }) => {
     </section>
   );
 };
+
+Intro.propTypes = {
+  wallOwner: PropTypes.object.isRequired,
+}
 
 export default Intro;
