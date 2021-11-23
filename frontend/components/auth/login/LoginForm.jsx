@@ -22,6 +22,11 @@ const LoginForm = ({ errors, login, openModal }) => {
     login({ email, password });
   };
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+    login({ email: "fake@fake.fake", password: "fakefake" });
+  };
+
   return (
     <form className="login-form" onSubmit={handleSubmit}>
       <input
@@ -47,6 +52,10 @@ const LoginForm = ({ errors, login, openModal }) => {
 
       <button className="login-button" type="submit">
         Log In
+      </button>
+
+      <button className="login-button" onClick={demoLogin}>
+        Demo User
       </button>
 
       <div className="separator" />
