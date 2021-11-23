@@ -88,12 +88,18 @@ $border: 1px solid $light-grey !default;
   line-height: 2;
   color: $footer;
   text-align: center;
+  padding-top: 32px;
   padding-left: 20px;
   padding-right: 20px;
 
   .separator {
     border-bottom: $border;
     margin: 12px 0;
+  }
+
+  span {
+    text-align: center;
+    padding: 0 1rem;
   }
 }
 
@@ -128,13 +134,9 @@ $border: 1px solid $light-grey !default;
     }
   }
   .login-footer {
-    margin-top: 80px;
+    margin-top: 108px;
     background: white;
     height: 180px;
-
-    span {
-      padding: 0 5px
-    }
   }
 }
 
@@ -157,12 +159,7 @@ $border: 1px solid $light-grey !default;
 
   .login-footer {
     margin-top: 245px;
-    padding-top: 32px;
     background: white;
     height: 140px;
-    
-    span {
-      padding: 0 15px
-    }
   }
 }
