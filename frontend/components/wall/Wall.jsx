@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import WallHeader from "./header/WallHeader";
-import Intro from "./Intro";
+import WallContent from "./content/WallContent";
 
 const Wall = ({ currentUser, wallOwner, getWallInfo }) => {
   useEffect(() => {
@@ -11,7 +11,7 @@ const Wall = ({ currentUser, wallOwner, getWallInfo }) => {
   return !wallOwner ? null : (
     <main>
       <WallHeader wallOwner={wallOwner} />
-      <Intro wallOwner={wallOwner} />
+      <WallContent wallOwner={wallOwner} />
     </main>
   );
 };
