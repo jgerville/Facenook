@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const Feed = () => (
   <main className="feed">
@@ -7,6 +7,6 @@ const Feed = () => (
     <p>hasdasdh</p>
     <p>hasdasdh</p>
   </main>
-)
+);
 
 export default Feed;

@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-const LogoLarge = () => (
-  <p className="logo-large">facenook</p>
-)
+const LogoLarge = () => <p className="logo-large">facenook</p>;
 
 export default LogoLarge;

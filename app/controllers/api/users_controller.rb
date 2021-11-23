@@ -19,7 +19,6 @@ class Api::UsersController < ApplicationController
     else
       render json: ["The user doesn't exist or isn't your friend."], status: 404
     end
-
   end
 
   private

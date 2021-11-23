@@ -1,7 +1,6 @@
-import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-import HomeContainer from './home/home_container';
-import WallContainer from './wall/wall_container';
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import HomeContainer from "./home/home_container";
 
 const App = () => (
   <div className="app-container">
@@ -9,6 +8,6 @@ const App = () => (
       <Route path="/*" element={<HomeContainer />} />
     </Routes>
   </div>
-)
+);
 
 export default App;

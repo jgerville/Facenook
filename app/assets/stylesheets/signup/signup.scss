@@ -142,6 +142,11 @@ $border: 1px solid $light-grey !default;
         line-height: 1.2;
       }
 
+      p.signup-error {
+        font-size: 11px;
+        color: red;
+      }
+
       .signup-button {
         position: relative;
         left: 25%;

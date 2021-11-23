@@ -54,6 +54,12 @@ $border: 1px solid $light-grey !default;
     background-color: #3975EA;
   }
 
+  .login-error {
+    margin: 0 18.75px;
+    font-size: 13px;
+    color: red;
+  }
+
   .separator {
     border-top: $border;
     margin: 12.5px 18.75px;

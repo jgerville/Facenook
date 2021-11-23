@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import LogoLarge from "../../graphics/LogoLarge";
 import Tagline from "../../graphics/Tagline";
 
@@ -7,6 +7,6 @@ const Banner = () => (
     <LogoLarge />
     <Tagline />
   </div>
-)
+);
 
 export default Banner;

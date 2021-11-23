@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-const Avatar = ({image}) => (
-  null
-)
+const Avatar = ({ image }) => null;
 
 export default Avatar;

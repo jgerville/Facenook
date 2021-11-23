@@ -1,6 +1,5 @@
-import React from 'react';
-import moment from 'moment';
-
+import React from "react";
+import moment from "moment";
 
 const Footer = () => (
   <footer className="login-footer">
@@ -22,6 +21,6 @@ const Footer = () => (
     <div className="separator" />
     <p>Julian Erville © {moment().year()}</p>
   </footer>
-)
+);
 
 export default Footer;

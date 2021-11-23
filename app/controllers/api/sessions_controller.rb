@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
         render json: ["The password you've entered is incorrect."], status: 401
       end
     else
-      render json: ["The email you entered isn't connected to an account. Create a new Facenook account."]
+      render json: ["The email you entered isn't connected to an account. Create a new Facenook account."], status: 401
     end
   end
 
