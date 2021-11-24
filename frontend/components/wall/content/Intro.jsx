@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
+import Jobs from "./about/detail_items/Jobs";
+import Schools from "./about/detail_items/Schools";
+import RelationshipStatus from "./about/detail_items/RelationshipStatus";
 
 const Intro = ({ wallOwner }) => {
   // const {fname, lname, birthday, gender, createdAt, currentCity, hometown, jobs, relationshipStatus, schools } = wallOwner;
@@ -11,15 +14,13 @@ const Intro = ({ wallOwner }) => {
       <ul>
         {wallOwner.jobs && (
           <li>
-            <i className="fas fa-briefcase" />
-            Works at {wallOwner.jobs}
+            <Jobs jobs={wallOwner.jobs} />
           </li>
         )}
 
         {wallOwner.schools && (
           <li>
-            <i className="fas fa-graduation-cap" />
-            Studied at {wallOwner.schools}
+            <Schools schools={wallOwner.schools} />
           </li>
         )}
 
@@ -39,8 +40,7 @@ const Intro = ({ wallOwner }) => {
 
         {wallOwner.relationshipStatus && (
           <li>
-            <i className="fas fa-heart" />
-            {wallOwner.relationshipStatus}
+            <RelationshipStatus status={wallOwner.relationshipStatus} />
           </li>
         )}
 

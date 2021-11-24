@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import WallHeader from "./header/WallHeader";
 import WallContent from "./content/WallContent";
-import WallAbout from "./content/WallAbout";
+import WallAbout from "./content/about/WallAbout";
 
 const Wall = ({ currentUser, wallOwner, getWallInfo, isMine }) => {
   useEffect(() => {
@@ -16,7 +16,7 @@ const Wall = ({ currentUser, wallOwner, getWallInfo, isMine }) => {
       <Routes>
         <Route exact strict path="/" element={<WallContent wallOwner={wallOwner} />} />
         <Route
-          path="/about"
+          path="/about/*"
           element={<WallAbout wallOwner={wallOwner} isMine={isMine} />}
         />
       </Routes>
