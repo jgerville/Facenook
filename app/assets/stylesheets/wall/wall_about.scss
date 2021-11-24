@@ -1,12 +1,13 @@
-$dark-background: #18191A;
+$dark-background: #18191a;
 $lighter-background: #242526;
-$text-color: #E4E6EB;
-$icon-color: #737B86;
-$separator: #3E3F41;
+$text-color: #e4e6eb;
+$icon-color: #737b86;
+$separator: #3e3f41;
 
-$nav-link-active-color: #2E89FF;
-$nav-link-active-background: #2B394F;
-$nav-link-color: #B0B3B8;
+$nav-link-active-color: #2e89ff;
+$nav-link-active-background: #2b394f;
+$nav-link-color: #b0b3b8;
+$nav-link-hover: #3a3b3c;
 
 .wall-about {
   background: $dark-background;
@@ -19,7 +20,7 @@ $nav-link-color: #B0B3B8;
 
   .categories {
     background: $lighter-background;
-    height: 370px;
+    height: 260px;
     grid-row: 2;
     grid-column: 2 / 3;
     border-right: 1px solid $separator;
@@ -36,12 +37,12 @@ $nav-link-color: #B0B3B8;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      gap: 5px;
 
       li {
         display: flex;
         align-items: center;
         height: 100%;
-        
 
         a {
           font-size: 15px;
@@ -54,6 +55,11 @@ $nav-link-color: #B0B3B8;
           width: 100%;
           border-radius: 10px;
           color: $nav-link-color;
+          transition: background 0.3s ease-out;
+        }
+
+        a:hover {
+          background: $nav-link-hover;
         }
 
         a.active {
@@ -66,18 +72,21 @@ $nav-link-color: #B0B3B8;
 
   .details {
     background: $lighter-background;
-    height: 370px;
+    height: 260px;
     grid-row: 2;
     grid-column: 3 / 4;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
 
+    h4 {
+      font-size: 17px;
+      font-weight: 500;
+      margin: 15px 0 5px 15px;
+    }
+
     table {
-      // display: flex;
-      // flex-direction: column;
-      // justify-content: flex-start;
-      // gap: 10px;
-      height: 60%;
+      margin: 5px;
+      height: 90%;
 
       tr {
         padding: 5px;
@@ -92,8 +101,12 @@ $nav-link-color: #B0B3B8;
           color: $icon-color;
           font-size: 24px;
         }
-
       }
+    }
+
+    table.work,
+    table.education {
+      height: 30%;
     }
   }
 }

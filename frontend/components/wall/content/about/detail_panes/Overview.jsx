@@ -8,10 +8,12 @@ import RelationshipStatus from "../detail_items/RelationshipStatus";
 const Overview = (wallOwner) => (
   <>
     <table className="overview">
-      <Jobs jobs={wallOwner.jobs} />
-      <Schools schools={wallOwner.schools} />
-      <Hometown hometown={wallOwner.hometown} />
-      <RelationshipStatus status={wallOwner.relationshipStatus} />
+      <tbody>
+        <Jobs jobs={wallOwner.jobs} />
+        <Schools schools={wallOwner.schools} />
+        <Hometown hometown={wallOwner.hometown} />
+        <RelationshipStatus status={wallOwner.relationshipStatus} />
+      </tbody>
     </table>
   </>
 );

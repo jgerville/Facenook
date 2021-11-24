@@ -8,7 +8,7 @@ $active-link: #2E89FF;
 
 header.wall-header {
   display: grid;
-  grid-template-rows: 325px 83px 68px 4px;
+  grid-template-rows: 350px 87px 58px 4px;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   background: $dark-grey-bg;
@@ -48,8 +48,11 @@ header.wall-header {
         display: flex;
         align-items: center;
         height: 100%;
+        margin-top: 3px;
         font-size: 16px;
         color: $link-text;
+        border-radius: 6px;
+        transition: background 0.3s ease-out;
 
         a {
           display: flex;
@@ -60,9 +63,12 @@ header.wall-header {
 
         a.active {
           border-bottom: 4px solid $active-link;
-          border-radius: 2px;
           color: $active-link;
         }
+      }
+
+      li:hover {
+        background: $button-bg;
       }
     }
 

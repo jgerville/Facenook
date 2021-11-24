@@ -1,11 +1,11 @@
 import {
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER,
-} from "../actions/session_actions";
+} from "../../actions/session_actions";
 import {
   RECEIVE_RELATED_USERS,
   RECEIVE_WALL_OWNER,
-} from "../actions/user_actions";
+} from "../../actions/user_actions";
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);

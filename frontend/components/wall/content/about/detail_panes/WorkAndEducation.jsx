@@ -5,9 +5,18 @@ import Schools from '../detail_items/Schools'
 
 const WorkAndEducation = ({ wallOwner: { jobs, schools }}) => (
   <>
-    <table className="work-and-education">
-      <Jobs jobs={jobs} />
-      <Schools schools={schools} />
+    <h4>Work</h4>
+    <table className="work">
+      <tbody>
+        <Jobs jobs={jobs} />
+      </tbody>
+    </table>
+
+    <h4>Education</h4>
+    <table className="education">
+      <tbody>
+        <Schools schools={schools} />
+      </tbody>
     </table>
   </>
 )

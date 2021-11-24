@@ -40,6 +40,15 @@ const SignupForm = ({ errors, signup, closeModal }) => {
   const firstRender = useRef(true);
   const [changedAge, setChangedAge] = useState(false);
 
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+    } else {
+      setChangedAge(true);
+      checkAge();
+    }
+  }, [month, day, year]);
+
   const submit = (e) => {
     e.preventDefault();
     if (!changedAge) {
@@ -70,19 +79,10 @@ const SignupForm = ({ errors, signup, closeModal }) => {
     setAgeError(true);
   };
 
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-    } else {
-      setChangedAge(true);
-      checkAge();
-    }
-  }, [month, day, year]);
-
   const setName = (setter) => (e) => {
     let value = e.target.value;
     if (value.length < 1) return setter("");
-    value = value[0].toUpperCase() + value.substr(1).toLowerCase();
+    value = value[0].toUpperCase() + value.substr(1);
     setter(value);
   };
 

@@ -5,10 +5,10 @@ import WallHeader from "./header/WallHeader";
 import WallContent from "./content/WallContent";
 import WallAbout from "./content/about/WallAbout";
 
-const Wall = ({ currentUser, wallOwner, getWallInfo, isMine }) => {
+const Wall = ({ currentUser, wallOwner, getWallInfo, isMine, params: { userId } }) => {
   useEffect(() => {
     getWallInfo();
-  }, []);
+  }, [userId]);
 
   return !wallOwner ? null : (
     <>
@@ -29,6 +29,7 @@ Wall.propTypes = {
   wallOwner: PropTypes.object,
   getWallInfo: PropTypes.func.isRequired,
   isMine: PropTypes.bool,
+  userId: PropTypes.string,
 };
 
 export default Wall;

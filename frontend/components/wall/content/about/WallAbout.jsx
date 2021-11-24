@@ -3,6 +3,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import PropTypes from 'prop-types'
 import Overview from './detail_panes/Overview';
 import WorkAndEducation from './detail_panes/WorkAndEducation';
+import ContactAndBasicInfo from './detail_panes/ContactAndBasicInfo';
 
 const WallAbout = ({wallOwner, isMine}) => {
   return (
@@ -20,6 +21,7 @@ const WallAbout = ({wallOwner, isMine}) => {
         <Routes>
           <Route exact strict path="" element={<Overview wallOwner={wallOwner} />} />
           <Route path="work_and_education" element={<WorkAndEducation wallOwner={wallOwner} />} />
+          <Route path="contact_and_basic_info" element={<ContactAndBasicInfo wallOwner={wallOwner} />} />
         </Routes>
       </div>
     </div>

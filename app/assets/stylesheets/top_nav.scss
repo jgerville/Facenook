@@ -1,15 +1,22 @@
+$nav-background: #242526;
 $light-grey: #DADDE1;
 $badge-background: #3A3B3C;
+$badge-bg-hover: #4E4F50;
+$border-color: #2F3031;
+
+$active-background: #2B394F;
+$active-color: #4987F7;
 
 .top-nav {
   position: fixed;
   display: flex;
   align-items: center;
-  height: 55px;
+  height: 53px;
   width: 100%;
   top: 0;
   z-index: 2;
-  background: rgb(36, 37, 38);
+  background: $nav-background;
+  border: 1px solid $border-color;
   
   // border-bottom: 1px solid $light-grey;
 
@@ -32,6 +39,78 @@ $badge-background: #3A3B3C;
         justify-content: center;
         align-items: center;
       }
+
+      .badge:hover {
+        cursor: pointer;
+        background-color: $badge-bg-hover;
+      }
+
+      .badge.active {
+        background: $active-background;
+        color: $active-color;
+      }
+
+      .dropdown {
+        position: fixed;
+        top: 50px;
+        right: 10px;
+        z-index: 3;
+        width: 360px;
+        height: 170px;
+        border-radius: 6px;
+        border: 1px solid $border-color;
+        background: $nav-background;
+        display: flex;
+        flex-direction: column;
+
+        .user-card, .logout {
+          margin: 10px;
+          padding: 10px;
+          border-radius: 6px;
+          transition: background 0.3s ease-out;
+        }
+
+        .user-card {
+          a {
+            display: flex;
+
+            h4 {
+              font-size: 17px;
+              font-weight: 500;
+              margin: 5px 0;
+            }
+  
+            p {
+              font-size: 15px;
+              font-weight: 400;
+            }
+          }
+        }
+
+        .user-card:hover, .logout:hover {
+          background: $badge-background;
+          cursor: pointer;
+        }
+
+        .logout {
+          display: flex;
+          align-items: center;
+
+          i {
+            font-size: 20px;
+            margin-right: 10px;
+            padding: 10px;
+            background-color: $badge-background;
+            border-radius: 20px;
+          }
+
+          span {
+            font-size: 15px;
+          }
+        }
+
+        
+      }
     }
   }
 }
@@ -39,5 +118,5 @@ $badge-background: #3A3B3C;
   
 
 .top-nav + * {
-  margin-top: 55px;
+  margin-top: 53px;
 }
