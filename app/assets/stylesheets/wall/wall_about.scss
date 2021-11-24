@@ -1,10 +1,12 @@
 $dark-background: #18191A;
 $lighter-background: #242526;
 $text-color: #E4E6EB;
+$icon-color: #737B86;
 $separator: #3E3F41;
 
 $nav-link-active-color: #2E89FF;
 $nav-link-active-background: #2B394F;
+$nav-link-color: #B0B3B8;
 
 .wall-about {
   background: $dark-background;
@@ -51,6 +53,7 @@ $nav-link-active-background: #2B394F;
           height: 100%;
           width: 100%;
           border-radius: 10px;
+          color: $nav-link-color;
         }
 
         a.active {
@@ -68,5 +71,29 @@ $nav-link-active-background: #2B394F;
     grid-column: 3 / 4;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
+
+    table {
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: flex-start;
+      // gap: 10px;
+      height: 60%;
+
+      tr {
+        padding: 5px;
+
+        td {
+          color: $text-color;
+          font-size: 15px;
+        }
+
+        i {
+          padding: 10px;
+          color: $icon-color;
+          font-size: 24px;
+        }
+
+      }
+    }
   }
 }

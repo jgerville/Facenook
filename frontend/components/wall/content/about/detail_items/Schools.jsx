@@ -2,19 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Schools = ({ schools }) => (
-  <>
+  <tr>
     {schools ? (
       <>
-        <i className="fas fa-graduation-cap" />
-        Studied at {schools}
+        <th>
+          <i className="fas fa-graduation-cap" />
+        </th>
+        <td>
+          Studied at {schools}
+        </td>
       </>
     ) : (
       <>
-        <i className="fas fa-graduation-cap" />
-        No education info to show
+        <th>
+          <i className="fas fa-graduation-cap" />
+        </th>
+        <td>
+          No education info to show
+        </td>
       </>
     )}
-  </>
+  </tr>
 )
 
 Schools.propTypes = {

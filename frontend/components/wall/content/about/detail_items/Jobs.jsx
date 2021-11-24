@@ -2,19 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Jobs = ({ jobs }) => (
-  <>
+  <tr>
     {jobs ? (
       <>
-        <i className="fas fa-briefcase" />
-        Works at {jobs}
+        <th>
+          <i className="fas fa-briefcase" />
+        </th>
+        <td>
+          Works at {jobs}
+        </td>
       </>
     ) : (
       <>
-        <i className="fas fa-briefcase" />
-        No job info to show
+        <th>
+          <i className="fas fa-briefcase" />
+        </th>
+        <td>
+          No job info to show
+        </td>
       </>
     )} 
-  </>
+  </tr>
 )
 
 Jobs.propTypes = {

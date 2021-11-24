@@ -2,19 +2,27 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Hometown = ({ hometown }) => (
-  <>
+  <tr>
     {hometown ? (
       <>
-        <i className="fas fa-map-marker-alt" />
-        From {wallOwner.hometown} 
+        <th>
+          <i className="fas fa-map-marker-alt" />
+        </th>
+        <td>
+          From {wallOwner.hometown} 
+        </td>
       </>
     ) : (
       <>
-        <i className="fas fa-map-marker-alt" />
-        No hometown info to show
+        <th>
+          <i className="fas fa-map-marker-alt" />
+        </th>
+        <td>
+          No hometown info to show
+        </td>
       </>
     )}
-  </>
+  </tr>
 )
 
 Hometown.propTypes = {
