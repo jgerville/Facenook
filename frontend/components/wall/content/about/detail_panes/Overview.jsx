@@ -18,8 +18,13 @@ const Overview = (wallOwner) => (
   </>
 );
 
-// Overview.propTypes = {
-
-// }
+Overview.propTypes = {
+  wallOwner: PropTypes.shape({
+    jobs: PropTypes.string,
+    schools: PropTypes.string,
+    hometown: PropTypes.string,
+    relationshipStatus: PropTypes.string,
+  }),
+}
 
 export default Overview;

@@ -1,19 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import OutsideClickHandler from "react-outside-click-handler";
 import DropDownUserCard from "./DropDownUserCard";
 
 const AccountDropDown = ({ currentUser, close, logout }) => {
+  const handleClick = (func) => (e) => {
+    close();
+    func();
+  }
+
   return (
-    <OutsideClickHandler onOutsideClick={() => close()}>
+    <div className="outer-dropdown" onClick={() => close()}>
       <div className="account dropdown">
         <DropDownUserCard user={currentUser} close={close} />
-        <div className="logout" onClick={() => logout()}>
+        <div className="logout" onClick={handleClick(logout)}>
           <i className="fas fa-sign-out-alt" />
           <span>Log Out</span>
         </div>
       </div>
-    </OutsideClickHandler>
+    </div>
   )
 };
 
