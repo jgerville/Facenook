@@ -1,21 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Jobs from '../detail_items/Jobs'
+import Jobs from '../detail_items/jobs/Jobs'
 import Schools from '../detail_items/Schools'
 
-const WorkAndEducation = ({ wallOwner: { jobs, schools }}) => (
+const WorkAndEducation = ({ wallOwner: { jobs, schools }, isMine}) => (
   <>
     <h4>Work</h4>
     <table className="work">
       <tbody>
-        <Jobs jobs={jobs} />
+        <Jobs jobs={jobs} isMine={isMine} />
       </tbody>
     </table>
 
     <h4>Education</h4>
     <table className="education">
       <tbody>
-        <Schools schools={schools} />
+        <Schools schools={schools} isMine={isMine} />
       </tbody>
     </table>
   </>

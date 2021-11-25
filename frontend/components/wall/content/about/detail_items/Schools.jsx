@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Schools = ({ schools }) => (
+const Schools = ({ schools, isMine }) => (
   <tr>
     {schools ? (
       <>
@@ -15,10 +15,10 @@ const Schools = ({ schools }) => (
     ) : (
       <>
         <th>
-          <i className="fas fa-graduation-cap" />
+          {isMine ? <i className="fas fa-plus" /> : <i className="fas fa-graduation-cap" />}
         </th>
         <td>
-          No education info to show
+          {isMine ? <>Add a school</> : <>No education info to show</>}
         </td>
       </>
     )}
@@ -27,6 +27,7 @@ const Schools = ({ schools }) => (
 
 Schools.propTypes = {
   schools: PropTypes.string,
+  isMine: PropTypes.bool,
 }
 
 export default Schools

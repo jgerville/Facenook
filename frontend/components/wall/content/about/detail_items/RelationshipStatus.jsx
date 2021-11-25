@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const RelationshipStatus = ({ status }) => (
+const RelationshipStatus = ({ status, isMine }) => (
   <tr>
     {status ? (
       <>
@@ -15,10 +15,10 @@ const RelationshipStatus = ({ status }) => (
     ) : (
       <>
         <th>
-          <i className="fas fa-heart" />
+          {isMine ? <i className="fas fa-plus" /> : <i className="fas fa-heart" />}
         </th>
         <td>
-          No relationship info to show
+          {isMine ? <>Add a relationship status</> : <>No relationship info to show</>}
         </td>
       </>
     )}

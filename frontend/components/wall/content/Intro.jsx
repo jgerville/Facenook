@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
-import Jobs from "./about/detail_items/Jobs";
+import Jobs from "./about/detail_items/jobs/Jobs";
 import Schools from "./about/detail_items/Schools";
 import RelationshipStatus from "./about/detail_items/RelationshipStatus";
 

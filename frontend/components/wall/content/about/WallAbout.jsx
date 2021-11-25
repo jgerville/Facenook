@@ -19,9 +19,9 @@ const WallAbout = ({wallOwner, isMine}) => {
       </nav>
       <div className="details">
         <Routes>
-          <Route exact strict path="" element={<Overview wallOwner={wallOwner} />} />
-          <Route path="work_and_education" element={<WorkAndEducation wallOwner={wallOwner} />} />
-          <Route path="contact_and_basic_info" element={<ContactAndBasicInfo wallOwner={wallOwner} />} />
+          <Route exact strict path="" element={<Overview wallOwner={wallOwner} isMine={isMine} />} />
+          <Route path="work_and_education" element={<WorkAndEducation wallOwner={wallOwner} isMine={isMine} />} />
+          <Route path="contact_and_basic_info" element={<ContactAndBasicInfo wallOwner={wallOwner} isMine={isMine} />} />
         </Routes>
       </div>
     </div>

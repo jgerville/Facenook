@@ -5,3 +5,7 @@ export const signup = (user) =>
 
 export const showUser = (userId) =>
   axios.get(`/api/users/${userId}`).then((res) => res.data);
+
+export const updateProfile = (user) => (
+  axios.patch(`/api/users/${user.user.id}`, user).then((res) => res.data)
+)
