@@ -28,6 +28,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: { minimum: 8 }, allow_nil: true
 
+  has_one_attached :profpic
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return user if user && user.is_valid_password?(password)
