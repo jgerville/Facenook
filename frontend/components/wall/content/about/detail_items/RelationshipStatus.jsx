@@ -1,32 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
+import DetailItem from "./DetailItem";
+import DetailItemIcon from "./DetailItemIcon";
 
-const RelationshipStatus = ({ status, isMine }) => (
-  <tr>
-    {status ? (
+const RelationshipStatus = ({ status, isMine, edit }) => (
+  <>
+    {isMine ? (
+      // if wall is mine, display edit option
       <>
-        <th>
-          <i className="fas fa-heart" />
-        </th>
-        <td>
-          {status}
-        </td>
+        <div className="edit-toggler" onClick={edit}>
+          <DetailItemIcon category={"plus"} />
+          <span>Change your relationship status</span>
+        </div>
+        {status && <DetailItem category="relationship" info={status} />}
       </>
     ) : (
+      // if wall is not mine, do not display edit option
       <>
-        <th>
-          {isMine ? <i className="fas fa-plus" /> : <i className="fas fa-heart" />}
-        </th>
-        <td>
-          {isMine ? <>Add a relationship status</> : <>No relationship info to show</>}
-        </td>
+        {status ? (
+          <DetailItem category="relationship" info={status} />
+        ) : (
+          <DetailItem category="relationship" info="" />
+        )}
       </>
     )}
-  </tr>
+  </>
 );
 
 RelationshipStatus.propTypes = {
   status: PropTypes.string,
+  isMine: PropTypes.bool,
+  edit: PropTypes.func,
 };
 
 export default RelationshipStatus;

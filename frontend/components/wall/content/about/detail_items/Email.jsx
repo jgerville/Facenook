@@ -2,14 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Email = ({ email }) => (
-  <tr>
-    <th>
+  <div className="detail-item">
       <i className="far fa-envelope" />
-    </th>
-    <td>
-      {email}
-    </td>
-  </tr>
+      <span>{email}</span>
+  </div>
 )
 
 Email.propTypes = {

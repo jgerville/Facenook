@@ -4,6 +4,7 @@ import moment from "moment";
 import Jobs from "./about/detail_items/jobs/Jobs";
 import Schools from "./about/detail_items/Schools";
 import RelationshipStatus from "./about/detail_items/RelationshipStatus";
+import DetailItem from "./about/detail_items/DetailItem";
 
 const Intro = ({ wallOwner }) => {
   // const {fname, lname, birthday, gender, createdAt, currentCity, hometown, jobs, relationshipStatus, schools } = wallOwner;
@@ -26,15 +27,13 @@ const Intro = ({ wallOwner }) => {
 
         {wallOwner.currentCity && (
           <li>
-            <i className="fas fa-home" />
-            Lives in {wallOwner.currentCity}
+            <DetailItem category="location" info={wallOwner.currentCity} />
           </li>
         )}
 
         {wallOwner.hometown && (
           <li>
-            <i className="fas fa-map-marker-alt" />
-            From {wallOwner.hometown}
+            <DetailItem category="hometown" info={wallOwner.hometown} />
           </li>
         )}
 
@@ -46,8 +45,7 @@ const Intro = ({ wallOwner }) => {
 
         {wallOwner.createdAt && (
           <li>
-            <i className="fas fa-clock" />
-            Joined {moment(wallOwner.createdAt).fromNow()}
+            <DetailItem category="creation" info={moment(wallOwner.createdAt).fromNow()} />
           </li>
         )}
       </ul>

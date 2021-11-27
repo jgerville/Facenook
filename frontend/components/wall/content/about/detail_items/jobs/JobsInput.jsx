@@ -17,16 +17,11 @@ const JobsInput = ({ editInfo, close, wallOwner }) => {
   }
   
   return (
-    <>
-      <th></th>
-      <td>
-        <form className="small-form">
-          <input type="text" value={jobs} onChange={(e) => setJobs(e.target.value)} />
-          <button onClick={exit}>Cancel</button>
-          <button onClick={submit}>Save</button>
-        </form>
-      </td>
-    </>
+    <form className="small-form">
+      <input type="text" value={jobs} onChange={(e) => setJobs(e.target.value)} />
+      <button onClick={exit}>Cancel</button>
+      <button onClick={submit}>Save</button>
+    </form>
   )
 }
 

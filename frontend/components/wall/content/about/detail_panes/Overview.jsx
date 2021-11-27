@@ -4,7 +4,10 @@ import Jobs from "../detail_items/jobs/Jobs";
 import Schools from "../detail_items/Schools";
 import Hometown from "../detail_items/hometown/Hometown";
 import RelationshipStatus from "../detail_items/RelationshipStatus";
-import { HometownInputContainer, JobsInputContainer } from "../detail_items/input_connecter";
+import {
+  HometownInputContainer,
+  JobsInputContainer,
+} from "../detail_items/input_connecter";
 
 const Overview = ({ wallOwner, isMine }) => {
   const [editJobs, setEditJobs] = useState(false);
@@ -13,23 +16,35 @@ const Overview = ({ wallOwner, isMine }) => {
   const [editRelationshipStatus, setEditRelationshipStatus] = useState(false);
 
   return (
-    <>
-      <table className="overview">
-        <tbody>
-          <tr>
-            {editJobs ? (
-              <JobsInputContainer wallOwner={wallOwner} close={() => setEditJobs(false)} />
-            ) : (
-              <Jobs jobs={wallOwner.jobs} isMine={isMine} edit={() => setEditJobs(true)} />
-            )}
-          </tr>
+    <div className="overview">
+      <ul>
+        <li>
+          {editJobs ? (
+            <JobsInputContainer
+              wallOwner={wallOwner}
+              close={() => setEditJobs(false)}
+            />
+          ) : (
+            <Jobs
+              jobs={wallOwner.jobs}
+              isMine={isMine}
+              edit={() => setEditJobs(true)}
+            />
+          )}
+        </li>
+        <li>
           <Schools
             schools={wallOwner.schools}
             isMine={isMine}
             edit={setEditSchools}
           />
+        </li>
+        <li>
           {editHometown ? (
-            <HometownInputContainer wallOwner={wallOwner} close={() => setEditHometown(false)} />
+            <HometownInputContainer
+              wallOwner={wallOwner}
+              close={() => setEditHometown(false)}
+            />
           ) : (
             <Hometown
               hometown={wallOwner.hometown}
@@ -37,15 +52,16 @@ const Overview = ({ wallOwner, isMine }) => {
               edit={setEditHometown}
             />
           )}
-          
+        </li>
+        <li>
           <RelationshipStatus
             status={wallOwner.relationshipStatus}
             isMine={isMine}
             edit={setEditRelationshipStatus}
           />
-        </tbody>
-      </table>
-    </>
+        </li>
+      </ul>
+    </div>
   );
 };
 

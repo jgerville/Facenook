@@ -1,33 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
+import DetailItem from "./DetailItem";
+import DetailItemIcon from "./DetailItemIcon";
 
-const Schools = ({ schools, isMine }) => (
-  <tr>
-    {schools ? (
+const Schools = ({ schools, isMine, edit }) => (
+  <>
+    {isMine ? (
+      // if wall is mine, display edit option
       <>
-        <th>
-          <i className="fas fa-graduation-cap" />
-        </th>
-        <td>
-          Studied at {schools}
-        </td>
+        <div className="edit-toggler" onClick={edit}>
+          <DetailItemIcon category={"plus"} />
+          <span>Add a school</span>
+        </div>
+        {schools && <DetailItem category="education" info={schools} />}
       </>
     ) : (
+      // if wall is not mine, do not display edit option
       <>
-        <th>
-          {isMine ? <i className="fas fa-plus" /> : <i className="fas fa-graduation-cap" />}
-        </th>
-        <td>
-          {isMine ? <>Add a school</> : <>No education info to show</>}
-        </td>
+        {schools ? (
+          <DetailItem category="education" info={schools} />
+        ) : (
+          <DetailItem category="education" info="" />
+        )}
       </>
     )}
-  </tr>
-)
+  </>
+);
 
 Schools.propTypes = {
   schools: PropTypes.string,
   isMine: PropTypes.bool,
-}
+  edit: PropTypes.func,
+};
 
-export default Schools
+export default Schools;

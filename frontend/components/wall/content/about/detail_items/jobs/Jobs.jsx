@@ -1,39 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
+import DetailItem from "../DetailItem";
+import DetailItemIcon from "../DetailItemIcon";
 
 const Jobs = ({ jobs, isMine, edit }) => (
   <>
     {isMine ? (
       // if wall is mine, display edit option
       <>
-        <tr onClick={edit}>
-          <th><i className="fas fa-plus" /></th>
-          <td><span>Add a job</span></td>
-        </tr>
-        {jobs && (
-          <tr>
-            <th>
-              <i className="fas fa-briefcase" />
-            </th>
-            <td>Works at {jobs}</td>
-          </tr>
-        )}
+        <div className="edit-toggler" onClick={edit}>
+          <DetailItemIcon category={"plus"} />
+          <span>Add a job</span>
+        </div>
+        {jobs && <DetailItem category="job" info={jobs} />}
       </>
     ) : (
       // if wall is not mine, do not display edit option
       <>
         {jobs ? (
-          <tr>
-            <th>
-              <i className="fas fa-briefcase" />
-            </th>
-            <td>Works at {jobs}</td>
-          </tr>
+          <DetailItem category="job" info={jobs} />
         ) : (
-          <tr>
-            <th><i className="fas fa-briefcase" /></th>
-            <td>No job info to show</td>
-          </tr>
+          <DetailItem category="job" info="" />
         )}
       </>
     )}

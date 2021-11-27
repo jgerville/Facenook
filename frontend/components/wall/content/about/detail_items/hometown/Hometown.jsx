@@ -1,39 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import DetailItemIcon from '../DetailItemIcon';
+import DetailItem from '../DetailItem';
 
 const Hometown = ({ hometown, isMine, edit }) => (
   <>
     {isMine ? (
       // if wall is mine, display edit option
       <>
-        <tr onClick={edit}>
-          <th><i className="fas fa-plus" /></th>
-          <td><span>Add your hometown</span></td>
-        </tr>
+        <div className="edit-toggler" onClick={edit}>
+          <DetailItemIcon category={"plus"} />
+          <span>Add your hometown</span>
+        </div>
         {hometown && (
-          <tr>
-            <th>
-              <i className="fas fa-map-marker-alt" />
-            </th>
-            <td>From {hometown}</td>
-          </tr>
+          <DetailItem category="hometown" info={hometown} />
         )}
       </>
     ) : (
       // if wall is not mine, do not display edit option
       <>
         {hometown ? (
-          <tr>
-            <th>
-              <i className="fas fa-map-marker-alt" />
-            </th>
-            <td>From {hometown}</td>
-          </tr>
+          <DetailItem category="hometown" info={hometown} />
         ) : (
-          <tr>
-            <th><i className="fas fa-map-marker-alt" /></th>
-            <td>No hometown info to show</td>
-          </tr>
+          <DetailItem category="hometown" info="" />
         )}
       </>
     )}

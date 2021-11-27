@@ -17,16 +17,11 @@ const HometownInput = ({ editInfo, close, wallOwner }) => {
   }
   
   return (
-    <tr>
-      <th></th>
-      <td>
-        <form className="small-form">
-          <input type="text" value={hometown} onChange={(e) => setHometown(e.target.value)} />
-          <button onClick={exit}>Cancel</button>
-          <button onClick={submit}>Save</button>
-        </form>
-      </td>
-    </tr>
+    <form className="small-form">
+      <input type="text" value={hometown} onChange={(e) => setHometown(e.target.value)} />
+      <button onClick={exit}>Cancel</button>
+      <button onClick={submit}>Save</button>
+    </form>
   )
 }
 
