@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import Jobs from "./about/detail_items/jobs/Jobs";
-import Schools from "./about/detail_items/Schools";
-import RelationshipStatus from "./about/detail_items/RelationshipStatus";
+import Schools from "./about/detail_items/education/Schools";
+import RelationshipStatus from "./about/detail_items/relationship/RelationshipStatus";
 import DetailItem from "./about/detail_items/DetailItem";
 
 const Intro = ({ wallOwner }) => {

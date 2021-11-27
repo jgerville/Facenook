@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import DetailItem from "./DetailItem";
-import DetailItemIcon from "./DetailItemIcon";
+import DetailItem from "../DetailItem";
+import DetailItemIcon from "../DetailItemIcon";
 
 const RelationshipStatus = ({ status, isMine, edit }) => (
   <>

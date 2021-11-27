@@ -9,6 +9,9 @@ $nav-link-active-background: #2b394f;
 $nav-link-color: #b0b3b8;
 $nav-link-hover: #3a3b3c;
 
+$disabled-button-bg: #505151;
+$disabled-button-color: #858686;
+
 .wall-about {
   background: $dark-background;
   width: 100%;
@@ -20,7 +23,7 @@ $nav-link-hover: #3a3b3c;
 
   .categories {
     background: $lighter-background;
-    height: 260px;
+    height: 400px;
     grid-row: 2;
     grid-column: 2 / 3;
     border-right: 1px solid $separator;
@@ -72,7 +75,7 @@ $nav-link-hover: #3a3b3c;
 
   .details {
     background: $lighter-background;
-    height: 260px;
+    height: 400px;
     grid-row: 2;
     grid-column: 3 / 4;
     border-top-right-radius: 6px;
@@ -84,29 +87,90 @@ $nav-link-hover: #3a3b3c;
       margin: 15px 0 5px 15px;
     }
 
-    table {
+    ul {
       margin: 5px;
-      height: 90%;
 
-      tr {
+      li {
         padding: 5px;
 
-        td {
+        span {
           color: $text-color;
           font-size: 15px;
         }
 
         i {
           padding: 10px;
+          width: 30px;
           color: $icon-color;
           font-size: 24px;
         }
-      }
-    }
 
-    table.work,
-    table.education {
-      height: 30%;
+        .edit-toggler{
+          i {
+            color: $nav-link-active-color;
+          }
+          i::before {
+            border: 1px solid $nav-link-active-color;
+            padding: 2px 3px;
+            border-radius: 18px;
+          }
+          span {
+            color: $nav-link-active-color;
+          }
+        }
+
+        form {
+          margin: 15px 0 5px 15px;
+
+          input[type=text] {
+            display: block;
+            width: 85%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid $separator;
+            background: $lighter-background;
+            color: $text-color;
+            transition: ease-in-out 0.4s;
+          }
+
+          select {
+            display: block;
+            width: 90%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid $separator;
+            background: $nav-link-hover;
+            font-size: 15px;
+            color: $text-color;
+
+            option:hover {
+              background: $nav-link-hover;
+            }
+          }
+
+          input[type=text]:focus {
+            border: 3px solid white;
+          }
+
+          button, a {
+            position: relative;
+            left: 60%;
+            margin: 5px 0 0 10px;
+            padding: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            color: $text-color;
+            background-color: $nav-link-hover;
+            border: none;
+            border-radius: 6px;
+          }
+
+          button:disabled {
+            color: $disabled-button-color;
+            background: $disabled-button-bg;
+          }
+        }
+      }
     }
   }
 }

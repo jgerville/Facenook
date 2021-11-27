@@ -1,19 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Jobs from "../detail_items/jobs/Jobs";
-import Schools from "../detail_items/Schools";
+import Schools from "../detail_items/education/Schools";
 
 const WorkAndEducation = ({ wallOwner: { jobs, schools }, isMine }) => (
   <>
-    <h4>Work</h4>
-    <div className="work">
-      <Jobs jobs={jobs} isMine={isMine} />
-    </div>
-
-    <h4>Education</h4>
-    <div className="education">
-      <Schools schools={schools} isMine={isMine} />
-    </div>
+    <ul>
+      <li>
+        <h4>Work</h4>
+        <Jobs jobs={jobs} isMine={isMine} />
+      </li>
+      <li>
+        <h4>Education</h4>
+        <Schools schools={schools} isMine={isMine} />
+      </li>
+    </ul>
   </>
 );
 

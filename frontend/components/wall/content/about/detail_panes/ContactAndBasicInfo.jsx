@@ -4,10 +4,12 @@ import Email from '../detail_items/Email'
 
 const ContactAndBasicInfo = ({ wallOwner: {email}, isMine } ) => (
   <>
-   <h4>Contact Info</h4> 
-   <div className="email">
-      <Email email={email} isMine={isMine} />
-   </div>
+    <ul>
+      <li>
+        <h4>Contact Info</h4> 
+        <Email email={email} isMine={isMine} />
+      </li>
+    </ul>
   </>
 )
 

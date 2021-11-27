@@ -18,9 +18,9 @@ const HometownInput = ({ editInfo, close, wallOwner }) => {
   
   return (
     <form className="small-form">
-      <input type="text" value={hometown} onChange={(e) => setHometown(e.target.value)} />
+      <input type="text" value={hometown} onChange={(e) => setHometown(e.target.value)} placeholder="Hometown" />
       <button onClick={exit}>Cancel</button>
-      <button onClick={submit}>Save</button>
+      <button disabled={hometown === ""}  onClick={submit}>Save</button>
     </form>
   )
 }

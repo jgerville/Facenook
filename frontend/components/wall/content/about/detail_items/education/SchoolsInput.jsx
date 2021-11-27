@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const JobsInput = ({ editInfo, close, wallOwner }) => {
-  const [jobs, setJobs] = useState("")
+const SchoolsInput = ({ editInfo, close, wallOwner }) => {
+  const [schools, setSchools] = useState("")
 
   const submit = (e) => {
     e.preventDefault();
     const user = { user: wallOwner };
-    user.user.jobs = jobs;
+    user.user.schools = schools;
     editInfo(user).then(close())
   }
 
@@ -17,18 +17,18 @@ const JobsInput = ({ editInfo, close, wallOwner }) => {
   }
   
   return (
-    <form onSubmit={submit} className="small-form">
-      <input type="text" value={jobs} onChange={(e) => setJobs(e.target.value)} placeholder="Job" />
+    <form className="small-form">
+      <input type="text" value={schools} onChange={(e) => setSchools(e.target.value)} placeholder="School/University" />
       <button onClick={exit}>Cancel</button>
-      <button disabled={jobs === ""} type="submit">Save</button>
+      <button disabled={schools === ""}  onClick={submit}>Save</button>
     </form>
   )
 }
 
-JobsInput.propTypes = {
+SchoolsInput.propTypes = {
   editInfo: PropTypes.func.isRequired,
   close: PropTypes.func.isRequired,
   wallOwner: PropTypes.object.isRequired,
 }
 
-export default JobsInput
+export default SchoolsInput;
