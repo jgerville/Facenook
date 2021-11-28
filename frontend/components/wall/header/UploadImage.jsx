@@ -23,9 +23,9 @@ const UploadImage = ({ avatarUser, modal, upload, openModal, closeModal, photoTy
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!file) return;
     const formData = new FormData();
     formData.append(`user[${photoType}]`, file)
-    debugger;
     const user = { data: formData, id: avatarUser.id };
     upload(user).then(closeModal());
   };
@@ -42,7 +42,7 @@ const UploadImage = ({ avatarUser, modal, upload, openModal, closeModal, photoTy
             {preview}
             <div className="buttons">
               <a onClick={closeModal}>Cancel</a>
-              <input type="submit" value="Save" />
+              <input disabled={file === null} type="submit" value="Save" />
             </div>
           </form>
         </div>

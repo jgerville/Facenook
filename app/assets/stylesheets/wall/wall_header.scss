@@ -9,6 +9,9 @@ $edit-button-bg: white;
 $edit-button-text: #050505;
 $edit-button-hover: #e3e4e6;
 
+$disabled-button-bg: #505151;
+$disabled-button-color: #858686;
+
 $active-link: #2E89FF;
 $button-blue: #3C72DA;
 $blue-hover: #5FAAFF;
@@ -164,6 +167,17 @@ header.wall-header {
           cursor: pointer;
           background: $blue-hover;
         }
+
+        input[type=submit]:disabled {
+          color: $disabled-button-color;
+          background: $disabled-button-bg;
+        }
+
+        input[type=submit]:disabled:hover {
+          cursor: default;
+          background: $disabled-button-bg;
+        }
+        
       }
 
       
