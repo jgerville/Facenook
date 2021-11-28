@@ -1,8 +1,13 @@
 $nav-background: #242526;
 $light-grey: #DADDE1;
+$light-grey-text: #B1B3B8;
 $badge-background: #3A3B3C;
 $badge-bg-hover: #4E4F50;
 $border-color: #2F3031;
+
+$input-text: #e4e6eb;
+
+$separator: #3e3f41;
 
 $active-background: #2B394F;
 $active-color: #4987F7;
@@ -29,6 +34,39 @@ $active-color: #4987F7;
     li {
       color: white;
       padding: 10px;
+
+      .home-and-search {
+        display: flex;
+        align-items: center;
+
+        div.badge {
+          margin-right: 10px;
+        }
+
+        div.badge.back {
+          background: $nav-background;
+          transition: background 0.3s ease-out;
+        }
+
+        div.badge.back:hover {
+          background: $badge-background;
+        }
+
+        .search {
+          background: $badge-background;
+          border-radius: 25px;
+
+          input {
+            padding: 5px 15px;
+            width: 250px;
+            height: 40px;
+            background: $badge-background;
+            border: none;
+            border-radius: 25px;
+            color: $input-text;
+          }
+        }
+      }
 
       .badge {
         border-radius: 20px;
@@ -67,7 +105,7 @@ $active-color: #4987F7;
         right: 10px;
         z-index: 3;
         width: 360px;
-        height: 170px;
+        height: 180px;
         border-radius: 6px;
         border: 1px solid $border-color;
         background: $nav-background;
@@ -84,6 +122,21 @@ $active-color: #4987F7;
         .user-card {
           a {
             display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .avatar-container {
+              height: 60px;
+              width: 60px;
+              overflow: hidden;
+              margin-right: 10px;
+              
+              .avatar {
+                border-radius: 50%;
+                height: 60px;
+                width: 60px;
+              }
+            }
 
             h4 {
               font-size: 17px;
@@ -92,10 +145,16 @@ $active-color: #4987F7;
             }
   
             p {
+              color: $light-grey-text;
               font-size: 15px;
               font-weight: 400;
             }
           }
+        }
+
+        .separator {
+          border-bottom: 1px solid $separator;
+          margin: 0 10px;
         }
 
         .user-card:hover, .logout:hover {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import AccountDropdownContainer from "./account_dropdown_container";
+import HomeAndSearch from "./HomeAndSearch";
 
 const TopNav = ({ currentUser, dropdown, openDropdown, closeDropdown }) => {
   const [isActive, setIsActive] = useState(false);
@@ -24,7 +25,7 @@ const TopNav = ({ currentUser, dropdown, openDropdown, closeDropdown }) => {
     <nav className="top-nav">
       <ul>
         <li>
-          <a href="#">test</a>
+          <HomeAndSearch />
         </li>
         <li>
           <Link to="/2">user2</Link>
@@ -34,7 +35,7 @@ const TopNav = ({ currentUser, dropdown, openDropdown, closeDropdown }) => {
         </li>
         <li>
           <div className={isActive ? "badge active" : "badge"} onClick={toggleDropDown}>
-            <i className="fas fa-caret-down"></i>
+            <i className="fas fa-caret-down"/>
           </div>
           {dropdown === "account" ? <AccountDropdownContainer close={closeDropDown} currentUser={currentUser} /> : null}
         </li>

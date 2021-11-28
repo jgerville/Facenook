@@ -10,7 +10,7 @@ const CoverPhotoEditButton = ({ user }) => (
   </div>
 );
 
-const CoverPhoto = ({ user, isMine }) => (
+const CoverPhoto = ({ user, showEdit }) => (
   <>
     <div className="cover-photo-container">
       {user.coverPhoto ? (
@@ -20,10 +20,10 @@ const CoverPhoto = ({ user, isMine }) => (
             src={`${user.coverPhoto}`}
             alt="cover photo"
           />
-          {isMine && <CoverPhotoEditButton user={user} />}
+          {showEdit && <CoverPhotoEditButton user={user} />}
         </>
       ) : (
-        <>{isMine && <CoverPhotoEditButton user={user} />}</>
+        <>{showEdit && <CoverPhotoEditButton user={user} />}</>
       )}
     </div>
   </>
@@ -31,7 +31,7 @@ const CoverPhoto = ({ user, isMine }) => (
 
 CoverPhoto.propTypes = {
   user: PropTypes.object.isRequired,
-  isMine: PropTypes.bool,
+  showEdit: PropTypes.bool,
 };
 
 export default CoverPhoto;
