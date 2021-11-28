@@ -16,6 +16,7 @@ const DetailItemIcon = ({ category }) => {
       break;
     case "location":
       icon = "fa-home"
+      break;
     case "email":
       icon = "fa-envelope";
       break;

@@ -1,4 +1,4 @@
-import { showUser, updateProfile } from "../util/users_api_util";
+import { addFileToProfile, showUser, updateProfile } from "../util/users_api_util";
 
 export const RECEIVE_WALL_OWNER = "RECEIVE_WALL_OWNER";
 export const RECEIVE_RELATED_USERS = "RECEIVE_RELATED_USERS";
@@ -18,3 +18,6 @@ export const getWallInfo = (userId) => (dispatch) =>
 
 export const editUserInfo = (user) => (dispatch) =>
   updateProfile(user).then((user) => dispatch(receiveWallOwner(user)));
+
+export const uploadFileToUser = (user) => (dispatch) =>
+  addFileToProfile(user).then((user) => dispatch(receiveWallOwner(user)));

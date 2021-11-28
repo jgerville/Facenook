@@ -6,6 +6,12 @@ export const signup = (user) =>
 export const showUser = (userId) =>
   axios.get(`/api/users/${userId}`).then((res) => res.data);
 
-export const updateProfile = (user) => (
-  axios.patch(`/api/users/${user.user.id}`, user).then((res) => res.data)
-)
+export const updateProfile = (user) =>
+  axios.patch(`/api/users/${user.user.id}`, user).then((res) => res.data);
+
+export const addFileToProfile = (user) =>
+  axios
+    .post(`/api/users/${user.user.id}`, user, {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    })
+    .then((res) => res.data);

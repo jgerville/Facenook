@@ -3,6 +3,11 @@ $button-bg: #3A3B3C;
 $name-text: #E4E6EA;
 $link-text: #B0B3B8;
 $separator: #3E3F41;
+$badge-bg-hover: #4E4F50;
+
+$edit-button-bg: white;
+$edit-button-text: #050505;
+$edit-button-hover: #e3e4e6;
 
 $active-link: #2E89FF;
 
@@ -13,12 +18,77 @@ header.wall-header {
   align-items: center;
   background: $dark-grey-bg;
 
-  div.cover-photo-sub {
+  div.cover-photo-container {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
     background: darkgray;
     width: 100%;
     height: 100%;
+    position: relative;
+
+    img {
+      position: relative;
+      z-index: 3;
+    }
+
+    .edit-button {
+      position: absolute;
+      z-index: 4;
+      bottom: 10px;
+      right: 15px;
+      padding: 10px;
+      background: $edit-button-bg;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 500;
+      color: $edit-button-text;
+      transition: background 0.3s ease-out;
+
+      i {
+        margin-right: 5px;
+      }
+    }
+
+    .edit-button:hover {
+      background-color: $edit-button-hover;
+      cursor: pointer;
+    }
+  }
+
+  .avatar-container {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    text-align: center;
+    position: relative;
+
+    .avatar {
+      position: relative;
+      z-index: 4;
+      bottom: 110px;
+      width: 168px;
+      height: 168px;
+      border: 5px solid $dark-grey-bg;
+      border-radius: 50%;
+    }
+
+    i {
+      position: absolute;
+      z-index: 5;
+      right: 130px;
+      bottom: 128px;
+      padding: 8px;
+      border: none;
+      border-radius: 50%;
+      color: $name-text;
+      background: $button-bg;
+      transition: background 0.3s ease-out;
+    }
+
+    i:hover {
+      cursor: pointer;
+      background-color: $badge-bg-hover;
+    }
   }
 
   h1.full-name {

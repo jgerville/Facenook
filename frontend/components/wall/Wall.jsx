@@ -12,7 +12,7 @@ const Wall = ({ currentUser, wallOwner, getWallInfo, isMine, params: { userId } 
 
   return !wallOwner ? null : (
     <>
-      <WallHeader wallOwner={wallOwner} />
+      <WallHeader wallOwner={wallOwner} isMine={isMine} />
       <Routes>
         <Route exact strict path="/" element={<WallContent wallOwner={wallOwner} />} />
         <Route

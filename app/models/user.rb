@@ -29,6 +29,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 8 }, allow_nil: true
 
   has_one_attached :profpic
+  has_one_attached :cover_photo
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
