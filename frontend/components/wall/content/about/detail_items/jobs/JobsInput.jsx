@@ -8,7 +8,7 @@ const JobsInput = ({ editInfo, close, wallOwner }) => {
     e.preventDefault();
     const user = { user: wallOwner };
     user.user.jobs = jobs;
-    editInfo(user).then(close())
+    editInfo(user).then(close());
   }
 
   const exit = (e) => {

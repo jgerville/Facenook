@@ -9,9 +9,12 @@ export const showUser = (userId) =>
 export const updateProfile = (user) =>
   axios.patch(`/api/users/${user.user.id}`, user).then((res) => res.data);
 
-export const addFileToProfile = (user) =>
-  axios
-    .post(`/api/users/${user.user.id}`, user, {
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+export const addFileToProfile = (user) => {
+  debugger
+
+  return (axios
+    .patch(`/api/users/${user.id}`, user.data, {
+      headers: { "Content-Type": "multipart/form-data", processData: "false" },
     })
-    .then((res) => res.data);
+    .then((res) => res.data))
+  }

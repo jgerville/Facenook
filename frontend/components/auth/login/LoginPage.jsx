@@ -20,15 +20,10 @@ const LoginPage = ({ modal }) => (
 
 LoginPage.propTypes = {
   modal: PropTypes.string,
-  closeModal: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = ({ ui }) => ({
   modal: ui.modal,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  closeModal: () => dispatch(closeModal()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default connect(mapStateToProps, null)(LoginPage);

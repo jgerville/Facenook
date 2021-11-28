@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import UploadImageContainer from "../wall/header/upload_image_container";
 
-const CoverPhotoEditButton = () => (
+const CoverPhotoEditButton = ({ user }) => (
   <div className="edit-button">
-    <i className="fas fa-camera" />
+    {/* <i className="fas fa-camera" /> */}
+    <UploadImageContainer avatarUser={user} photoType="cover_photo" />
     <span>Edit Cover Photo</span>
   </div>
 );
@@ -18,9 +20,10 @@ const CoverPhoto = ({ user, isMine }) => (
             src={`${user.coverPhoto}`}
             alt="cover photo"
           />
+          {isMine && <CoverPhotoEditButton user={user} />}
         </>
       ) : (
-        <>{isMine && <CoverPhotoEditButton />}</>
+        <>{isMine && <CoverPhotoEditButton user={user} />}</>
       )}
     </div>
   </>

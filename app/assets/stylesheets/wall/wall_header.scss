@@ -10,12 +10,15 @@ $edit-button-text: #050505;
 $edit-button-hover: #e3e4e6;
 
 $active-link: #2E89FF;
+$button-blue: #3C72DA;
+$blue-hover: #5FAAFF;
 
 header.wall-header {
   display: grid;
   grid-template-rows: 350px 87px 58px 4px;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
+  text-align: center;
   background: $dark-grey-bg;
 
   div.cover-photo-container {
@@ -25,9 +28,11 @@ header.wall-header {
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
 
     img {
       position: relative;
+      width: 100%;
       z-index: 3;
     }
 
@@ -61,11 +66,14 @@ header.wall-header {
     grid-column: 2 / 3;
     text-align: center;
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
     .avatar {
-      position: relative;
+      position: absolute;
       z-index: 4;
-      bottom: 110px;
+      bottom: 25px;
       width: 168px;
       height: 168px;
       border: 5px solid $dark-grey-bg;
@@ -75,8 +83,8 @@ header.wall-header {
     i {
       position: absolute;
       z-index: 5;
-      right: 130px;
-      bottom: 128px;
+      right: 138px;
+      bottom: 40px;
       padding: 8px;
       border: none;
       border-radius: 50%;
@@ -88,6 +96,77 @@ header.wall-header {
     i:hover {
       cursor: pointer;
       background-color: $badge-bg-hover;
+    }
+  }
+
+  .avatar-container .outer-modal, .cover-photo-container .outer-modal {
+    background: rgba(1, 1, 1, 0.7);
+
+    .inner-modal {
+      z-index: 8;
+      width: 700px;
+      height: 500px;
+      display: grid;
+      text-align: center;
+      grid-template-rows: 75px 350px 75px;
+      grid-template-columns: 700px;
+      align-content: center;
+      background: $dark-grey-bg;
+      font-size: 15px;
+
+      input[type=file] {
+        color: white;
+        margin-top: 10px;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+      }
+
+      .preview {
+        margin: 0 auto;
+        text-align: center;
+        // object-fit: cover;
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+        max-height: 340px;
+      }
+
+      .buttons {
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        border-top: 1px solid $separator;
+
+        a {
+          color: $button-blue;
+          transition: background 0.3s ease-out;
+          padding: 7px 20px 10px;
+          border-radius: 6px;
+        }
+
+        a:hover {
+          cursor: pointer;
+          background: $button-bg;
+        }
+
+        input[type=submit] {
+          margin: 0 15px 0 0;
+          color: white;
+          background: $button-blue;
+          border: none;
+          border-radius: 6px;
+          padding: 10px 40px;
+          transition: background 0.3s ease-out;
+        }
+
+        input[type=submit]:hover {
+          cursor: pointer;
+          background: $blue-hover;
+        }
+      }
+
+      
     }
   }
 
