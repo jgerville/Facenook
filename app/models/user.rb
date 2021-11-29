@@ -49,18 +49,28 @@ class User < ApplicationRecord
     through: :friendreqs_received,
     source: :sender
 
-  def self.friendships(user)
-    sent = user.friendreqs_sent.where(kind: "accepted")
-    received = user.friendreqs_received.where(kind: "accepted")
+  def friendships
+    sent = self.friendreqs_sent.where(kind: "accepted")
+    received = self.friendreqs_received.where(kind: "accepted")
     sent + received
   end
 
-  def self.pending_sent_reqs(user)
-    user.friendreqs_sent.where(kind: "pending")
+  def mutual_friends(user2)
+    self.friends & user2.friends
   end
 
-  def self.pending_received_reqs(user)
-    user.friendreqs_received.where(kind: "pending")
+  def friends
+    sent = self.friendreqs_sent.where(kind: "accepted").pluck(:target_id)
+    received = self.friendreqs_received.where(kind: "accepted").pluck(:sender_id)
+    sent + received
+  end
+
+  def pending_sent_reqs
+    self.friendreqs_sent.where(kind: "pending")
+  end
+
+  def pending_received_reqs
+    self.friendreqs_received.where(kind: "pending")
   end
 
   def self.find_by_credentials(email, password)
