@@ -20,7 +20,13 @@ class Friendreq < ApplicationRecord
     foreign_key: :target_id,
     class_name: :User
 
-  def self.get_relationships(userId1, userId2)
+  def get_pending_friendreqs(userId)
+    all_pending_friendreqs = Friendreq.all.where(kind: "pending")
+    sent = all_pending_friendreqs.where(sender_id: userId)
+    received = all_pending_friendreqs.where(target_id: userId)
+  end
+
+  def self.get_relationship(userId1, userId2)
     relationshipsArr = find_relationship(userId1, userId2) + find_opposite_relationship(userId1, userId2)
     relationshipsArr.size > 0 ? relationshipsArr : false
   end
