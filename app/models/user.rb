@@ -65,6 +65,14 @@ class User < ApplicationRecord
     sent + received
   end
 
+  def people_sent_requests_to
+    self.pending_sent_reqs.pluck(:target_id)
+  end
+
+  def people_received_requests_from
+    self.pending_received_reqs.pluck(:sender_id)
+  end
+
   def pending_sent_reqs
     self.friendreqs_sent.where(kind: "pending")
   end
