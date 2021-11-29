@@ -20,13 +20,17 @@ class Api::FriendreqsController < ApplicationController
   end
 
   def show_related_friendreqs
-    userId = params[:id]
+    userId = params[:id].to_i
     if current_user.id == userId
+      # if we are on the user's own page
       @pending_sent = Friendreq.get_sent_pending_friendreqs(userId)
       @pending_received = Friendreq.get_received_pending_friendreqs(userId)
+      @accepted = Friendreq.get_accepted_friendreqs(userId)
+      render "api/friendreqs/show_related_friendreqs"
+    else
+      # if we are on some different user's page
+      @friendreq = Friendreq.get_relationship(current_user.id, userId)
     end
-    @accepted = Friendreq.get_accepted_friendreqs(userId)
-    render "api/friendreqs/show_related_friendreqs"
   end
 
   def update

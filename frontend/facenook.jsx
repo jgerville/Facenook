@@ -1,5 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {
+  acceptFriendRequest,
+  getRelatedFriendreqs,
+  sendFriendRequest,
+  unfriend,
+} from "./actions/friendreq_actions";
 import { login, logout, signup } from "./actions/session_actions";
 import Root from "./components/root";
 import configureStore from "./store/store";
@@ -20,6 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
 
   // testing:
+  window.sendfr = sendFriendRequest;
+  window.acceptfr = acceptFriendRequest;
+  window.getfr = getRelatedFriendreqs;
+  window.unfriend = unfriend;
+
   window.login = login;
   window.logout = logout;
   window.signup = signup;

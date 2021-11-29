@@ -1,6 +1,7 @@
 import {
   RECEIVE_FRIENDREQ,
   RECEIVE_FRIENDREQS,
+  REMOVE_FRIENDREQ,
 } from "../../actions/friendreq_actions";
 
 const friendreqsReducer = (state = {}, action) => {
@@ -11,6 +12,10 @@ const friendreqsReducer = (state = {}, action) => {
       return Object.assign({}, state, action.friendreq);
     case RECEIVE_FRIENDREQS:
       return Object.assign({}, state, action.friendreqs);
+    case REMOVE_FRIENDREQ:
+      let nextState = Object.assign({}, state);
+      delete nextState[action.friendreqId];
+      return nextState;
     default:
       return state;
   }
