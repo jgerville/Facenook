@@ -32,4 +32,5 @@ class Api::FriendreqsController < ApplicationController
   def friendreq_params
     params.require(:friendreq).permit(:sender_id, :target_id, :type)
   end
+
 end

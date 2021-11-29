@@ -34,4 +34,10 @@ ActiveRecord::Base.transaction do
   peter.profpic.attach(io: petepic, filename: 'peter-avatar.jpg')
   pete_cover = URI.open('https://facenook-seeds.s3.us-east-2.amazonaws.com/pete-cover.jpg')
   peter.cover_photo.attach(io: pete_cover, filename: 'pete-cover.jpg')
+
+  Friendreq.destroy_all
+
+  a = Friendreq.create(sender_id: 1, target_id: 2, kind: :accepted)
+  b = Friendreq.create(sender_id: 1, target_id: 3, kind: :accepted)
+  c = Friendreq.create(sender_id: 4, target_id: 1, kind: :accepted)
 end

@@ -49,6 +49,20 @@ class User < ApplicationRecord
     through: :friendreqs_received,
     source: :sender
 
+  def self.friendships(user)
+    sent = user.friendreqs_sent.where(kind: "accepted")
+    received = user.friendreqs_received.where(kind: "accepted")
+    sent + received
+  end
+
+  def self.pending_sent_reqs(user)
+    user.friendreqs_sent.where(kind: "pending")
+  end
+
+  def self.pending_received_reqs(user)
+    user.friendreqs_received.where(kind: "pending")
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return user if user && user.is_valid_password?(password)

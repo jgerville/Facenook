@@ -5,7 +5,7 @@
 #  id         :bigint           not null, primary key
 #  sender_id  :integer          not null
 #  target_id  :integer          not null
-#  type       :string           not null
+#  kind       :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
