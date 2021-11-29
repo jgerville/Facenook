@@ -73,6 +73,7 @@ header.wall-header {
     width: 100%;
     display: flex;
     justify-content: center;
+    z-index: 3;
 
     .avatar {
       position: absolute;

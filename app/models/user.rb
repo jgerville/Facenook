@@ -31,6 +31,8 @@ class User < ApplicationRecord
   has_one_attached :profpic
   has_one_attached :cover_photo
 
+  ### friend things below ###
+
   has_many :friendreqs_sent, 
     dependent: :destroy,
     foreign_key: :sender_id,
@@ -80,6 +82,14 @@ class User < ApplicationRecord
   def pending_received_reqs
     self.friendreqs_received.where(kind: "pending")
   end
+
+  ### search things below ###
+
+  def self.search(query)
+    by_first_name = User.all.where()
+  end
+
+  ### auth things below ###
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

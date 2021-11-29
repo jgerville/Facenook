@@ -1,24 +1,53 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
+import FriendButton from "./FriendButton";
 
-const WallNavButtons = (props) => {
-  useEffect(() => {
+const WallNavButtons = ({
+  getRelatedFriendReqs,
+  wallOwner,
+  params,
+  friendreqs,
+  currentUser,
+  sendFriendRequest,
+  unfriend,
+  isMine,
+  acceptFriendRequest,
+}) => {
 
-  }, [props.params.userId])
+  useEffect(
+    () => {
+      getRelatedFriendReqs(wallOwner.id);
+    },
+    [params.userId],
+    [friendreqs]
+  );
 
   return (
     <ul className="wall-nav-buttons">
+      {isMine ? null : (
+        <>
+          <li>
+            <FriendButton
+              friendreqs={friendreqs}
+              currentUser={currentUser}
+              wallOwner={wallOwner}
+              sendFriendRequest={sendFriendRequest}
+              unfriend={unfriend}
+              acceptFriendRequest={acceptFriendRequest}
+            />
+          </li>
+          <li>
+            <button className="message-button">
+              <i className="fas fa-comment-dots"></i>Message
+            </button>
+          </li>
+        </>
+      )}
       <li>
-        <button><i className="fas fa-user-friends"/>Friends</button>
-      </li>
-      <li>
-        <button className="message-button"><i className="fas fa-comment-dots"></i>Message</button>
-      </li>
-      <li>
-        <button>...</button>
+        <button>..asdasdasdas.</button>
       </li>
     </ul>
-  )
+  );
 };
 
 WallNavButtons.propTypes = {
@@ -30,6 +59,6 @@ WallNavButtons.propTypes = {
   acceptFriendRequest: PropTypes.func.isRequired,
   unfriend: PropTypes.func.isRequired,
   getRelatedFriendReqs: PropTypes.func.isRequired,
-}
+};
 
 export default WallNavButtons;
