@@ -31,6 +31,24 @@ class User < ApplicationRecord
   has_one_attached :profpic
   has_one_attached :cover_photo
 
+  has_many :friendreqs_sent, 
+    dependent: :destroy,
+    foreign_key: :sender_id,
+    class_name: :Friendreq
+
+  has_many :friendreqs_received,
+    dependent: :destroy,
+    foreign_key: :target_id,
+    class_name: :Friendreq
+
+  has_many :people_sent_requests_to,
+    through: :friendreqs_sent,
+    source: :target
+
+  has_many :people_received_requests_from,
+    through: :friendreqs_received,
+    source: :sender
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return user if user && user.is_valid_password?(password)
