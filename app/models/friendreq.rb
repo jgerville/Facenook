@@ -52,7 +52,7 @@ class Friendreq < ApplicationRecord
   private
 
   def ensure_unique_relationship
-    if !!Friendreq.get_relationships(self.sender_id, self.target_id)
+    if !!Friendreq.get_relationship(self.sender_id, self.target_id)
       errors.add(:sender_id, "already has a relationship with this target")
     end
   end
