@@ -1,6 +1,6 @@
 import React from "react";
-import WallNavButtons from "./WallNavButtons";
 import { NavLink } from "react-router-dom";
+import WallNavButtonsContainer from "./wall_nav_buttons_container";
 
 const WallNav = () => (
   <nav className="wall-nav">
@@ -15,7 +15,7 @@ const WallNav = () => (
         <NavLink to="friends">Friends</NavLink>
       </li>
     </ul>
-    <WallNavButtons />
+    <WallNavButtonsContainer />
   </nav>
 );
 

@@ -15,6 +15,7 @@ $disabled-button-color: #858686;
 $active-link: #2E89FF;
 $button-blue: #3C72DA;
 $blue-hover: #5FAAFF;
+$message-button-color: #FFFFFF;
 
 header.wall-header {
   display: grid;
@@ -249,10 +250,24 @@ header.wall-header {
           background: $button-bg;
           color: $name-text;
           font-size: 16px;
+          transition: background 0.3s ease-out;
 
           i {
             padding-right: 8px;
           }
+        }
+
+        button:hover {
+          background: $badge-bg-hover;
+        }
+
+        .message-button {
+          background: $button-blue;
+          color: $message-button-color;
+        }
+
+        .message-button:hover {
+          background: $blue-hover;
         }
       }
     }

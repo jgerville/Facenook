@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const root = document.getElementById("root");
   const store = configureStore(preloadedState);
-  // delete window.currentUser;
+  delete window.currentUser;
 
   ReactDOM.render(<Root store={store} />, root);
 
