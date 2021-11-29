@@ -26,7 +26,7 @@ class Api::FriendreqsController < ApplicationController
       @pending_received = Friendreq.get_received_pending_friendreqs(userId)
     end
     @accepted = Friendreq.get_accepted_friendreqs(userId)
-
+    render "api/friendreqs/show_related_friendreqs"
   end
 
   def update
@@ -35,6 +35,16 @@ class Api::FriendreqsController < ApplicationController
       render "api/friendreqs/show"
     else
       render json: @friendreq.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    @friendreq = Friendreq.find(params[:id])
+    if @friendreq
+      @friendreq.destroy
+      render "api/friendreqs/show"
+    else
+      render json: ["Couldn't find friendreq"], status: 404
     end
   end
 
