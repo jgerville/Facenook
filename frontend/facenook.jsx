@@ -7,6 +7,7 @@ import {
   unfriend,
 } from "./actions/friendreq_actions";
 import { login, logout, signup } from "./actions/session_actions";
+import { search } from "./actions/user_actions";
 import Root from "./components/root";
 import configureStore from "./store/store";
 
@@ -30,10 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.acceptfr = acceptFriendRequest;
   window.getfr = getRelatedFriendreqs;
   window.unfriend = unfriend;
+  window.search = search;
 
-  window.login = login;
-  window.logout = logout;
-  window.signup = signup;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
 });

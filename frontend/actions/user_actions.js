@@ -1,7 +1,8 @@
-import { addFileToProfile, showUser, updateProfile } from "../util/users_api_util";
+import { addFileToProfile, searchUsers, showUser, updateProfile } from "../util/users_api_util";
 
 export const RECEIVE_WALL_OWNER = "RECEIVE_WALL_OWNER";
 export const RECEIVE_RELATED_USERS = "RECEIVE_RELATED_USERS";
+export const RECEIVE_SEARCH_RESULTS = "RECEIVE_SEARCH_RESULTS";
 
 const receiveWallOwner = (user) => ({
   type: RECEIVE_WALL_OWNER,
@@ -13,6 +14,11 @@ const receiveRelatedUsers = (users) => ({
   users,
 });
 
+const receiveSearchResults = (users) => ({
+  type: RECEIVE_SEARCH_RESULTS,
+  users,
+});
+
 export const getWallInfo = (userId) => (dispatch) =>
   showUser(userId).then((user) => dispatch(receiveWallOwner(user)));
 
@@ -21,3 +27,6 @@ export const editUserInfo = (user) => (dispatch) =>
 
 export const uploadFileToUser = (user) => (dispatch) =>
   addFileToProfile(user).then((user) => dispatch(receiveWallOwner(user)));
+
+export const search = (query) => (dispatch) =>
+  searchUsers(query).then((users) => dispatch(receiveSearchResults(users)));

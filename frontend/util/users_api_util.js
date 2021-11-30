@@ -9,10 +9,12 @@ export const showUser = (userId) =>
 export const updateProfile = (user) =>
   axios.patch(`/api/users/${user.user.id}`, user).then((res) => res.data);
 
-export const addFileToProfile = (user) => (
+export const addFileToProfile = (user) =>
   axios
     .patch(`/api/users/${user.id}`, user.data, {
       headers: { "Content-Type": "multipart/form-data", processData: "false" },
     })
-    .then((res) => res.data)
-)
+    .then((res) => res.data);
+
+export const searchUsers = (query) =>
+  axios.get("/api/users", { user: { query } }).then((res) => res.data);
