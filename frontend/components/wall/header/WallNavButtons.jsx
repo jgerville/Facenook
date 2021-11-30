@@ -44,7 +44,7 @@ const WallNavButtons = ({
         </>
       )}
       <li>
-        <button>..asdasdasdas.</button>
+        <button>...</button>
       </li>
     </ul>
   );
