@@ -86,10 +86,9 @@ class User < ApplicationRecord
   ### search below ###
 
   def self.search(query)
-    wordsArr = query.split(" ")
-    by_first_name = wordsArr.reduce([]) { |acc, word| acc + User.all.where("fname LIKE ?", "%#{query}%") }
-    by_last_name = wordsArr.reduce([]) { |acc, word| acc + User.all.where("lname LIKE ?", "%#{query}%") }
-    (by_first_name + by_last_name).uniq
+    by_first_name = query.reduce([]) { |acc, word| acc + User.all.where("LOWER (fname) LIKE ?", "%#{word.downcase}%").to_a }
+    by_last_name = query.reduce([]) { |acc, word| acc + User.all.where("LOWER (lname) LIKE ?", "%#{word.downcase}%").to_a }
+    all = (by_first_name + by_last_name).uniq
   end
 
   ### auth things below ###

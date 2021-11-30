@@ -1,7 +1,11 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = User.search(user_params.query)
+    params_clone = params.clone
+    params_clone.delete("format")
+    params_clone.delete("controller")
+    params_clone.delete("action")
+    @users = User.search(params_clone.values)
     render "api/users/index"
   end
 
@@ -18,7 +22,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # add a check to see if they are a friend
+    # add a check to see if they are a friend?
     if @user
       render "api/users/show"
     else
