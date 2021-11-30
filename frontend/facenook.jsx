@@ -6,7 +6,6 @@ import {
   sendFriendRequest,
   unfriend,
 } from "./actions/friendreq_actions";
-import { login, logout, signup } from "./actions/session_actions";
 import { search } from "./actions/user_actions";
 import Root from "./components/root";
 import configureStore from "./store/store";

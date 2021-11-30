@@ -13,7 +13,6 @@ const SearchResults = ({ results, friendIds, close }) => {
       orderedResults.push(results[id]);
     }
   }
-  console.log(orderedResults);
 
   return (
     <div className="search-results">

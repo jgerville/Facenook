@@ -16,5 +16,5 @@ export const addFileToProfile = (user) =>
     })
     .then((res) => res.data);
 
-export const searchUsers = (query) =>
-  axios.get("/api/users", { params: query }).then((res) => res.data);
+export const searchUsers = (query, source) =>
+  axios.get("/api/users", { params: query, cancelToken: source.token }).then((res) => res.data);

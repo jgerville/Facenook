@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Search from "./Search";
 import SearchResults from "./SearchResults";
+import axios from "axios";
 
-
-
-const HomeAndSearch = ({ searchResults, friendIds, search }) => {
+const HomeAndSearch = ({ searchResults, friendIds, search, updateCancelToken, cancelToken }) => {
   const [searchIsOpen, setSearchIsOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -18,7 +17,15 @@ const HomeAndSearch = ({ searchResults, friendIds, search }) => {
   }
 
   useEffect(() => {
-    if (query) search(query);
+    if (query) {
+      if (Object.keys(cancelToken).length > 0) {
+        cancelToken.cancel("Canceling prev search")
+      }
+
+      cancelToken = axios.CancelToken.source();
+      updateCancelToken(cancelToken);
+      search(query, cancelToken);
+    } 
   }, [query]);
 
   return (
