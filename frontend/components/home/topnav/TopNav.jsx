@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import AccountDropdownContainer from "./account_dropdown_container";
-import HomeAndSearch from "./HomeAndSearch";
+import HomeAndSearchContainer from "./home_and_search_container";
 
 const TopNav = ({ currentUser, dropdown, openDropdown, closeDropdown }) => {
   const [isActive, setIsActive] = useState(false);
@@ -25,7 +25,7 @@ const TopNav = ({ currentUser, dropdown, openDropdown, closeDropdown }) => {
     <nav className="top-nav">
       <ul>
         <li>
-          <HomeAndSearch />
+          <HomeAndSearchContainer />
         </li>
         <li>
           <Link to="/2">user2</Link>

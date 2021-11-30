@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-const HomeAndSearch = (props) => {
+const HomeAndSearch = ({ searchResults, search }) => {
   const [searchIsOpen, setSearchIsOpen] = useState(false);
+  const [query, setQuery] = useState("");
+
+  const updateAndSearch = (e) => {
+    setQuery(e.target.value);
+  }
+
+  useEffect(() => {
+    if (query) search(query)
+  }, [query])
 
   return (
     <div className="home-and-search">
@@ -13,7 +22,7 @@ const HomeAndSearch = (props) => {
           </div>
           <div className="search">
             {/* <i className="fas fa-search" /> */}
-            <input type="search" />
+            <input type="search" value={query} onChange={updateAndSearch} />
           </div>
         </>
       ) : (
@@ -28,6 +37,9 @@ const HomeAndSearch = (props) => {
   );
 };
 
-// HomeAndSearch.propTypes = {};
+HomeAndSearch.propTypes = {
+  searchResults: PropTypes.object,
+  search: PropTypes.func.isRequired,
+};
 
 export default HomeAndSearch;
