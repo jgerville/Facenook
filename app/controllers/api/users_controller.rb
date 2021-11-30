@@ -1,7 +1,8 @@
 class Api::UsersController < ApplicationController
 
   def index
-    
+    @users = User.search(user_params.query)
+    render "api/users/index"
   end
 
   def create

@@ -83,10 +83,13 @@ class User < ApplicationRecord
     self.friendreqs_received.where(kind: "pending")
   end
 
-  ### search things below ###
+  ### search below ###
 
   def self.search(query)
-    by_first_name = User.all.where()
+    wordsArr = query.split(" ")
+    by_first_name = wordsArr.reduce([]) { |acc, word| acc + User.all.where("fname LIKE ?", "%#{query}%") }
+    by_last_name = wordsArr.reduce([]) { |acc, word| acc + User.all.where("lname LIKE ?", "%#{query}%") }
+    (by_first_name + by_last_name).uniq
   end
 
   ### auth things below ###
