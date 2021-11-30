@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Search from "./Search";
 import SearchResults from "./SearchResults";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const HomeAndSearch = ({ searchResults, friendIds, search, updateCancelToken, cancelToken, currentUser }) => {
   const [searchIsOpen, setSearchIsOpen] = useState(false);
@@ -40,7 +41,11 @@ const HomeAndSearch = ({ searchResults, friendIds, search, updateCancelToken, ca
           </>
         ) : (
           <>
-            <div className="badge home" />
+            <div className="badge home" >
+              <Link to="/">
+                <img src="https://facenook-seeds.s3.us-east-2.amazonaws.com/f-icon.png" alt="facenook-icon" />
+              </Link>
+            </div>
             <div
               className="badge search-button"
               onClick={() => setSearchIsOpen(true)}
