@@ -24,7 +24,7 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
-  validates :email, :password_digest, :session_token, presence: true
+  validates :fname, :lname, :birthday, :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 8 }, allow_nil: true
 
@@ -86,10 +86,21 @@ class User < ApplicationRecord
   ### search below ###
 
   def self.search(query)
-    by_first_name = query.reduce([]) { |acc, word| acc + User.all.where("LOWER (fname) LIKE ?", "%#{word.downcase}%").to_a }
-    by_last_name = query.reduce([]) { |acc, word| acc + User.all.where("LOWER (lname) LIKE ?", "%#{word.downcase}%").to_a }
+    all_users = User.all
+    by_first_name = query.reduce([]) { |acc, word| acc + all_users.where("LOWER (fname) LIKE ?", "%#{word.downcase}%").to_a }
+    by_last_name = query.reduce([]) { |acc, word| acc + all_users.where("LOWER (lname) LIKE ?", "%#{word.downcase}%").to_a }
     all = (by_first_name + by_last_name).uniq
   end
+
+  ### post things below ###
+
+  has_many :posts_written,
+    foreign_key: :author_id,
+    class_name: :Post
+
+  has_many :posts_on_wall,
+    foreign_key: :wall_id,
+    class_name: :Post
 
   ### auth things below ###
 

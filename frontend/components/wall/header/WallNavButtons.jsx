@@ -30,7 +30,7 @@ const WallNavButtons = ({
             <FriendButton
               friendreqs={friendreqs}
               currentUser={currentUser}
-              wallOwner={wallOwner}
+              user={wallOwner}
               sendFriendRequest={sendFriendRequest}
               unfriend={unfriend}
               acceptFriendRequest={acceptFriendRequest}

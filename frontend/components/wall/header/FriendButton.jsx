@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const FriendButton = ({friendreqs, currentUser, wallOwner, sendFriendRequest, unfriend, acceptFriendRequest}) => {
+const FriendButton = ({friendreqs, currentUser, user, sendFriendRequest, unfriend, acceptFriendRequest}) => {
 
   const noRelationshipFound = Object.keys(friendreqs).length === 0
   const relationship = Object.values(friendreqs)[0] 
@@ -13,7 +13,7 @@ const FriendButton = ({friendreqs, currentUser, wallOwner, sendFriendRequest, un
   const addFriend = () => {
     sendFriendRequest({
       sender_id: currentUser.id,
-      target_id: wallOwner.id,
+      target_id: user.id,
     })
   };
 
@@ -50,7 +50,7 @@ const FriendButton = ({friendreqs, currentUser, wallOwner, sendFriendRequest, un
 FriendButton.propTypes = {
   friendreqs: PropTypes.object.isRequired,
   currentUser: PropTypes.object.isRequired,
-  wallOwner: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
   sendFriendRequest: PropTypes.func.isRequired,
   unfriend: PropTypes.func.isRequired,
   acceptFriendRequest: PropTypes.func.isRequired,
