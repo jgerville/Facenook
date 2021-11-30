@@ -30,11 +30,11 @@ const FriendButton = ({friendreqs, currentUser, wallOwner, sendFriendRequest, un
     icon = "fa-user-minus";
     buttonText = "Cancel Request";
   } else if (isPendingReceived) {
-    handleClick = openRespondDropdown;
+    // handleClick = openRespondDropdown;
     icon = "fa-user-plus";
     buttonText = "Respond"
   } else {
-    handleClick = openFriendsDropdown;
+    // handleClick = openFriendsDropdown;
     icon = "fa-user-friends";
     buttonText = "Friends"
   }
