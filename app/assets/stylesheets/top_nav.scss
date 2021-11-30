@@ -82,7 +82,7 @@ $search-icon-bg: #18191A;
       .search-results {
         position: absolute;
         top: 53px;
-        left: 0;
+        left: -1px;
         width: 320px;
         min-height: 47px;
         overflow: hidden;
@@ -136,6 +136,19 @@ $search-icon-bg: #18191A;
 
         .search-user-card:hover, .search-friend-card:hover {
           background: $search-card-bg-hover;
+        }
+
+        .failure-card {
+          margin: 5px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+    
+          p {
+            font-size: 15px;
+            color: $search-text-placeholder;
+          }
         }
       }
 

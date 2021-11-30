@@ -4,8 +4,9 @@ import HomeAndSearch from "./HomeAndSearch"
 
 const mapStateToProps = ({ entities: { searchResults, users }, session, cancelToken }) => ({
   searchResults,
-  friendIds: users[session.id].friends,
   cancelToken,
+  currentUser: users[session.id],
+  friendIds: users[session.id].friends,
 })
 
 const mapDispatchToProps = (dispatch) => ({

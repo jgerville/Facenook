@@ -4,7 +4,7 @@ import Search from "./Search";
 import SearchResults from "./SearchResults";
 import axios from "axios";
 
-const HomeAndSearch = ({ searchResults, friendIds, search, updateCancelToken, cancelToken }) => {
+const HomeAndSearch = ({ searchResults, friendIds, search, updateCancelToken, cancelToken, currentUser }) => {
   const [searchIsOpen, setSearchIsOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -50,7 +50,7 @@ const HomeAndSearch = ({ searchResults, friendIds, search, updateCancelToken, ca
           </>
         )}
       </div>
-      {query && <SearchResults close={close} results={searchResults} friendIds={friendIds} />}
+      {query && <SearchResults close={close} results={searchResults} youId={currentUser.id} friendIds={friendIds} />}
     </>
   );
 };
@@ -59,6 +59,7 @@ HomeAndSearch.propTypes = {
   searchResults: PropTypes.object,
   search: PropTypes.func.isRequired,
   friendIds: PropTypes.array.isRequired,
+  currentUser: PropTypes.object.isRequired,
 };
 
 export default HomeAndSearch;

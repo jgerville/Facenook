@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../graphics/Avatar";
 
 
-const SearchFriendCard = ({ user, close }) => {
+const SearchYouCard = ({ user, close }) => {
   return (
     <div className="search-friend-card">
       <Link to={`/${user.id}`} onClick={close}>
@@ -13,16 +13,16 @@ const SearchFriendCard = ({ user, close }) => {
           <h4>
             {user.fname} {user.lname}
           </h4>
-          <p>Friend</p>
+          <p>You</p>
         </div>
       </Link>
     </div>
   );
 };
 
-SearchFriendCard.propTypes = {
+SearchYouCard.propTypes = {
   user: PropTypes.object.isRequired,
   close: PropTypes.func.isRequired,
 };
 
-export default SearchFriendCard;
+export default SearchYouCard;

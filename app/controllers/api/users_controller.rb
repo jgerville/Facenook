@@ -5,7 +5,9 @@ class Api::UsersController < ApplicationController
     params_clone.delete("format")
     params_clone.delete("controller")
     params_clone.delete("action")
-    @users = User.search(params_clone.values)
+    # currently, params_clone only has one entry.
+    # to break it into words, we need to use split(" ")
+    @users = User.search(params_clone.values[0].split(" "))
     render "api/users/index"
   end
 
