@@ -6,6 +6,9 @@ const SearchUserCard = ({ user, close }) => {
   return (
     <div className="search-user-card">
       <Link to={`/${user.id}`} onClick={() => close}>
+        <div className="icon-container">
+          <i className="fas fa-search" />
+        </div>
         <div className="text">
           <h4>
             {user.fname} {user.lname}

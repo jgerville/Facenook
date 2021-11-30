@@ -7,6 +7,7 @@ const Search = ({ query, updateQuery }) => {
       <input
         type="search"
         value={query}
+        placeholder="Search Facenook"
         onChange={updateQuery}
       />
     </div>

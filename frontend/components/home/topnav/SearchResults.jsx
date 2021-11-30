@@ -14,16 +14,17 @@ const SearchResults = ({ results, friendIds, close }) => {
     }
   }
 
+  console.log(orderedResults);
+  
   return (
     <div className="search-results">
       {orderedResults.map((user) => (
         friendIds.includes(user.id) ? (
-          <SearchUserCard key={user.id} user={user} close={close} />
-        ) : (
           <SearchFriendCard key={user.id} user={user} close={close} />
+        ) : (
+          <SearchUserCard key={user.id} user={user} close={close} />
         )
       ))}
-      {/* {orderedResults && <SearchUserCard user={orderedResults[0]} close={close} />} */}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 $nav-background: #242526;
 $light-grey: #DADDE1;
-$light-grey-text: #B1B3B8;
+$light-grey-text: #B0B3B8;
 $badge-background: #3A3B3C;
 $badge-bg-hover: #4E4F50;
 $border-color: #2F3031;
@@ -11,6 +11,10 @@ $separator: #3e3f41;
 
 $active-background: #2B394F;
 $active-color: #4987F7;
+
+$search-text-placeholder: #8A8D91;
+$search-card-bg-hover: #292A2C;
+$search-icon-bg: #18191A;
 
 .top-nav {
   position: fixed;
@@ -64,7 +68,74 @@ $active-color: #4987F7;
             border: none;
             border-radius: 25px;
             color: $input-text;
+            font-family: system-ui;
+            font-size: 15px;
           }
+          
+          input::placeholder {
+            color: $search-text-placeholder;
+            font-weight: 300;
+          }
+        }
+      }
+
+      .search-results {
+        position: absolute;
+        top: 53px;
+        left: 0;
+        width: 320px;
+        min-height: 47px;
+        overflow: hidden;
+        border: 1px solid $border-color;
+        background: $nav-background;
+
+        .search-user-card, .search-friend-card {
+          margin: 5px;
+          transition: background 0.3s ease-out;
+          border-radius: 8px;
+
+          a {
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+
+            .avatar-container, .icon-container {
+              height: 48px;
+              width: 48px;
+              display: flex;
+              align-items: center;
+
+              .avatar, i {
+                height: 36px;
+                width: 36px;
+                border-radius: 50%;
+              }
+
+              i {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $search-icon-bg;
+              }
+            }
+
+            .text {
+              h4 {
+                color: $input-text;
+                font-size: 15px;
+                margin-bottom: 3px;
+              }
+              p {
+                color: $light-grey-text;
+                font-size: 13px;
+              }
+            }
+          }
+        }
+
+        .search-user-card:hover, .search-friend-card:hover {
+          background: $search-card-bg-hover;
         }
       }
 

@@ -35,6 +35,12 @@ ActiveRecord::Base.transaction do
   pete_cover = URI.open('https://facenook-seeds.s3.us-east-2.amazonaws.com/pete-cover.jpg')
   peter.cover_photo.attach(io: pete_cover, filename: 'pete-cover.jpg')
 
+  walt = User.create(email: 'justateacher@fake.fake', password: 'fakefake', birthday: 'September 7 1958', fname: 'Walter', lname: 'White', gender: 'Male', jobs: 'Chemistry teacher', schools: 'Midtown High School', current_city: 'Albuquerque', hometown: 'Albuquerque')
+  waltpic = URI.open('https://facenook-seeds.s3.us-east-2.amazonaws.com/walter.png')
+  walt.profpic.attach(io: waltpic, filename: 'walt-avatar.jpg')
+  walt_cover = URI.open('https://facenook-seeds.s3.us-east-2.amazonaws.com/periodic-table.jpg')
+  walt.cover_photo.attach(io: walt_cover, filename: 'walt-cover.jpg')
+
   Friendreq.destroy_all
 
   a = Friendreq.create(sender_id: 1, target_id: 2, kind: :accepted)

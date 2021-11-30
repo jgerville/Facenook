@@ -29,27 +29,29 @@ const HomeAndSearch = ({ searchResults, friendIds, search, updateCancelToken, ca
   }, [query]);
 
   return (
-    <div className="home-and-search">
-      {searchIsOpen ? (
-        <>
-          <div className="badge back" onClick={() => setSearchIsOpen(false)}>
-            <i className="fas fa-arrow-left"></i>
-          </div>
-          <Search query={query} updateQuery={updateQuery} />
-          {query && <SearchResults close={close} results={searchResults} friendIds={friendIds} />}
-        </>
-      ) : (
-        <>
-          <div className="badge home" />
-          <div
-            className="badge search-button"
-            onClick={() => setSearchIsOpen(true)}
-          >
-            <i className="fas fa-search" />
-          </div>
-        </>
-      )}
-    </div>
+    <>
+      <div className="home-and-search">
+        {searchIsOpen ? (
+          <>
+            <div className="badge back" onClick={() => setSearchIsOpen(false)}>
+              <i className="fas fa-arrow-left"></i>
+            </div>
+            <Search query={query} updateQuery={updateQuery} />
+          </>
+        ) : (
+          <>
+            <div className="badge home" />
+            <div
+              className="badge search-button"
+              onClick={() => setSearchIsOpen(true)}
+            >
+              <i className="fas fa-search" />
+            </div>
+          </>
+        )}
+      </div>
+      {query && <SearchResults close={close} results={searchResults} friendIds={friendIds} />}
+    </>
   );
 };
 
