@@ -13,6 +13,9 @@ export const findPostsByFriends = (friend_ids) =>
 export const findPostsByWallId = (wallId) =>
   axios.post(`/api/posts/by_wall/${wallId}`).then((res) => res.data)
 
+export const findPostsByIds = (ids) =>
+  axios.post("/api/posts/by_ids", {post: { ids }}).then((res) => res.data)
+
 export const editPost = (post) =>
   axios.patch(`/api/posts/${post.id}`, { post }).then((res) => res.data)
 

@@ -16,7 +16,16 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers }) => {
   }
 
   const postsArray = Object.values(posts)
-  const sortedPosts = postsArray.sort((a, b) => {
+  const topLevelPosts = [];
+  const comments = [];
+  for (let i = 0; i < postsArray.length; i++) {
+    if (postsArray[i].parentPostId) {
+      comments.push(postsArray[i]);
+    } else {
+      topLevelPosts.push(postsArray[i]);
+    }
+  }
+  const sortedPosts = topLevelPosts.sort((a, b) => {
     return (new Date(b.createdAt) - new Date(a.createdAt));
   })
   

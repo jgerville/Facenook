@@ -6,7 +6,7 @@ import {
   sendFriendRequest,
   unfriend,
 } from "./actions/friendreq_actions";
-import { createPost, deletePost, editPost, getPost, getPostsByFriends, getPostsByWall } from "./actions/post_actions";
+import { createPost, deletePost, editPost, getPost, getPostsByFriends, getPostsById, getPostsByWall } from "./actions/post_actions";
 import { getSomeUsers } from "./actions/user_actions";
 import Root from "./components/root";
 import configureStore from "./store/store";
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // testing:
   window.getSomeUsers = getSomeUsers
+  window.getPostsById = getPostsById
   
   window.sendfr = sendFriendRequest;
   window.acceptfr = acceptFriendRequest;

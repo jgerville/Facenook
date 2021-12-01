@@ -35,6 +35,11 @@ export const getPostsByWall = (wallId) => (dispatch) =>
     dispatch(receivePosts(posts))
   );
 
+export const getPostsById = (postIds) => (dispatch) =>
+  PostAPI.findPostsByIds(postIds).then((posts) =>
+    dispatch(receivePosts(posts))
+  );
+
 export const editPost = (post) => (dispatch) =>
   PostAPI.editPost(post).then((post) => dispatch(receivePost(post)));
 

@@ -26,7 +26,12 @@ class Api::PostsController < ApplicationController
   end
 
   def index_by_wall
-    @posts = Post.find_by_wall_owner(params[:wall_id_query])
+    @posts = Post.find_by_wall_owner(params[:wall_id_query]).includes(:child_posts)
+    render "api/posts/index"
+  end
+
+  def index_by_post_ids
+    @posts = Post.all.where(:id => post_params[:ids])
     render "api/posts/index"
   end
 
@@ -48,6 +53,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:wall_id, :author_id, :body, :parent_post_id, :friend_ids => [])
+    params.require(:post).permit(:wall_id, :author_id, :body, :parent_post_id, :friend_ids => [], :ids => [])
   end
 end

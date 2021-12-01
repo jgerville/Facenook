@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:create, :show, :update, :destroy]
     post "/posts/by_friends/", to: "posts#index_by_friends", as: "index_friend_posts"
     post "/posts/by_wall/:wall_id_query", to: "posts#index_by_wall", as: "index_wall_posts"
+    post "/posts/by_ids", to: "posts#index_by_post_ids", as: "index_posts_by_ids"
     
     resource :session, only: [:create, :destroy]
   end
