@@ -9,15 +9,18 @@ const CreatePost = ({ currentUser, wallOwner }) => {
     : `Write something to ${wallOwner.fname}...`;
 
   return (
-    <div className="create-post">
-      <div className="create-post-top">
-        <Avatar user={currentUser} />
-        <div className="fake-input">
-          <span>{message}</span>
+    <>
+      <div className="create-post">
+        <div className="create-post-top">
+          <Avatar user={currentUser} />
+          <div className="fake-input">
+            <span>{message}</span>
+          </div>
         </div>
+        {/* later: create-post-bottom, with buttons */}
       </div>
-      {/* later: create-post-bottom, with buttons */}
-    </div>
+
+    </>
   );
 };
 
@@ -25,5 +28,6 @@ CreatePost.propTypes = {
   currentUser: PropTypes.object.isRequired,
   wallOwner: PropTypes.object.isRequired,
 };
+
 
 export default CreatePost;
