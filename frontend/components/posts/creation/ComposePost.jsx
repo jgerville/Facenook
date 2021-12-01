@@ -33,10 +33,12 @@ const ComposePost = ({ user, wallOwner, close, createPost }) => {
       setDisabled(true);
       return;
     }
+    const strippedBody = JSON.stringify(body.current).replace(/(<([^>]+)>)/gi, "");
+    const stripped2 = JSON.parse(JSON.stringify(strippedBody).replace(/(&nbsp;)/g, " "));
     const post = {
       wall_id: wallOwner.id,
       author_id: user.id,
-      body: body.current,
+      body: stripped2.slice(1, stripped2.length - 1),
     };
     createPost(post).then(() => close());
   };

@@ -220,6 +220,14 @@ $cross-color: #A8ABAF;
           }
         }
       }
+
+      .post-content {
+        margin: 0 15px 10px;
+        font-size: 15px;
+        font-weight: 300;
+        color: $text-color;
+        line-height: 1.5;
+      }
     }
   }
 }
