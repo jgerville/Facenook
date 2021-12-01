@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import AccountDropdownContainer from "./account_dropdown_container";
+import AccountDropdownContainer from "./dropdown/account_dropdown_container";
 import HomeAndSearchContainer from "./home_and_search_container";
 
 const TopNav = ({ currentUser, dropdown, openDropdown, closeDropdown }) => {

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Avatar from "../../graphics/Avatar";
+import Avatar from "../../../graphics/Avatar";
 
 
-const SearchYouCard = ({ user, close }) => {
+const SearchFriendCard = ({ user, close }) => {
   return (
     <div className="search-friend-card">
       <Link to={`/${user.id}`} onClick={close}>
@@ -13,16 +13,16 @@ const SearchYouCard = ({ user, close }) => {
           <h4>
             {user.fname} {user.lname}
           </h4>
-          <p>You</p>
+          <p>Friend</p>
         </div>
       </Link>
     </div>
   );
 };
 
-SearchYouCard.propTypes = {
+SearchFriendCard.propTypes = {
   user: PropTypes.object.isRequired,
   close: PropTypes.func.isRequired,
 };
 
-export default SearchYouCard;
+export default SearchFriendCard;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import Search from "./Search";
-import SearchResults from "./SearchResults";
+import Search from "./search/Search";
+import SearchResults from "./search/SearchResults";
 import axios from "axios";
 import { Link } from "react-router-dom";
 

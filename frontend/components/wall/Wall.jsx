@@ -5,7 +5,14 @@ import WallHeader from "./header/WallHeader";
 import WallContent from "./content/WallContent";
 import WallAbout from "./content/about/WallAbout";
 
-const Wall = ({ currentUser, wallOwner, getWallInfo, isMine, params: { userId } }) => {
+const Wall = ({
+  currentUser,
+  wallOwner,
+  getWallInfo,
+  isMine,
+  params: { userId },
+}) => {
+  
   useEffect(() => {
     getWallInfo();
   }, [userId]);
@@ -14,7 +21,14 @@ const Wall = ({ currentUser, wallOwner, getWallInfo, isMine, params: { userId } 
     <>
       <WallHeader wallOwner={wallOwner} isMine={isMine} />
       <Routes>
-        <Route exact strict path="/" element={<WallContent wallOwner={wallOwner} />} />
+        <Route
+          exact
+          strict
+          path="/"
+          element={
+            <WallContent wallOwner={wallOwner} currentUser={currentUser} />
+          }
+        />
         <Route
           path="/about/*"
           element={<WallAbout wallOwner={wallOwner} isMine={isMine} />}

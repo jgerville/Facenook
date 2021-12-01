@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { logout } from "../../../actions/session_actions";
-import { getWallInfo } from "../../../actions/user_actions";
+import { logout } from "../../../../actions/session_actions";
+import { getWallInfo } from "../../../../actions/user_actions";
 import AccountDropDown from "./AccountDropDown";
 
 const mapDispatchToProps = (dispatch) => ({
