@@ -203,7 +203,6 @@ $cross-color: #A8ABAF;
           .avatar:hover + .avatar-overlay, .avatar-overlay:hover {
             display: block;
           }
-
           h4 {
             font-size: 15px;
             color: $text-color;
@@ -211,6 +210,7 @@ $cross-color: #A8ABAF;
 
           h4:hover {
             cursor: text;
+            text-decoration: underline;
           }
 
           p {
