@@ -14,12 +14,14 @@ const PostIndex = ({ posts, users, currentUser, getPosts }) => {
   console.log(sortedPosts)
   
   return (
-    <div>
+    <div className="post-index">
       <div className="header-container">
         Posts
       </div>
       <div className="post-items-container">
-        they go here
+        <div className="post-index-item">
+          Blah! Boo!
+        </div>
       </div>
     </div>
   )

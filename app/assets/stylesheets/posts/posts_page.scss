@@ -150,5 +150,25 @@ $cross-color: #A8ABAF;
     }
   }
 
-  
+  .post-index {
+    .header-container, .post-index-item {
+      background: $dark-grey-bg;
+      margin: 16px 0;
+      border-radius: 8px;
+    }
+
+    .header-container {
+      box-sizing: border-box;
+      padding: 16px;
+
+      font-size: 20px;
+      font-weight: 500;
+      color: $text-color;
+    }
+    
+    .post-index-item {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
