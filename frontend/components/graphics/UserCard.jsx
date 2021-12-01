@@ -1,23 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Avatar from "./Avatar";
-import moment from "moment";
+import FormattedTime from "./FormattedTime";
 
-const UserCard = ({ user, time }) => {
-  const formatTime = (dateTime) => {
-    const now = moment();
-    const oneWeekAgo = now.subtract(7, "days");
-    const postTime = moment(dateTime);
-    if (moment(time) > oneWeekAgo) {
-      return postTime.fromNow();
-    } else {
-      if (postTime.year() < now.year()) {
-        return postTime.format("MMMM Do YY")
-      } else {
-        return postTime.format("MMMM Do")
-      }
-    }
-  }
+const UserCard = ({ user, time, editedAt }) => {
+
+
+  
   
   return (
     <div className="user-card">
@@ -26,7 +15,7 @@ const UserCard = ({ user, time }) => {
         <h4>
           {user.fname} {user.lname}
         </h4>
-        <p>{time && formatTime(time)}</p>
+        {time && <FormattedTime postTime={time} editTime={editedAt} />}
       </div>
     </div>
   );
@@ -38,6 +27,7 @@ UserCard.propTypes = {
     lname: PropTypes.string.isRequired,
   }).isRequired,
   time: PropTypes.string,
+  editedAt: PropTypes.string,
 };
 
 export default UserCard;
