@@ -1,5 +1,152 @@
-// .posts-page {
-//   .create-post {
+$dark-grey-bg: #242526;
+$light-grey-bg: #3A3B3C;
+$light-grey-bg-hover: #4E4F50;
 
-//   }
-// }
+$text-color: #e4e6eb;
+$placeholder-text: #B1B3B8;
+$button-blue: #3C72DA;
+$button-blue-text: #FFFFFF;
+$button-blue-hover: #507FDE;
+$button-disabled: #505151;
+$button-disabled-text: #858686;
+
+$separator: #3E3F41;
+
+$cross-color: #A8ABAF;
+
+.posts-page {
+  .create-post {
+    .outer-modal.compose {
+      background: rgba(1, 1, 1, 0.6);
+
+      .inner-modal {
+        background: $dark-grey-bg;
+        width: 500px;
+        // min-height: 420px;
+        border: 1px solid $separator;
+
+        // display: grid;
+        // grid-template-rows: 60px 73px 153px 134px;
+        display: flex;
+        flex-direction: column;
+
+        .compose-header {
+          // grid-row: 1;
+          height: 60px;
+          position: relative;
+          border-bottom: 1px solid $separator;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          h3 {
+            color: $text-color;
+            font-size: 20px;
+            font-weight: 600;
+          }
+
+          h3:hover {
+            cursor: text;
+          }
+
+          i {
+            position: absolute;
+            font-size: 20px;
+            top: 10px;
+            right: 10px;
+            height: 20px;
+            width: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            border-radius: 50%;
+            
+            background: $light-grey-bg;
+            transition: background 0.3s ease-out;
+          }
+
+          i:hover {
+            background: $light-grey-bg-hover;
+            cursor: pointer;
+          }
+
+        }
+
+        .user-card {
+          // grid-row: 2;
+          height: 73px;
+          display: flex;
+          align-items: center;
+
+          h4 {
+            font-size: 15px;
+            color: $text-color;
+          }
+
+          h4:hover {
+            cursor: text;
+          }
+        }
+
+        .textbox-container {
+          min-height: 153px;
+          position: relative;
+
+          .textbox {
+            position: absolute;
+            z-index: 7;
+            box-sizing: border-box;
+            width: 468px;
+            min-height: 80px;
+            top: 0;
+            left: 0;
+            color: $text-color;
+            margin: 0 16px;
+            padding: 0 0 40px;
+            outline: none;
+          }
+
+          .textbox:hover {
+            cursor: text;
+          }
+
+          .textbox-overlay {
+            position: relative;
+            z-index: 6;
+            padding: 0 16px;
+            color: $placeholder-text;
+          }
+        }
+
+        .submit-container {
+          width: 100%;
+          box-sizing: border-box;
+          padding: 16px;
+
+          button {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px 0;
+            border-radius: 8px;
+            border: none;
+            background: $button-blue;
+            font-size: 15px;
+            color: $button-blue-text;
+            font-weight: 500;
+            transition: background 0.3s ease-out;
+          }
+
+          button:hover {
+            background: $button-blue-hover;
+          }
+
+          button:disabled {
+            background: $button-disabled;
+            color: $button-disabled-text;
+          }
+        }
+      }
+    }
+  }
+}

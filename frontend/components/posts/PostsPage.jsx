@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import CreatePost from './creation/CreatePost'
+import CreatePostContainer from './creation/create_post_container'
 
 const PostsPage = ({ wallOwner, currentUser }) => {
   return (
     <div className="posts-page">
-      <CreatePost wallOwner={wallOwner} currentUser={currentUser} />
+      <CreatePostContainer wallOwner={wallOwner} currentUser={currentUser} />
     </div>
   )
 }
