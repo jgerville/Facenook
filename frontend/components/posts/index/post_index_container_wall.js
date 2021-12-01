@@ -5,6 +5,7 @@
 
 import { connect } from "react-redux";
 import { getPostsByWall } from "../../../actions/post_actions";
+import { getSomeUsers } from "../../../actions/user_actions";
 import { withRouter } from "../../../util/RouterUtil";
 import PostIndex from "./PostIndex";
 
@@ -16,7 +17,7 @@ const mapStateToProps = ({ entities: { posts, users }, session: { id } }) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getPosts: () => dispatch(getPostsByWall(parseInt(ownProps.params.userId))),
-  // getUsers: () => dispatch()
+  getUsers: (ids) => dispatch(getSomeUsers(ids))
 });
 
 export default withRouter(

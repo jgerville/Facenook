@@ -74,7 +74,6 @@ $cross-color: #A8ABAF;
         }
 
         .user-card {
-          // grid-row: 2;
           height: 73px;
           display: flex;
           align-items: center;
@@ -169,6 +168,58 @@ $cross-color: #A8ABAF;
     .post-index-item {
       display: flex;
       flex-direction: column;
+
+      .post-header {
+        .user-card {
+          display: flex;
+          height: 73px;
+          align-items: center;
+
+          .avatar-container, .avatar-overlay {
+            position: relative;
+            margin: 15px 10px 15px 15px;
+            height: 40px;
+            width: 40px;
+          }
+          
+          .avatar-overlay {
+            background: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            display: none;
+            border-radius: 50%;
+            margin: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+          }
+  
+          .avatar {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;  
+          }
+  
+          .avatar:hover + .avatar-overlay, .avatar-overlay:hover {
+            display: block;
+          }
+
+          h4 {
+            font-size: 15px;
+            color: $text-color;
+          }
+
+          h4:hover {
+            cursor: text;
+          }
+
+          p {
+            margin-top: 5px;
+            font-size: 13px;
+            color: $placeholder-text;
+          }
+        }
+      }
     }
   }
 }
