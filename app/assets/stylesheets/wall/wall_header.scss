@@ -204,11 +204,14 @@ header.wall-header {
     grid-row: 3 / 4;
     height: 100%;
     padding: 0 16px;
-    display: flex;
     justify-content: space-between;
     align-items: center;
+    // display: flex;
+    display: grid;
+    grid-template-columns: 16px 1fr 360px 500px 1fr 16px;
 
     .wall-nav-links {
+      grid-column: 3;
       display: flex;
       height: 100%;
 
@@ -241,11 +244,13 @@ header.wall-header {
     }
 
     .wall-nav-buttons {
+      grid-column: 4;
+      justify-self: flex-end;
       display: flex;
 
       li {
         color: $link-text;
-        padding: 0 16px;
+        padding: 0 5px;
 
         button {
           padding: 10px 14px;
@@ -273,6 +278,10 @@ header.wall-header {
         .message-button:hover {
           background: $blue-hover;
         }
+      }
+
+      li:last-child {
+        padding-right: 0;
       }
     }
   }

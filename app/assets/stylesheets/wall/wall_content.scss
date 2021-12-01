@@ -1,18 +1,23 @@
 $dark-background: #18191a;
 $lighter-background: #242526;
+
+$light-grey-bg: #3A3B3C;
+$light-grey-bg-hover: #4E4F50;
+
 $text-color: #e4e6eb;
+$light-text-color: #b0b3b8;
 
 .wall-content {
   background: $dark-background;
   width: 100%;
   height: 1900px;
   display: grid;
-  grid-template-columns: 16px 360px 500px 16px;
+  grid-template-columns: 16px 1fr 360px 500px 1fr 16px;
   grid-template-rows: 1fr;
   gap: 16px;
 
   .side-content {
-    grid-column: 2 / 3;
+    grid-column: 3 / 4;
     grid-row: 1 / 2;
 
     .wall-intro {
@@ -28,6 +33,74 @@ $text-color: #e4e6eb;
         i {
           font-size: 20px;
           padding: 8px;
+        }
+      }
+    }
+  }
+
+  .posts-page {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+
+    .create-post {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      background: $lighter-background;
+      color: $light-text-color;
+
+      .create-post-top {
+        display: flex;
+        align-items: center;
+
+        .avatar-container, .avatar-overlay {
+          position: relative;
+          margin: 15px 10px 15px 15px;
+          height: 40px;
+          width: 40px;
+        }
+        
+        .avatar-overlay {
+          background: rgba(255, 255, 255, 0.1);
+          position: absolute;
+          display: none;
+          border-radius: 50%;
+          margin: 0;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+
+        .avatar {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;  
+        }
+
+        .avatar:hover + .avatar-overlay, .avatar-overlay:hover {
+          display: block;
+        }
+
+        .fake-input {
+          background: $light-grey-bg;
+          display: flex;
+          align-items: center;
+          border-radius: 20px;
+          width: 100%;
+          height: 40px;
+          margin: 15px 15px 15px 0;
+          transition: background 0.3s ease-out;
+          
+          span {
+            font-size: 17px;
+            padding-left: 15px;
+          }
+        }
+
+        .fake-input:hover {
+          background: $light-grey-bg-hover;
+          cursor: pointer;
         }
       }
     }

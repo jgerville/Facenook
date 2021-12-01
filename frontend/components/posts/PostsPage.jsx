@@ -4,7 +4,7 @@ import CreatePost from './creation/CreatePost'
 
 const PostsPage = ({ wallOwner, currentUser }) => {
   return (
-    <div>
+    <div className="posts-page">
       <CreatePost wallOwner={wallOwner} currentUser={currentUser} />
     </div>
   )

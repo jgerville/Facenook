@@ -7,11 +7,13 @@ const Avatar = ({ user, showEdit }) => (
     {user.profpic ? (
       <div className="avatar-container">
         <img className="avatar" src={`${user.profpic}`} alt="profile picture" />
+        <div className="avatar-overlay" />
         {showEdit && <UploadImageContainer avatarUser={user} photoType="profpic" />}
       </div>
     ) : (
       <div className="avatar-container">
         <div className="avatar"></div>
+        <div className="avatar-overlay" />
         {showEdit && <UploadImageContainer avatarUser={user} photoType="profpic" />}
       </div>
     )}
