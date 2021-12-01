@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:index, :create, :show, :update]
+    post "/users/by_ids", to: "users#index_by_id_list", as: "filter_index"
 
     resources :friendreqs, only: [:create, :show, :update, :destroy]
     get "/friendreqs/by_user/:id", to: "friendreqs#show_related_friendreqs", as: "show_related_friendreqs"

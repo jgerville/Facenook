@@ -92,6 +92,10 @@ class User < ApplicationRecord
     all = (by_first_name + by_last_name).uniq
   end
 
+  def self.find_by_ids(idsArr)
+    users = User.all.where(:id => friendIdsArr)
+  end
+
   ### post things below ###
 
   has_many :posts_written,

@@ -30,7 +30,6 @@ class Post < ApplicationRecord
     optional: true
 
   def self.find_by_friend_ids(arr)
-    # debugger
     all_posts = Post.all
     on_friend_walls = arr.reduce([]) { |acc, id| acc + all_posts.where(wall_id: id).to_a}
     posted_by_friends = arr.reduce([]) { |acc, id| acc + all_posts.where(author_id: id).to_a}

@@ -11,6 +11,13 @@ class Api::UsersController < ApplicationController
     render "api/users/index"
   end
 
+  def index_by_id_list
+    ids_array = post_params["ids"]
+    array_including_self = (ids_array + [current_user.id]).uniq
+    @users = User.find_by_ids(array_including_self)
+    render "api/users/index"
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -44,6 +51,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :fname, :lname, :birthday, :gender, :jobs, :schools, :current_city, :hometown, :relationship_status, :profpic, :cover_photo, :query)
+    params.require(:user).permit(:email, :password, :fname, :lname, :birthday, :gender, :jobs, :schools, :current_city, :hometown, :relationship_status, :profpic, :cover_photo, :query, :ids => [])
   end
 end
