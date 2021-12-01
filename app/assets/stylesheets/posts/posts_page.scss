@@ -228,6 +228,49 @@ $cross-color: #A8ABAF;
         color: $text-color;
         line-height: 1.5;
       }
+
+      .post-buttons {
+        box-sizing: border-box;
+        margin: 0 15px 10px;
+        padding: 4px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid $separator;
+        border-bottom: 1px solid $separator;
+        width: 470px;
+
+        .button-container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $dark-grey-bg;
+            transition: background 0.3s ease-out;
+            border-radius: 8px;
+            border: none;
+            // padding: 0 10% 0 10%;
+            width: 80%;
+            
+            i, span {
+              font-size: 15px;
+              color: $placeholder-text;
+            }
+
+            i, span {
+              padding: 11px 4px;
+            }
+          }
+
+          button:hover {
+            background: $light-grey-bg;
+          }
+        }
+      }
     }
   }
 }
