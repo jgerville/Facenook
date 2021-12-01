@@ -93,7 +93,7 @@ class User < ApplicationRecord
   end
 
   def self.find_by_ids(idsArr)
-    users = User.all.where(:id => friendIdsArr)
+    users = User.all.where(:id => idsArr)
   end
 
   ### post things below ###

@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
   end
 
   def index_by_id_list
-    ids_array = post_params["ids"]
+    ids_array = user_params["ids"]
     array_including_self = (ids_array + [current_user.id]).uniq
     @users = User.find_by_ids(array_including_self)
     render "api/users/index"

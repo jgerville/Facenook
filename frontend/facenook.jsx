@@ -7,6 +7,7 @@ import {
   unfriend,
 } from "./actions/friendreq_actions";
 import { createPost, deletePost, editPost, getPost, getPostsByFriends, getPostsByWall } from "./actions/post_actions";
+import { getSomeUsers } from "./actions/user_actions";
 import Root from "./components/root";
 import configureStore from "./store/store";
 
@@ -26,12 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store} />, root);
 
   // testing:
-  window.createPost = createPost
-  window.getPost = getPost
-  window.getPostsByFriends = getPostsByFriends
-  window.getPostsByWall = getPostsByWall
-  window.editPost = editPost
-  window.deletePost = deletePost
+  window.getSomeUsers = getSomeUsers
   
   window.sendfr = sendFriendRequest;
   window.acceptfr = acceptFriendRequest;
