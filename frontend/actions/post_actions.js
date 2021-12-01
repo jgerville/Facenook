@@ -2,7 +2,7 @@ import * as PostAPI from "../util/posts_api_util";
 
 export const RECEIVE_POST = "RECEIVE_POST";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
-export const DELETE_POST = "DELETE_POST";
+export const REMOVE_POST = "REMOVE_POST";
 
 const receivePost = (post) => ({
   type: RECEIVE_POST,
@@ -10,12 +10,12 @@ const receivePost = (post) => ({
 });
 
 const receivePosts = (posts) => ({
-  type: RECEIVE_POST,
+  type: RECEIVE_POSTS,
   posts,
 });
 
-const deletePost = (postId) => ({
-  type: DELETE_POST,
+const removePost = (postId) => ({
+  type: REMOVE_POST,
   postId,
 });
 
@@ -26,9 +26,9 @@ export const getPost = (postId) => (dispatch) =>
   PostAPI.showPost(postId).then((post) => dispatch(receivePost(post)));
 
 export const getPostsByFriends = (friendIdsArr) => (dispatch) =>
-  PostAPI.findPostsByFriends(friendIdsArr).then((posts) =>
+  PostAPI.findPostsByFriends(friendIdsArr).then((posts) => {
     dispatch(receivePosts(posts))
-  );
+  });
 
 export const getPostsByWall = (wallId) => (dispatch) =>
   PostAPI.findPostsByWallId(wallId).then((posts) =>
@@ -39,4 +39,4 @@ export const editPost = (post) => (dispatch) =>
   PostAPI.editPost(post).then((post) => dispatch(receivePost(post)));
 
 export const deletePost = (postId) => (dispatch) =>
-  PostAPI.deletePost(postId).then(() => dispatch(deletePost(postId)));
+  PostAPI.deletePost(postId).then(() => dispatch(removePost(postId)));

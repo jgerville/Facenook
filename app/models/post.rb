@@ -29,15 +29,15 @@ class Post < ApplicationRecord
     class_name: :Post,
     optional: true
 
-  def find_by_friend_ids(arr)
-    arr_including_self = arr + [current_user.id]
+  def self.find_by_friend_ids(arr)
+    # debugger
     all_posts = Post.all
-    on_friend_walls = arr_including_self.reduce([]) { |acc, id| acc + all_posts.where(wall_id: id).to_a}
-    posted_by_friends = arr_including_self.reduce([]) { |acc, id| acc + all_posts.where(author_id: id).to_a}
+    on_friend_walls = arr.reduce([]) { |acc, id| acc + all_posts.where(wall_id: id).to_a}
+    posted_by_friends = arr.reduce([]) { |acc, id| acc + all_posts.where(author_id: id).to_a}
     all = (on_friend_walls + posted_by_friends).uniq
   end
 
-  def find_by_wall_owner(wall_id)
+  def self.find_by_wall_owner(wall_id)
     only_on_this_wall = Post.all.where(wall_id: wall_id)
   end
 

@@ -1,7 +1,7 @@
 import {
-  DELETE_POST,
   RECEIVE_POST,
   RECEIVE_POSTS,
+  REMOVE_POST,
 } from "../../actions/post_actions";
 
 const postsReducer = (state = {}, action) => {
@@ -11,8 +11,8 @@ const postsReducer = (state = {}, action) => {
     case RECEIVE_POST:
       return Object.assign({}, state, action.post);
     case RECEIVE_POSTS:
-      return Object.assign({}, posts);
-    case DELETE_POST:
+      return Object.assign({}, action.posts);
+    case REMOVE_POST:
       const nextState = Object.assign({}, state);
       delete nextState[action.postId];
       return nextState;

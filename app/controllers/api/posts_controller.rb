@@ -19,13 +19,14 @@ class Api::PostsController < ApplicationController
   end
 
   def index_by_friends
-    friend_ids_array = post_params.friend_ids
-    @friends = Post.find_by_friend_ids(friend_ids_array)
+    friend_ids_array = post_params["friend_ids"]
+    array_including_self = friend_ids_array + [current_user.id]
+    @posts = Post.find_by_friend_ids(friend_ids_array)
     render "api/posts/index"
   end
 
   def index_by_wall
-    @friends = Post.find_by_wall_owner(params[:wall_id_query])
+    @posts = Post.find_by_wall_owner(params[:wall_id_query])
     render "api/posts/index"
   end
 
@@ -47,6 +48,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:wall_id, :author_id, :parent_post_id, friend_ids : [])
+    params.require(:post).permit(:wall_id, :author_id, :body, :parent_post_id, :friend_ids => [])
   end
 end

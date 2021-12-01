@@ -6,8 +6,8 @@ export const createPost = (post) =>
 export const showPost = (postId) =>
   axios.get(`/api/posts/${postId}`).then((res) => res.data);
 
-export const findPostsByFriends = (friendIdsArr) =>
-  axios.post("/api/posts/by_friends", {post: { friendIdsArr }})
+export const findPostsByFriends = (friend_ids) =>
+  axios.post("/api/posts/by_friends", {post: { friend_ids }})
     .then((res) => res.data)
 
 export const findPostsByWallId = (wallId) =>
@@ -17,4 +17,4 @@ export const editPost = (post) =>
   axios.patch(`/api/posts/${post.id}`, { post }).then((res) => res.data)
 
 export const deletePost = (postId) =>
-  axios.delete(`/api/posts/${post.id}`).then((res) => res.data)
+  axios.delete(`/api/posts/${postId}`).then((res) => res.data)
