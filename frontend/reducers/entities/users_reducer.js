@@ -20,7 +20,7 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_WALL_OWNER:
       return Object.assign({}, state, { [action.user.id]: action.user });
     case RECEIVE_RELATED_USERS:
-      return Object.assign({}, state, users);
+      return Object.assign({}, users);
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import {
   addFileToProfile,
   searchUsers,
+  searchUsersById,
   showUser,
   updateProfile,
 } from "../util/users_api_util";
@@ -43,3 +44,6 @@ export const search = (query, source) => (dispatch) =>
   searchUsers(query, source).then((users) =>
     dispatch(receiveSearchResults(users))
   );
+
+export const getSomeUsers = (idsArr) => (dispatch) =>
+  searchUsersById(idsArr).then((users) => dispatch(receiveRelatedUsers(users)));
