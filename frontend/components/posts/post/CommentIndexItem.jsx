@@ -7,11 +7,13 @@ import CommentLikeIcon from './CommentLikeIcon'
 import CommentIndexContainer from './comment_index_container'
 import ComposeCommentContainer from './compose_comment_container'
 
-const CommentIndexItem = ({ comment, author }) => {
+const CommentIndexItem = ({ comment, author, parent, posts }) => {
   const [showReplies, setShowReplies] = useState(false);
 
   const toggleReplies = () => setShowReplies(prev => !prev);
   const revealReplies = () => setShowReplies(true);
+
+  const isNested = posts[parent.parentPostId] !== undefined
 
   return (
     <div className="comment-index-item-container">
@@ -21,11 +23,11 @@ const CommentIndexItem = ({ comment, author }) => {
           <CommentBody body={comment.body} author={author} />
         </div>
         <div className="comment-bottom">
-          <CommentFooter comment={comment} toggleReplies={toggleReplies} />
+          <CommentFooter comment={comment} toggleReplies={toggleReplies} disableReply={isNested}/>
           <CommentLikeIcon comment={comment} />
         </div>
       </div>
-      {showReplies &&  (
+      {showReplies && !isNested && (
         <>
           <CommentIndexContainer parentPost={comment} postIds={comment.childPosts} />
           <ComposeCommentContainer parentPost={comment} showComments={revealReplies} /> 
@@ -38,6 +40,7 @@ const CommentIndexItem = ({ comment, author }) => {
 CommentIndexItem.propTypes = {
   comment: PropTypes.object.isRequired,
   author: PropTypes.object.isRequired,
+  parent: PropTypes.object.isRequired,
 }
 
 export default CommentIndexItem

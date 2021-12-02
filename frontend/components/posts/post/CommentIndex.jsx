@@ -11,7 +11,7 @@ const CommentIndex = ({ parentPost, posts, users, postIds }) => {
   return (
     <div className="comment-index">
       {sortedComments && sortedComments.map((comment) => (
-        <CommentIndexItem key={comment.id} comment={comment} author={users[comment.authorId]} />
+        <CommentIndexItem posts={posts} parent={parentPost} key={comment.id} comment={comment} author={users[comment.authorId]} />
       ))}
     </div>
   )
