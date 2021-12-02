@@ -2,10 +2,11 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import PostIndexItem from '../post/PostIndexItem'
 
-const PostIndex = ({ posts, users, currentUser, getPosts, getUsers }) => {
+const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clearPosts }) => {
   useEffect(() => {
-    getPosts().then((res) => getUsers(getUserIdsFromPosts(res)))
-  }, [])
+    clearPosts();
+    getPosts().then((res) => getUsers(getUserIdsFromPosts(res)));
+  }, [params.userId])
 
   const getUserIdsFromPosts = (postsObj) => {
     const ids = [];
@@ -51,6 +52,7 @@ PostIndex.propTypes = {
   currentUser: PropTypes.object.isRequired,
   getPosts: PropTypes.func.isRequired,
   getUsers: PropTypes.func.isRequired,
+  clearPosts: PropTypes.func.isRequired,
 }
 
 

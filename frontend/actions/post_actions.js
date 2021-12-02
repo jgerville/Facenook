@@ -3,6 +3,7 @@ import * as PostAPI from "../util/posts_api_util";
 export const RECEIVE_POST = "RECEIVE_POST";
 export const RECEIVE_POSTS = "RECEIVE_POSTS";
 export const REMOVE_POST = "REMOVE_POST";
+export const CLEAR_POSTS = 'CLEAR_POSTS';
 
 const receivePost = (post) => ({
   type: RECEIVE_POST,
@@ -18,6 +19,10 @@ const removePost = (postId) => ({
   type: REMOVE_POST,
   postId,
 });
+
+export const clearPosts = () => ({
+  type: CLEAR_POSTS,
+})
 
 export const createPost = (post) => (dispatch) =>
   PostAPI.createPost(post).then((post) => dispatch(receivePost(post)));

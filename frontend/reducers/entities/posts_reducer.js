@@ -1,4 +1,5 @@
 import {
+  CLEAR_POSTS,
   RECEIVE_POST,
   RECEIVE_POSTS,
   REMOVE_POST,
@@ -16,6 +17,8 @@ const postsReducer = (state = {}, action) => {
       const nextState = Object.assign({}, state);
       delete nextState[action.postId];
       return nextState;
+    case CLEAR_POSTS:
+      return {};
     default:
       return state;
   }

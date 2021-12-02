@@ -4,7 +4,7 @@
 // that way, PostIndex can be a "dumber" component
 
 import { connect } from "react-redux";
-import { getPostsByWall } from "../../../actions/post_actions";
+import { clearPosts, getPostsByWall } from "../../../actions/post_actions";
 import { getSomeUsers } from "../../../actions/user_actions";
 import { withRouter } from "../../../util/RouterUtil";
 import PostIndex from "./PostIndex";
@@ -17,7 +17,8 @@ const mapStateToProps = ({ entities: { posts, users }, session: { id } }) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getPosts: () => dispatch(getPostsByWall(parseInt(ownProps.params.userId))),
-  getUsers: (ids) => dispatch(getSomeUsers(ids))
+  getUsers: (ids) => dispatch(getSomeUsers(ids)),
+  clearPosts: () => dispatch(clearPosts()),
 });
 
 export default withRouter(

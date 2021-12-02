@@ -345,6 +345,7 @@ $cross-color: #A8ABAF;
           .comment-index-item {
             display: flex;
             flex-direction: column;
+            gap: 2px;
   
             .comment-top {
               display: flex;
@@ -383,6 +384,8 @@ $cross-color: #A8ABAF;
               .post-content {
                 background: $light-grey-bg;
                 margin: 0;
+                margin-right: 18px;
+                // margin-bottom: 2px;
                 border-radius: 16px;
                 padding: 6px 10px;
   
@@ -405,8 +408,8 @@ $cross-color: #A8ABAF;
             }
   
             .comment-bottom {
-              margin-top: -3px;
-              margin-bottom: 5px;
+              // margin-top: 2px;
+              margin-bottom: 8px;
   
               .comment-footer {
                 color: $placeholder-text;
@@ -431,10 +434,10 @@ $cross-color: #A8ABAF;
 
           .comment-index, .create-comment {
             box-sizing: border-box;
-            padding: 0 61px;
+            padding: 0 48px;
 
             textarea {
-              width: 367px;
+              width: 373px;
             }
           }
         }
