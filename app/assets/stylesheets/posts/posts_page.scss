@@ -88,32 +88,24 @@ $cross-color: #A8ABAF;
           }
         }
 
-        .textbox-container {
-          min-height: 153px;
+        .textarea-container {
           position: relative;
 
-          .textbox {
-            position: absolute;
-            z-index: 7;
+          textarea {
             box-sizing: border-box;
-            width: 468px;
-            min-height: 80px;
-            top: 0;
-            left: 0;
-            color: $text-color;
-            margin: 0 16px;
-            padding: 0 0 40px;
+            border-radius: 16px;
+            resize: none;
+            width: 500px;
+            padding: 8px 17px 8px;
             outline: none;
+            background: $dark-grey-bg;
+            font-family: system-ui;
+            font-size: 15px;
+            color: $text-color;
+            border: none;
           }
-
-          .textbox:hover {
-            cursor: text;
-          }
-
-          .textbox-overlay {
-            position: relative;
-            z-index: 6;
-            padding: 0 16px;
+  
+          textarea::placeholder {
             color: $placeholder-text;
           }
         }

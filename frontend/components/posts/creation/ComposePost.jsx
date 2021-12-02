@@ -1,44 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
-import ContentEditable from "react-contenteditable";
+import TextareaAutosize from "react-textarea-autosize";
 import PropTypes from "prop-types";
 import UserCard from "../../graphics/UserCard";
 import { createPost } from "../../../actions/post_actions";
 import { connect } from "react-redux";
 
 const ComposePost = ({ user, wallOwner, close, createPost }) => {
-  // const body = useRef();
   const placeholderText = `Write something to ${wallOwner.fname}...`;
-  const [placeholder, setPlaceholder] = useState(placeholderText);
-  const [disabled, setDisabled] = useState(true);
-  const body = useRef("");
+  const [body, setBody] = useState("");
 
   const handleChange = (e) => {
-    body.current = e.target.value;
-  };
-
-  const handleFocus = (e) => {
-    setPlaceholder("");
-    setDisabled(false);
-  };
-
-  const handleBlur = (e) => {
-    if (body.current === "") {
-      setPlaceholder(placeholderText);
-      setDisabled(true);
-    }
+    setBody(e.target.value);
   };
 
   const handleSubmit = (e) => {
-    if (body.current === "") {
+    if (body === "") {
       setDisabled(true);
       return;
     }
-    const strippedBody = JSON.stringify(body.current).replace(/(<([^>]+)>)/gi, "");
-    const stripped2 = JSON.parse(JSON.stringify(strippedBody).replace(/(&nbsp;)/g, " "));
     const post = {
       wall_id: wallOwner.id,
       author_id: user.id,
-      body: stripped2.slice(1, stripped2.length - 1),
+      body,
     };
     createPost(post).then(() => close());
   };
@@ -51,18 +34,17 @@ const ComposePost = ({ user, wallOwner, close, createPost }) => {
           <i className="fas fa-times" onClick={close} />
         </div>
         <UserCard user={user} />
-        <div className="textbox-container">
-          <div className="textbox-overlay">{placeholder}</div>
-          <ContentEditable
+        <div className="textarea-container">
+          <TextareaAutosize
             className="textbox"
-            html={body.current}
+            cacheMeasurements
             onChange={handleChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            placeholder={placeholderText}
+            value={body}
           />
         </div>
         <div className="submit-container">
-          <button onClick={handleSubmit} disabled={disabled}>Post</button>
+          <button onClick={handleSubmit} disabled={body === ""}>Post</button>
         </div>
       </div>
     </div>
