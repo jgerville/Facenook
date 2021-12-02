@@ -6,6 +6,7 @@ import { createPost } from "../../../actions/post_actions";
 import { connect } from "react-redux";
 
 const ComposePost = ({ user, wallOwner, close, createPost, originalPost, edit }) => {
+  const headerText = originalPost ? "Edit Post" : "Create Post"
   const placeholderText = originalPost ? "" : `Write something to ${wallOwner.fname}...`;
   const [body, setBody] = originalPost ? useState(originalPost.body) : useState("")
 
@@ -39,7 +40,7 @@ const ComposePost = ({ user, wallOwner, close, createPost, originalPost, edit })
     <div className="outer-modal compose">
       <div className="inner-modal">
         <div className="compose-header">
-          <h3>Create post</h3>
+          <h3>{headerText}</h3>
           <i className="fas fa-times" onClick={close} />
         </div>
         <UserCard user={user} />

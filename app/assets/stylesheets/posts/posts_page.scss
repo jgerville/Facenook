@@ -581,4 +581,128 @@ $cross-color: #A8ABAF;
       }
     }
   }
+
+  .outer-modal.compose {
+    background: rgba(1, 1, 1, 0.6);
+
+    .inner-modal {
+      background: $dark-grey-bg;
+      width: 500px;
+      // min-height: 420px;
+      border: 1px solid $separator;
+
+      // display: grid;
+      // grid-template-rows: 60px 73px 153px 134px;
+      display: flex;
+      flex-direction: column;
+
+      .compose-header {
+        // grid-row: 1;
+        height: 60px;
+        position: relative;
+        border-bottom: 1px solid $separator;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        h3 {
+          color: $text-color;
+          font-size: 20px;
+          font-weight: 600;
+        }
+
+        h3:hover {
+          cursor: text;
+        }
+
+        i {
+          position: absolute;
+          font-size: 20px;
+          top: 10px;
+          right: 10px;
+          height: 20px;
+          width: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px;
+          border-radius: 50%;
+          
+          background: $light-grey-bg;
+          transition: background 0.3s ease-out;
+        }
+
+        i:hover {
+          background: $light-grey-bg-hover;
+          cursor: pointer;
+        }
+
+      }
+
+      .user-card {
+        height: 73px;
+        display: flex;
+        align-items: center;
+
+        h4 {
+          font-size: 15px;
+          color: $text-color;
+        }
+
+        h4:hover {
+          cursor: text;
+        }
+      }
+
+      .textarea-container {
+        position: relative;
+
+        textarea {
+          box-sizing: border-box;
+          border-radius: 16px;
+          resize: none;
+          width: 500px;
+          padding: 8px 17px 8px;
+          outline: none;
+          background: $dark-grey-bg;
+          font-family: system-ui;
+          font-size: 15px;
+          color: $text-color;
+          border: none;
+        }
+
+        textarea::placeholder {
+          color: $placeholder-text;
+        }
+      }
+
+      .submit-container {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 16px;
+
+        button {
+          box-sizing: border-box;
+          width: 100%;
+          padding: 10px 0;
+          border-radius: 8px;
+          border: none;
+          background: $button-blue;
+          font-size: 15px;
+          color: $button-blue-text;
+          font-weight: 500;
+          transition: background 0.3s ease-out;
+        }
+
+        button:hover {
+          background: $button-blue-hover;
+        }
+
+        button:disabled {
+          background: $button-disabled;
+          color: $button-disabled-text;
+        }
+      }
+    }
+  }
 }
