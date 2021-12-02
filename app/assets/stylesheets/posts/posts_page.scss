@@ -336,6 +336,7 @@ $cross-color: #A8ABAF;
       .comment-index {
         display: flex;
         flex-direction: column;
+        align-items: flex-start;
 
         .comment-index-item {
           display: flex;
