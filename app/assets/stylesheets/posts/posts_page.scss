@@ -289,9 +289,58 @@ $cross-color: #A8ABAF;
         }
       }
 
-      textarea {
-        resize: none;
+      .create-comment {
+        display: flex;
+        align-items: center;
+
+        .avatar-container, .avatar-overlay {
+          position: relative;
+          margin: 14px 10px 16px 15px;
+          height: 36px;
+          width: 36px;
+        }
+        
+        .avatar-overlay {
+          background: rgba(255, 255, 255, 0.1);
+          position: absolute;
+          display: none;
+          border-radius: 50%;
+          margin: 0;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+
+        .avatar {
+          height: 36px;
+          width: 36px;
+          border-radius: 50%;  
+        }
+
+        .avatar:hover + .avatar-overlay, .avatar-overlay:hover {
+          display: block;
+        }
+
+        textarea {
+          box-sizing: border-box;
+          border-radius: 16px;
+          resize: none;
+          width: 428px;
+          padding: 8px 10px 8px;
+          outline: none;
+          background: $light-grey-bg;
+          font-family: system-ui;
+          font-size: 15px;
+          color: $text-color;
+          border: none;
+        }
+
+        textarea::placeholder {
+          color: $placeholder-text;
+        }
       }
+
     }
   }
 }

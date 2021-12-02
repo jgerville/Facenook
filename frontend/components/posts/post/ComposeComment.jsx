@@ -26,7 +26,7 @@ const ComposeComment = ({ parentPost, currentUser, createPost }) => {
   }
 
   return (
-    <div className="create-post-top">
+    <div className="create-comment">
       <Avatar user={currentUser} />
       <div className="comment-input">
         <TextareaAutosize
