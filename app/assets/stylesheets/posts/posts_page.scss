@@ -233,9 +233,14 @@ $cross-color: #A8ABAF;
           color: $placeholder-text;
         }
 
-        .comment-counts:hover {
+        .has-comments:hover {
           cursor: pointer;
           text-decoration: underline;
+        }
+
+        .has-no-comments:hover {
+          cursor: default;
+          text-decoration: none;
         }
       }
 
@@ -333,6 +338,9 @@ $cross-color: #A8ABAF;
         }
       }
 
+      .comment-index {
+        
+      }
     }
   }
 }

@@ -1,11 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ComposeComment from './ComposeComment'
+import CommentIndexItem from './CommentIndexItem';
 
-const CommentIndex = ({ parentPost, posts, users }) => {
+const CommentIndex = ({ parentPost, posts, users, postIds }) => {
+  const comments = postIds.map((id) => posts[id]);
+  const sortedComments = comments.sort((a, b) => {
+    return (new Date(a.createdAt) - new Date(b.createdAt));
+  })
+
+  console.log(sortedComments)
+  
   return (
     <div className="comment-index">
-      <ComposeComment parentPost={parentPost} />
+      {sortedComments && sortedComments.map((comment) => (
+        <CommentIndexItem key={comment.id} comment={comment} author={users[comment.authorId]} />
+      ))}
     </div>
   )
 }
@@ -13,6 +22,8 @@ const CommentIndex = ({ parentPost, posts, users }) => {
 CommentIndex.propTypes = {
   posts: PropTypes.object.isRequired,
   users: PropTypes.object.isRequired,
+  parentPost: PropTypes.object.isRequired,
+  postIds: PropTypes.array.isRequired,
 }
 
 export default CommentIndex

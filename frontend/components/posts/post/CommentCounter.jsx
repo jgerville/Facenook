@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const CommentCounter = ({ post }) => {
+const CommentCounter = ({ post, toggle }) => {
   return (
-    <div className="comment-counts">
-      {post.childPosts ? (
-        <span>{post.childPosts.length} comments</span>
+    <div className="comment-counts" onClick={toggle}>
+      {post.childPosts.length > 0 ? (
+        <span className="has-comments">{post.childPosts.length} comments</span>
       ) : (
-        <span>0 comments</span>
+        <span className="has-no-comments">0 comments</span>
       )}
     </div>
   );
@@ -15,6 +15,7 @@ const CommentCounter = ({ post }) => {
 
 CommentCounter.propTypes = {
   post: PropTypes.object.isRequired,
+  toggle: PropTypes.func.isRequired,
 };
 
 export default CommentCounter;
