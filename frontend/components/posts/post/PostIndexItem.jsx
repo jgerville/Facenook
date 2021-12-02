@@ -21,7 +21,7 @@ const PostIndexItem = ({ post, user }) => {
       {showComments && post.childPosts.length > 0 && (
         <CommentIndexContainer parentPost={post} postIds={post.childPosts} />
       )}
-      <ComposeCommentContainer parentPost={post} />
+      <ComposeCommentContainer parentPost={post} showComments={() => setShowComments(true)} />
     </div>
   );
 };

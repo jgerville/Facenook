@@ -339,7 +339,66 @@ $cross-color: #A8ABAF;
       }
 
       .comment-index {
-        
+        display: flex;
+        flex-direction: column;
+
+        .comment-index-item {
+          display: flex;
+          flex-direction: column;
+
+          .comment-top {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .avatar-container, .avatar-overlay {
+              position: relative;
+              margin: 14px 10px 16px 15px;
+              height: 36px;
+              width: 36px;
+            }
+            
+            .avatar-overlay {
+              background: rgba(255, 255, 255, 0.1);
+              position: absolute;
+              display: none;
+              border-radius: 50%;
+              margin: 0;
+              top: 0;
+              bottom: 0;
+              left: 0;
+              right: 0;
+            }
+    
+            .avatar {
+              height: 36px;
+              width: 36px;
+              border-radius: 50%;  
+            }
+    
+            .avatar:hover + .avatar-overlay, .avatar-overlay:hover {
+              display: block;
+            }
+
+            .post-content {
+              background: $light-grey-bg;
+              margin: 0 0 10px;
+              border-radius: 16px;
+              padding: 10px;
+
+              h4 {
+                font-size: 13px;
+                font-weight: 500;
+                color: $text-color;
+              }
+
+              .post-body {
+                font-size: 15px;
+                color: $text-color;
+              }
+            }
+          }
+        }
       }
     }
   }

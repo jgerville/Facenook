@@ -28,6 +28,10 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers }) => {
   const sortedPosts = topLevelPosts.sort((a, b) => {
     return (new Date(b.createdAt) - new Date(a.createdAt));
   })
+
+  useEffect(() => {
+
+  }, [posts])
   
   return (
     <div className="post-index">

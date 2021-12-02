@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Avatar from "../../graphics/Avatar";
 import TextareaAutosize from "react-textarea-autosize";
 
-const ComposeComment = ({ parentPost, currentUser, createPost }) => {
+const ComposeComment = ({ parentPost, currentUser, createPost, getPost, showComments }) => {
   const [body, setBody] = useState("");
 
   const handleChange = (e) => {
@@ -20,7 +20,11 @@ const ComposeComment = ({ parentPost, currentUser, createPost }) => {
           body,
           parent_post_id: parentPost.id,
         }
-        createPost(post).then(() => setBody(""))
+        createPost(post).then(() => {
+          setBody("");
+          getPost(parentPost.id);
+          showComments();
+        })
       }
     }
   }
@@ -45,6 +49,8 @@ ComposeComment.propTypes = {
   parentPost: PropTypes.object.isRequired,
   currentUser: PropTypes.object.isRequired,
   createPost: PropTypes.func.isRequired,
+  getPost: PropTypes.func.isRequired,
+  showComments: PropTypes.func.isRequired,
 };
 
 export default ComposeComment;
