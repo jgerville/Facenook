@@ -5,9 +5,9 @@ import UserCard from "../../graphics/UserCard";
 import { createPost } from "../../../actions/post_actions";
 import { connect } from "react-redux";
 
-const ComposePost = ({ user, wallOwner, close, createPost }) => {
-  const placeholderText = `Write something to ${wallOwner.fname}...`;
-  const [body, setBody] = useState("");
+const ComposePost = ({ user, wallOwner, close, createPost, originalPost, edit }) => {
+  const placeholderText = originalPost ? "" : `Write something to ${wallOwner.fname}...`;
+  const [body, setBody] = originalPost ? useState(originalPost.body) : useState("")
 
   const handleChange = (e) => {
     setBody(e.target.value);
@@ -23,8 +23,17 @@ const ComposePost = ({ user, wallOwner, close, createPost }) => {
       author_id: user.id,
       body,
     };
-    createPost(post).then(() => close());
+    if (edit) {
+      post["id"] = originalPost;
+    }
+    if (edit) {
+      edit(post).then(() => close())
+    } else {
+      createPost(post).then(() => close());
+    }
   };
+
+  const submitText = edit ? "Save" : "Post"
 
   return (
     <div className="outer-modal compose">
@@ -44,7 +53,7 @@ const ComposePost = ({ user, wallOwner, close, createPost }) => {
           />
         </div>
         <div className="submit-container">
-          <button onClick={handleSubmit} disabled={body === ""}>Post</button>
+          <button onClick={handleSubmit} disabled={body === ""}>{submitText}</button>
         </div>
       </div>
     </div>
@@ -56,6 +65,8 @@ ComposePost.propTypes = {
   wallOwner: PropTypes.object.isRequired,
   close: PropTypes.func.isRequired,
   createPost: PropTypes.func.isRequired,
+  edit: PropTypes.func,
+  originalPost: PropTypes.object,
 };
 
 const mapDispatchToProps = dispatch => ({

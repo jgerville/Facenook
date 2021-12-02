@@ -1,17 +1,19 @@
 import { connect } from "react-redux"
 import { closeModal, openModal } from "../../../actions/modal_actions"
-import { deletePost } from "../../../actions/post_actions"
+import { deletePost, editPost } from "../../../actions/post_actions"
 import EditAndDeleteButtons from "./EditAndDeleteButtons"
 
 
-const mapStateToProps = ({ ui: { modal }, session }) => ({
+const mapStateToProps = ({ ui: { modal }, session, entities: { users } }) => ({
   modal,
-  currentUserId: session.id,
+  currentUser: users[session.id],
+  users,
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  editPost: (post) => dispatch(editPost(post)),
   deletePost: (id) => dispatch(deletePost(id)),
-  startEditing: () => dispatch(openModal("compose-post")),
+  startEditing: (string) => dispatch(openModal(string)),
   closeModal: () => dispatch(closeModal()),
 })
 

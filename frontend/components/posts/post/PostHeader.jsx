@@ -8,7 +8,7 @@ const PostHeader = ({ post, user }) => {
     <div className="post-header">
       <UserCard user={user} time={post.createdAt} editedAt={post.updatedAt} />
       <EditAndDeleteButtonsContainerPost comment={post} />
-      {/* {modal === "compose-post" && (
+      {/* {modal === "edit-post" && (
         <ComposePost 
           user={user} 
           wallOwner={wallOwner} 
