@@ -388,8 +388,7 @@ $cross-color: #A8ABAF;
               .post-content {
                 background: $light-grey-bg;
                 margin: 0;
-                margin-right: 18px;
-                // margin-bottom: 2px;
+                margin-right: 4px;
                 border-radius: 16px;
                 padding: 6px 10px;
   
@@ -407,7 +406,28 @@ $cross-color: #A8ABAF;
                 .post-body {
                   font-size: 15px;
                   color: $text-color;
+                  overflow-wrap: break-word;
+                  white-space: pre-line;
+                  max-width: 380px;
                 }
+              }
+
+              .dots {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $placeholder-text;
+                border-radius: 50%;
+                padding: 10px;
+
+                i {
+                  font-size: 10px;
+                }
+              }
+
+              .dots:hover {
+                background: $light-grey-bg;
+                cursor: pointer;
               }
             }
   

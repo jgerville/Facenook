@@ -22,6 +22,7 @@ class Post < ApplicationRecord
     class_name: :User
 
   has_many :child_posts,
+    dependent: :destroy,
     foreign_key: :parent_post_id,
     class_name: :Post
 

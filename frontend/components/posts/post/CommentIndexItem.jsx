@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Avatar from '../../graphics/Avatar'
 import CommentBody from './CommentBody'
@@ -7,11 +7,12 @@ import CommentLikeIcon from './CommentLikeIcon'
 import CommentIndexContainer from './comment_index_container'
 import ComposeCommentContainer from './compose_comment_container'
 import EditCommentContainer from './edit_comment_container'
+import EditAndDeleteButtons from './EditAndDeleteButtons'
 
 const CommentIndexItem = ({ comment, author, parent, posts }) => {
   const [showReplies, setShowReplies] = useState(false);
   const [showReplyCounter, setShowReplyCounter] = useState(true);
-  const [editing, setEditing] = useState(true);
+  const [editing, setEditing] = useState(false);
 
   const startEditing = () => setEditing(true);
   const stopEditing = () => setEditing(false);
@@ -37,11 +38,12 @@ const CommentIndexItem = ({ comment, author, parent, posts }) => {
       <div className="comment-index-item">
         <div className="comment-top">
           {editing ? (
-            <EditCommentContainer comment={comment} stopEditing={stopEditing} />
+            <EditCommentContainer comment={comment} stopEditing={stopEditing} hideReplyCounter={hideReplyCounter} />
           ) : (
             <>
               <Avatar user={author} />
               <CommentBody body={comment.body} author={author} />
+              <EditAndDeleteButtons comment={comment} startEditing={startEditing} />
             </>
           )}
         </div>
@@ -54,7 +56,7 @@ const CommentIndexItem = ({ comment, author, parent, posts }) => {
           )}
         </div>
       </div>
-      {hasChildren && showReplyCounter && (
+      {hasChildren && showReplyCounter && !showReplies && (
         <div className="reply-counter" onClick={handleClickOnReplyCounter}>
           <i className="fas fa-reply"/>
           <span className="reply-counts">{childCount} {replyWord}</span>
@@ -62,7 +64,7 @@ const CommentIndexItem = ({ comment, author, parent, posts }) => {
       )}
       {showReplies && !isNested && (
         <>
-          <CommentIndexContainer parentPost={comment} postIds={comment.childPosts} />
+          <CommentIndexContainer parentPost={comment} />
           <ComposeCommentContainer parentPost={comment} showComments={revealReplies} /> 
         </>
       )}

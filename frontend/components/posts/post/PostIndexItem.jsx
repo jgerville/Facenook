@@ -21,7 +21,7 @@ const PostIndexItem = ({ post, user }) => {
       <PostButtons toggleComments={toggleComments} />
       {showComments && (
         <>
-          <CommentIndexContainer parentPost={post} postIds={post.childPosts} />
+          <CommentIndexContainer parentPost={post} />
           <ComposeCommentContainer parentPost={post} showComments={revealComments} />
         </>
       )}

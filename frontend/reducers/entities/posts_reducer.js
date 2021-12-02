@@ -15,6 +15,13 @@ const postsReducer = (state = {}, action) => {
       return Object.assign({}, state, action.posts);
     case REMOVE_POST:
       const nextState = Object.assign({}, state);
+      if (nextState[action.postId].parentPostId) {
+        const parentId = nextState[action.postId].parentPostId;
+        const childIdx = nextState[parentId].childPosts.indexOf(action.postId)
+        if ((childIdx) > -1) {
+          nextState[parentId].childPosts.splice(childIdx, 1)
+        }
+      }
       delete nextState[action.postId];
       return nextState;
     case CLEAR_POSTS:

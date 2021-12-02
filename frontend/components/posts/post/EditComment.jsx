@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Avatar from "../../graphics/Avatar";
 import TextareaAutosize from "react-textarea-autosize";
 
-const EditComment = ({ comment, currentUser, postAction, getPost, stopEditing }) => {
+const EditComment = ({ comment, currentUser, postAction, getPost, stopEditing, hideReplyCounter }) => {
   const [body, setBody] = useState(comment.body);
 
   const handleChange = (e) => {
@@ -24,7 +24,6 @@ const EditComment = ({ comment, currentUser, postAction, getPost, stopEditing })
         postAction(post).then(() => {
           setBody("");
           stopEditing();
-          // getPost(comment.id);
         })
       }
     } else if (e.key === "Escape") {
@@ -55,6 +54,7 @@ EditComment.propTypes = {
   postAction: PropTypes.func.isRequired,
   getPost: PropTypes.func.isRequired,
   stopEditing: PropTypes.func.isRequired,
+  hideReplyCounter: PropTypes.func.isRequired,
 };
 
 export default EditComment;
