@@ -8,7 +8,7 @@ const WallContent = ({ wallOwner, currentUser }) => (
     <div className="side-content">
       <Intro wallOwner={wallOwner} />
     </div>
-    <PostsPage wallOwner={wallOwner} currentUser={currentUser} />
+    <PostsPage wallOwner={wallOwner} currentUser={currentUser} type="wall" />
   </main>
 )
 

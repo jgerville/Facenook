@@ -1,11 +1,9 @@
 import React from "react";
+import PostsPage from "../posts/PostsPage";
 
-const Feed = () => (
+const Feed = ({ currentUser }) => (
   <main className="feed">
-    <p>hasdasdh</p>
-    <p>hasdasdh</p>
-    <p>hasdasdh</p>
-    <p>hasdasdh</p>
+    <PostsPage type="newsfeed" wallOwner={currentUser} currentUser={currentUser} />
   </main>
 );
 

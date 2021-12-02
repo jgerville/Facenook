@@ -2,10 +2,14 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import PostIndexItem from '../post/PostIndexItem'
 
-const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clearPosts }) => {
+const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clearPosts, type }) => {
   useEffect(() => {
     clearPosts();
-    getPosts().then((res) => getUsers(getUserIdsFromPosts(res)));
+    if (type === "newsfeed") {
+      getPosts(currentUser.friends).then((res) => getUsers(getUserIdsFromPosts(res)));
+    } else {
+      getPosts().then((res) => getUsers(getUserIdsFromPosts(res)));
+    }
   }, [params.userId])
 
   const getUserIdsFromPosts = (postsObj) => {
@@ -29,15 +33,27 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
   const sortedPosts = topLevelPosts.sort((a, b) => {
     return (new Date(b.createdAt) - new Date(a.createdAt));
   })
+
+  const isOnFriendsList = currentUser.friends.includes(Number(params.userId)) || currentUser.id === Number(params.userId)
+
+  console.log("currentuser: ", currentUser.id)
+  console.log("params:", params.userId)
+  console.log("type:", type)
   
   return (
     <div className="post-index">
       <div className="header-container">
         Posts
       </div>
+      { (isOnFriendsList || type==="newsfeed") ? (
       <div className="post-items-container">
         {posts && sortedPosts.map((post) => <PostIndexItem key={post.id} post={post} user={users[post.authorId]} />)}
       </div>
+      ) : (
+        <div className="posts-hidden">
+          No posts available
+        </div>
+      )}
     </div>
   )
 }
@@ -49,6 +65,7 @@ PostIndex.propTypes = {
   getPosts: PropTypes.func.isRequired,
   getUsers: PropTypes.func.isRequired,
   clearPosts: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 }
 
 

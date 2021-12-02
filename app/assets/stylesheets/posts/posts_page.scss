@@ -142,6 +142,19 @@ $cross-color: #A8ABAF;
   }
 
   .post-index {
+    .posts-hidden {
+      // background: $dark-grey-bg;
+      margin: 16px 0;
+      border-radius: 8px;
+      box-sizing: border-box;
+      padding: 16px;
+
+      font-size: 20px;
+      font-weight: 500;
+      color: $placeholder-text;
+      text-align: center;
+    }
+
     .header-container, .post-index-item {
       background: $dark-grey-bg;
       margin: 16px 0;

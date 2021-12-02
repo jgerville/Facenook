@@ -5,6 +5,7 @@ import LoginPage from "../auth/login/LoginPage";
 import Feed from "../feed/Feed";
 import WallContainer from "../wall/wall_container";
 import TopNavContainer from "./topnav/topnav_container";
+import FeedContainer from "../feed/feed_container";
 
 const Home = ({ currentUser }) => (
   <>
@@ -12,7 +13,7 @@ const Home = ({ currentUser }) => (
       <>
         <TopNavContainer currentUser={currentUser} />
         <Routes>
-          <Route path="/" element={<Feed />} />
+          <Route path="/" element={<FeedContainer />} />
           <Route path="/:userId/*" element={<WallContainer />} />
         </Routes>
       </>

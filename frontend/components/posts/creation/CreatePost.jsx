@@ -3,11 +3,19 @@ import PropTypes from "prop-types";
 import Avatar from "../../graphics/Avatar";
 import ComposePost from "./ComposePost";
 
-const CreatePost = ({ currentUser, wallOwner, modal, openModal, closeModal }) => {
+const CreatePost = ({ currentUser, wallOwner, modal, openModal, closeModal, type }) => {
   const isMine = currentUser.id === wallOwner.id;
-  const message = isMine
-    ? "What's on your mind?"
-    : `Write something to ${wallOwner.fname}...`;
+  let message;
+  
+  if (type === "newsfeed") {
+    message = `What's on your mind, ${currentUser.fname}?`
+  } else {
+    if (isMine) {
+      message = "What's on your mind?";
+    } else {
+      message = `Write something to ${wallOwner.fname}...`;
+    }
+  }
 
   return (
     <>
@@ -38,6 +46,7 @@ CreatePost.propTypes = {
   modal: PropTypes.string,
   openModal: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 
