@@ -288,6 +288,10 @@ $cross-color: #A8ABAF;
           }
         }
       }
+
+      textarea {
+        resize: none;
+      }
     }
   }
 }
