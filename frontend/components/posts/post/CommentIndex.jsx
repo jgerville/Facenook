@@ -8,8 +8,6 @@ const CommentIndex = ({ parentPost, posts, users, postIds }) => {
     return (new Date(a.createdAt) - new Date(b.createdAt));
   })
 
-  console.log(sortedComments)
-  
   return (
     <div className="comment-index">
       {sortedComments && sortedComments.map((comment) => (

@@ -205,7 +205,7 @@ $cross-color: #A8ABAF;
             text-decoration: underline;
           }
 
-          p {
+          span {
             margin-top: 5px;
             font-size: 13px;
             color: $placeholder-text;
@@ -336,70 +336,109 @@ $cross-color: #A8ABAF;
       .comment-index {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-
-        .comment-index-item {
+        
+        .comment-index-item-container {
           display: flex;
           flex-direction: column;
+          justify-content: flex-start;
 
-          .comment-top {
+          .comment-index-item {
             display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            .avatar-container, .avatar-overlay {
-              position: relative;
-              margin: 14px 10px 16px 15px;
-              height: 36px;
-              width: 36px;
-            }
-            
-            .avatar-overlay {
-              background: rgba(255, 255, 255, 0.1);
-              position: absolute;
-              display: none;
-              border-radius: 50%;
-              margin: 0;
-              top: 0;
-              bottom: 0;
-              left: 0;
-              right: 0;
-            }
-    
-            .avatar {
-              height: 36px;
-              width: 36px;
-              border-radius: 50%;  
-            }
-    
-            .avatar:hover + .avatar-overlay, .avatar-overlay:hover {
-              display: block;
-            }
-
-            .post-content {
-              background: $light-grey-bg;
-              margin: 0 0 10px;
-              border-radius: 16px;
-              padding: 10px;
-
-              h4 {
-                font-size: 13px;
-                font-weight: 500;
-                color: $text-color;
+            flex-direction: column;
+  
+            .comment-top {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+  
+              .avatar-container, .avatar-overlay {
+                position: relative;
+                margin: 14px 10px 16px 15px;
+                height: 36px;
+                width: 36px;
               }
-
-              h4:hover {
-                text-decoration: underline;
-                cursor: pointer;
+              
+              .avatar-overlay {
+                background: rgba(255, 255, 255, 0.1);
+                position: absolute;
+                display: none;
+                border-radius: 50%;
+                margin: 0;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
               }
-
-              .post-body {
-                font-size: 15px;
-                color: $text-color;
+      
+              .avatar {
+                height: 36px;
+                width: 36px;
+                border-radius: 50%;  
+              }
+      
+              .avatar:hover + .avatar-overlay, .avatar-overlay:hover {
+                display: block;
+              }
+  
+              .post-content {
+                background: $light-grey-bg;
+                margin: 0;
+                border-radius: 16px;
+                padding: 6px 10px;
+  
+                h4 {
+                  font-size: 13px;
+                  font-weight: 500;
+                  color: $text-color;
+                }
+  
+                h4:hover {
+                  text-decoration: underline;
+                  cursor: pointer;
+                }
+  
+                .post-body {
+                  font-size: 15px;
+                  color: $text-color;
+                }
+              }
+            }
+  
+            .comment-bottom {
+              margin-top: -3px;
+              margin-bottom: 5px;
+  
+              .comment-footer {
+                color: $placeholder-text;
+                font-size: 12px;
+                padding-left: 71px;
+  
+                .like-button, .reply-button {
+                  font-weight: 600;
+                }
+  
+                .like-button:hover, .reply-button:hover {
+                  cursor: pointer;
+                  text-decoration: underline;
+                }
+  
+                .dot {
+                  padding: 0 3px;
+                }
               }
             }
           }
+
+          .comment-index, .create-comment {
+            box-sizing: border-box;
+            padding: 0 61px;
+
+            textarea {
+              width: 367px;
+            }
+          }
         }
+
       }
     }
   }
