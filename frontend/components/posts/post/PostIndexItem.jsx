@@ -11,17 +11,20 @@ const PostIndexItem = ({ post, user }) => {
   const [showComments, setShowComments] = useState(false);
 
   const toggleComments = () => setShowComments(prev => !prev);
+  const revealComments = () => setShowComments(true);
 
   return (
     <div className="post-index-item">
       <PostHeader post={post} user={user} />
       <PostContent body={post.body} />
       <LikeAndCommentCounts post={post} toggleComments={toggleComments} />
-      <PostButtons />
-      {showComments && post.childPosts.length > 0 && (
-        <CommentIndexContainer parentPost={post} postIds={post.childPosts} />
+      <PostButtons toggleComments={toggleComments} />
+      {showComments && (
+        <>
+          <CommentIndexContainer parentPost={post} postIds={post.childPosts} />
+          <ComposeCommentContainer parentPost={post} showComments={revealComments} />
+        </>
       )}
-      <ComposeCommentContainer parentPost={post} showComments={() => setShowComments(true)} />
     </div>
   );
 };

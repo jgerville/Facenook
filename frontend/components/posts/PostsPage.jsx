@@ -9,7 +9,7 @@ const PostsPage = ({ wallOwner, currentUser }) => {
   return (
     <div className="posts-page">
       <CreatePostContainer wallOwner={wallOwner} currentUser={currentUser} />
-      {isMine ? null : <PostIndexContainerForWall />}
+      <PostIndexContainerForWall />
     </div>
   )
 }

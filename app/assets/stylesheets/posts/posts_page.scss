@@ -233,14 +233,9 @@ $cross-color: #A8ABAF;
           color: $placeholder-text;
         }
 
-        .has-comments:hover {
+        .comment-counts:hover {
           cursor: pointer;
           text-decoration: underline;
-        }
-
-        .has-no-comments:hover {
-          cursor: default;
-          text-decoration: none;
         }
       }
 
@@ -390,6 +385,11 @@ $cross-color: #A8ABAF;
                 font-size: 13px;
                 font-weight: 500;
                 color: $text-color;
+              }
+
+              h4:hover {
+                text-decoration: underline;
+                cursor: pointer;
               }
 
               .post-body {

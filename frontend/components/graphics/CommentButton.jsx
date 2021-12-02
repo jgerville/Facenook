@@ -1,28 +1,27 @@
-import React from 'react'
-// import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-const CommentButton = (props) => {
+const CommentButton = ({ toggleComments }) => {
   return (
     <div className="like button-container">
-      <button className="like-button">
+      <button className="comment-button" onClick={toggleComments}>
         <i className="far fa-comment-alt" />
         <span>Comment</span>
       </button>
     </div>
-  )
-}
+  );
+};
 
-// CommentButton.propTypes = {
-
-// }
+CommentButton.propTypes = {
+  toggleComments: PropTypes.func.isRequired,
+};
 
 // const mapStateToProps = ({  }) => ({
-  
+
 // })
 
 // const mapDispatchToProps = {
-  
-// }
 
+// }
 
 export default CommentButton;
