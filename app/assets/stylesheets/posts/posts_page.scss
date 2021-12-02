@@ -414,11 +414,13 @@ $cross-color: #A8ABAF;
 
               .dots {
                 display: flex;
+                position: relative;
                 justify-content: center;
                 align-items: center;
                 color: $placeholder-text;
                 border-radius: 50%;
                 padding: 10px;
+                transition: background 0.3s ease-out;
 
                 i {
                   font-size: 10px;
@@ -428,6 +430,31 @@ $cross-color: #A8ABAF;
               .dots:hover {
                 background: $light-grey-bg;
                 cursor: pointer;
+              }
+
+              .panel {
+                position: absolute;
+                z-index: 5;
+                padding: 5px;
+                top: 3n0px;
+                background: $dark-grey-bg;
+                border-radius: 8px;
+                border: 1px solid $separator;
+
+                button {
+                  background: $dark-grey-bg;
+                  width: 100%;
+                  padding: 5px 50px;
+                  font-size: 15px;
+                  color: $text-color;
+                  border: none;
+                  border-radius: 8px;
+                  transition: background 0.3s ease-out;
+                }
+
+                button:hover {
+                  background: $light-grey-bg-hover;
+                }
               }
             }
   

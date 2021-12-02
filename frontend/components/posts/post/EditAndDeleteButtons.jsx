@@ -16,13 +16,14 @@ const EditAndDeleteButtons = ({ startEditing, deletePost, getPost, comment }) =>
     <>
       <div className="dots" onClick={togglePanel}>
         <i className="fas fa-ellipsis-h"/>
+        {showPanel && (
+          <div className="panel">
+            <button onClick={startEditing}>Edit</button>
+            <button onClick={handleDelete}>Delete</button>
+          </div>
+        )}
       </div>
-      {showPanel && (
-        <div className="panel">
-          <button onClick={startEditing}>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
-      )}
+      
     </>
   );
 };
