@@ -162,6 +162,11 @@ $cross-color: #A8ABAF;
       flex-direction: column;
 
       .post-header {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
         .user-card {
           display: flex;
           height: 73px;
@@ -209,6 +214,54 @@ $cross-color: #A8ABAF;
             margin-top: 5px;
             font-size: 13px;
             color: $placeholder-text;
+          }
+        }
+
+        .dots {
+          display: flex;
+          position: relative;
+          justify-content: center;
+          align-items: center;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          color: $placeholder-text;
+          border-radius: 50%;
+          padding: 10px;
+          transition: background 0.3s ease-out;
+
+          i {
+            font-size: 16px;
+          }
+        }
+
+        .dots:hover {
+          background: $light-grey-bg;
+          cursor: pointer;
+        }
+
+        .panel {
+          position: absolute;
+          z-index: 5;
+          padding: 5px;
+          top: 40px;
+          background: $dark-grey-bg;
+          border-radius: 8px;
+          border: 1px solid $separator;
+
+          button {
+            background: $dark-grey-bg;
+            width: 100%;
+            margin: 2px 0;
+            padding: 5px 50px;
+            font-size: 15px;
+            color: $text-color;
+            border: none;
+            border-radius: 8px;
+            transition: background 0.3s ease-out;
+          }
+
+          button:hover {
+            background: $light-grey-bg-hover;
           }
         }
       }
@@ -436,7 +489,7 @@ $cross-color: #A8ABAF;
                 position: absolute;
                 z-index: 5;
                 padding: 5px;
-                top: 3n0px;
+                top: 32px;
                 background: $dark-grey-bg;
                 border-radius: 8px;
                 border: 1px solid $separator;
@@ -444,6 +497,7 @@ $cross-color: #A8ABAF;
                 button {
                   background: $dark-grey-bg;
                   width: 100%;
+                  margin: 2px 0;
                   padding: 5px 50px;
                   font-size: 15px;
                   color: $text-color;

@@ -1,42 +1,39 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { deletePost, getPost } from "../../../actions/post_actions";
-import { connect } from "react-redux";
 
-const EditAndDeleteButtons = ({ startEditing, deletePost, getPost, comment }) => {
+const EditAndDeleteButtons = ({ startEditing, deletePost, comment, currentUserId }) => {
   const [showPanel, setShowPanel] = useState(false);
 
   const togglePanel = () => setShowPanel(prev => !prev);
 
   const handleDelete = () => {
-    deletePost(comment.id)//.then(() => getPost(comment.parentPostId));
+    deletePost(comment.id)
   }
+
+  const canEdit = currentUserId === comment.authorId;
 
   return (
     <>
-      <div className="dots" onClick={togglePanel}>
-        <i className="fas fa-ellipsis-h"/>
-        {showPanel && (
-          <div className="panel">
-            <button onClick={startEditing}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
-          </div>
-        )}
-      </div>
-      
+      {canEdit ? (
+        <div className="dots" onClick={togglePanel}>
+          <i className="fas fa-ellipsis-h"/>
+          {showPanel && (
+            <div className="panel">
+              <button onClick={startEditing}>Edit</button>
+              <button onClick={handleDelete}>Delete</button>
+            </div>
+          )}
+        </div>
+      ) : null}
     </>
   );
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  deletePost: (id) => dispatch(deletePost(id)),
-  getPost: (id) => dispatch(getPost(id)),
-});
 
 EditAndDeleteButtons.propTypes = {
   startEditing: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired,
   comment: PropTypes.object.isRequired,
+  currentUserId: PropTypes.number.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(EditAndDeleteButtons);
+export default EditAndDeleteButtons;

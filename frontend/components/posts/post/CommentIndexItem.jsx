@@ -7,6 +7,7 @@ import CommentLikeIcon from './CommentLikeIcon'
 import CommentIndexContainer from './comment_index_container'
 import ComposeCommentContainer from './compose_comment_container'
 import EditCommentContainer from './edit_comment_container'
+import EditAndDeleteButtonsContainerComment from './edit_and_delete_buttons_container_comment'
 import EditAndDeleteButtons from './EditAndDeleteButtons'
 
 const CommentIndexItem = ({ comment, author, parent, posts }) => {
@@ -43,7 +44,8 @@ const CommentIndexItem = ({ comment, author, parent, posts }) => {
             <>
               <Avatar user={author} />
               <CommentBody body={comment.body} author={author} />
-              <EditAndDeleteButtons comment={comment} startEditing={startEditing} />
+              <EditAndDeleteButtonsContainerComment comment={comment} startEditing={startEditing} />
+              {/* <EditAndDeleteButtons comment={comment} startEditing={startEditing} /> */}
             </>
           )}
         </div>
