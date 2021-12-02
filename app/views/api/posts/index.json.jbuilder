@@ -4,11 +4,7 @@ if @posts
       json.extract! post, :id, :wall_id, :author_id, :parent_post_id, :body, :created_at, :updated_at
       json.child_posts do
         if post.child_posts
-          json.array! do
-            post.child_posts.each do |child|
-              json.extract! child, :id
-            end
-          end
+          json.array! post.child_post_ids
         end
       end
     end
