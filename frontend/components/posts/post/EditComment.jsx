@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import Avatar from "../../graphics/Avatar";
 import TextareaAutosize from "react-textarea-autosize";
 
-const ComposeComment = ({ parentPost, currentUser, postAction, getPost, showComments }) => {
-  const [body, setBody] = useState("");
+const EditComment = ({ comment, currentUser, postAction, getPost, stopEditing }) => {
+  const [body, setBody] = useState(comment.body);
 
   const handleChange = (e) => {
     setBody(e.target.value);
@@ -15,17 +15,21 @@ const ComposeComment = ({ parentPost, currentUser, postAction, getPost, showComm
       e.preventDefault();
       if (body !== "") {
         const post = {
-          wall_id: parentPost.wallId,
+          id: comment.id,
+          wall_id: comment.wallId,
           author_id: currentUser.id,
           body,
-          parent_post_id: parentPost.id,
+          parent_post_id: comment.parentPostId,
         }
         postAction(post).then(() => {
           setBody("");
-          getPost(parentPost.id);
-          showComments();
+          stopEditing();
+          // getPost(comment.id);
         })
       }
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      stopEditing();
     }
   }
 
@@ -45,12 +49,12 @@ const ComposeComment = ({ parentPost, currentUser, postAction, getPost, showComm
   );
 };
 
-ComposeComment.propTypes = {
-  parentPost: PropTypes.object.isRequired,
+EditComment.propTypes = {
+  comment: PropTypes.object.isRequired,
   currentUser: PropTypes.object.isRequired,
   postAction: PropTypes.func.isRequired,
   getPost: PropTypes.func.isRequired,
-  showComments: PropTypes.func.isRequired,
+  stopEditing: PropTypes.func.isRequired,
 };
 
-export default ComposeComment;
+export default EditComment;

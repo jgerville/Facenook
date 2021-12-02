@@ -4,10 +4,11 @@ import ComposeComment from "./ComposeComment";
 
 const mapStateToProps = ({ session, entities: { users } }) => ({
   currentUser: users[session.id],
+  formType: "create",
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createPost: (post) => dispatch(createPost(post)),
+  postAction: (post) => dispatch(createPost(post)),
   getPost: (postId) => dispatch(getPost(postId)),
 });
 

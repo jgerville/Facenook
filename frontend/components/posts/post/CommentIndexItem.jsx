@@ -6,10 +6,15 @@ import CommentFooter from './CommentFooter'
 import CommentLikeIcon from './CommentLikeIcon'
 import CommentIndexContainer from './comment_index_container'
 import ComposeCommentContainer from './compose_comment_container'
+import EditCommentContainer from './edit_comment_container'
 
 const CommentIndexItem = ({ comment, author, parent, posts }) => {
   const [showReplies, setShowReplies] = useState(false);
   const [showReplyCounter, setShowReplyCounter] = useState(true);
+  const [editing, setEditing] = useState(true);
+
+  const startEditing = () => setEditing(true);
+  const stopEditing = () => setEditing(false);
 
   const revealReplyCounter = () => setShowReplyCounter(true);
   const hideReplyCounter = () => setShowReplyCounter(false);
@@ -31,12 +36,22 @@ const CommentIndexItem = ({ comment, author, parent, posts }) => {
     <div className="comment-index-item-container">
       <div className="comment-index-item">
         <div className="comment-top">
-          <Avatar user={author} />
-          <CommentBody body={comment.body} author={author} />
+          {editing ? (
+            <EditCommentContainer comment={comment} stopEditing={stopEditing} />
+          ) : (
+            <>
+              <Avatar user={author} />
+              <CommentBody body={comment.body} author={author} />
+            </>
+          )}
         </div>
         <div className="comment-bottom">
-          <CommentFooter comment={comment} toggleReplies={toggleReplies} disableReply={isNested}/>
-          <CommentLikeIcon comment={comment} />
+          {editing ? null : (
+            <>
+              <CommentFooter comment={comment} toggleReplies={toggleReplies} disableReply={isNested}/>
+              <CommentLikeIcon comment={comment} />
+            </>
+          )}
         </div>
       </div>
       {hasChildren && showReplyCounter && (
