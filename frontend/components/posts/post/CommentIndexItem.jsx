@@ -9,11 +9,23 @@ import ComposeCommentContainer from './compose_comment_container'
 
 const CommentIndexItem = ({ comment, author, parent, posts }) => {
   const [showReplies, setShowReplies] = useState(false);
+  const [showReplyCounter, setShowReplyCounter] = useState(true);
+
+  const revealReplyCounter = () => setShowReplyCounter(true);
+  const hideReplyCounter = () => setShowReplyCounter(false);
 
   const toggleReplies = () => setShowReplies(prev => !prev);
   const revealReplies = () => setShowReplies(true);
 
+  const childCount = comment.childPosts.length;
+  const hasChildren = childCount > 0;
+  const replyWord = childCount === 1 ? "Reply" : "Replies"
   const isNested = posts[parent.parentPostId] !== undefined
+
+  const handleClickOnReplyCounter = () => {
+    hideReplyCounter();
+    revealReplies();
+  }
 
   return (
     <div className="comment-index-item-container">
@@ -27,6 +39,12 @@ const CommentIndexItem = ({ comment, author, parent, posts }) => {
           <CommentLikeIcon comment={comment} />
         </div>
       </div>
+      {hasChildren && showReplyCounter && (
+        <div className="reply-counter" onClick={handleClickOnReplyCounter}>
+          <i className="fas fa-reply"/>
+          <span className="reply-counts">{childCount} {replyWord}</span>
+        </div>
+      )}
       {showReplies && !isNested && (
         <>
           <CommentIndexContainer parentPost={comment} postIds={comment.childPosts} />
