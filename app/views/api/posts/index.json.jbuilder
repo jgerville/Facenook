@@ -8,6 +8,11 @@ if @posts
             json.array! post.child_post_ids
           end
         end
+        json.likes do
+          if post.likes
+            json.array! post.like_ids
+          end
+        end
       end
     end
   end
@@ -43,6 +48,20 @@ if @posts
 
         if post.wall_owner.cover_photo.attached?
           json.cover_photo post.wall_owner.cover_photo.service_url
+        end
+      end
+    end
+  end
+end
+
+if @posts
+  json.likes do
+    @posts.each do |post|
+      if post.likes
+        post.likes.each do |like|
+          json.set! like.id do
+            json.extract! like, :id, :user_id, :post_id, :type, :created_at, :updated_at
+          end
         end
       end
     end
