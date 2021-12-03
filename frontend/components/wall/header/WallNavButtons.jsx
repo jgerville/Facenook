@@ -36,11 +36,11 @@ const WallNavButtons = ({
               acceptFriendRequest={acceptFriendRequest}
             />
           </li>
-          <li>
+          {/* <li>
             <button className="message-button">
               <i className="fas fa-comment-dots"></i>Message
             </button>
-          </li>
+          </li> */}
         </>
       )}
       <li>
