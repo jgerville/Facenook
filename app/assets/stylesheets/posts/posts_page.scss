@@ -10,6 +10,9 @@ $button-blue-hover: #507FDE;
 $button-disabled: #505151;
 $button-disabled-text: #858686;
 
+$liked-thumb: #2D86FF;
+$liked-text: #3C76EC;
+
 $separator: #3E3F41;
 
 $cross-color: #A8ABAF;
@@ -365,7 +368,17 @@ $cross-color: #A8ABAF;
           button:hover {
             background: $light-grey-bg;
           }
+
+          button.liked {
+            i {
+              color: $liked-thumb;
+            }
+            span {
+              color: $liked-text;
+            }
+          }
         }
+
       }
 
       .create-comment {

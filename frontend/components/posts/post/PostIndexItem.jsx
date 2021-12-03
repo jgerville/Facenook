@@ -18,7 +18,7 @@ const PostIndexItem = ({ post, user }) => {
       <PostHeader post={post} user={user} />
       <PostContent body={post.body} />
       <LikeAndCommentCounts post={post} toggleComments={toggleComments} />
-      <PostButtons toggleComments={toggleComments} />
+      <PostButtons post={post} toggleComments={toggleComments} />
       {showComments && (
         <>
           <CommentIndexContainer parentPost={post} />
