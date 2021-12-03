@@ -249,10 +249,12 @@ header.wall-header {
       display: flex;
 
       li {
+        position: relative;
         color: $link-text;
         padding: 0 5px;
 
         button {
+          // position: relative;
           padding: 10px 14px;
           border-radius: 6px;
           border: none;
@@ -282,6 +284,32 @@ header.wall-header {
 
       li:last-child {
         padding-right: 0;
+      }
+
+      .panel {
+        position: absolute;
+        z-index: 11;
+        padding: 5px;
+        top: 40px;
+        background: $dark-grey-bg;
+        border-radius: 8px;
+        border: 1px solid $separator;
+
+        button {
+          background: $dark-grey-bg;
+          width: 100%;
+          margin: 2px 0;
+          padding: 5px 50px;
+          font-size: 15px;
+          color: $name-text;
+          border: none;
+          border-radius: 8px;
+          transition: background 0.3s ease-out;
+        }
+
+        button:hover {
+          background: $badge-bg-hover;
+        }
       }
     }
   }

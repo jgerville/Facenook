@@ -36,10 +36,10 @@ const FriendButton = ({friendreqs, currentUser, user, sendFriendRequest, unfrien
     acceptFriendRequest(Object.values(friendreqs)[0]);
   }
 
-  const openRespondDropdown = () => setRespondDropdown(true);
+  const toggleRespondDropdown = () => setRespondDropdown(prev => !prev);
   const closeRespondDropdown = () => setRespondDropdown(false);
 
-  const openFriendsDropdown = () => setFriendsDropdown(true);
+  const toggleFriendsDropdown = () => setFriendsDropdown(prev => !prev);
   const closeFriendsDropdown = () => setFriendsDropdown(false);
 
   if (noRelationshipFound) {
@@ -51,12 +51,12 @@ const FriendButton = ({friendreqs, currentUser, user, sendFriendRequest, unfrien
     icon = "fa-user-minus";
     buttonText = "Cancel Request";
   } else if (isPendingReceived) {
-    handleClick = openRespondDropdown;
+    handleClick = toggleRespondDropdown;
     icon = "fa-user-plus";
     buttonText = "Respond";
     close = closeRespondDropdown;
   } else {
-    handleClick = openFriendsDropdown;
+    handleClick = toggleFriendsDropdown;
     icon = "fa-user-friends";
     buttonText = "Friends"
     close = closeFriendsDropdown;
