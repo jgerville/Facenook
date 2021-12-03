@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import WallHeader from "./header/WallHeader";
 import WallContent from "./content/WallContent";
 import WallAbout from "./content/about/WallAbout";
+import FriendsList from "./content/friendslist/FriendsList";
 
 const Wall = ({
   currentUser,
@@ -32,6 +33,10 @@ const Wall = ({
         <Route
           path="/about/*"
           element={<WallAbout wallOwner={wallOwner} isMine={isMine} />}
+        />
+        <Route
+          path="/friends/"
+          element={<FriendsList wallOwner={wallOwner} />}
         />
       </Routes>
     </>
