@@ -307,13 +307,13 @@ $cross-color: #A8ABAF;
 
       .post-buttons {
         box-sizing: border-box;
-        margin: 0 15px 0;
+        // margin: 0 15px 0;
         padding: 4px 0;
         display: flex;
         justify-content: space-around;
         align-items: center;
         border-top: 1px solid $separator;
-        width: 470px;
+        width: 100%;
 
         .button-container {
           width: 100%;
@@ -593,6 +593,12 @@ $cross-color: #A8ABAF;
 
       }
     }
+  }
+
+  // only activates if create-post is hidden, i.e. not friends.
+  // this aligns header container towards the top.
+  .posts-page > .post-index > .header-container {
+    margin-top: 0;
   }
 
   .outer-modal.compose {

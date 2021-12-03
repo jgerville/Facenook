@@ -5,10 +5,12 @@ import PostIndexContainerForWall from "./index/post_index_container_wall";
 import PostIndexContainerForNewsfeed from "./index/post_index_container_newsfeed";
 
 const PostsPage = ({ wallOwner, currentUser, type }) => {
-  console.log(type)
+  const friendsOrSelf = currentUser.friends.includes(wallOwner.id) || currentUser.id === wallOwner.id
+  console.log(friendsOrSelf)
+
   return (
     <div className="posts-page">
-      <CreatePostContainer wallOwner={wallOwner} currentUser={currentUser} type={type} />
+      {friendsOrSelf && <CreatePostContainer wallOwner={wallOwner} currentUser={currentUser} type={type} />}
       {type === "wall" && <PostIndexContainerForWall />}
       {type === "newsfeed" && <PostIndexContainerForNewsfeed />}
     </div>

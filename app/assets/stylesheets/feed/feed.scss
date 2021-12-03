@@ -82,5 +82,13 @@ $light-grey-bg-hover: #4E4F50;
         }
       }
     }
+
+    .comment-input {
+      width: 460px;
+
+      textarea {
+        width: 100%;
+      }
+    }
   }
 }

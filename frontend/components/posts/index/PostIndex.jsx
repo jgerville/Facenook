@@ -9,11 +9,12 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
     clearPosts();
     if (type === "newsfeed") {
       getPosts(currentUser.friends).then(() => {
-        console.log(getUserIdsFromPosts(posts))
         getUsers(getUserIdsFromPosts(posts)).then(() => setUsersFetched(true));
       })
     } else {
-      getPosts().then((res) => getUsers(getUserIdsFromPosts(res)));
+      getPosts().then((res) => {
+        getUsers(getUserIdsFromPosts(res.posts)).then(() => setUsersFetched(true))
+      });
     }
   }, [])
 
@@ -23,8 +24,6 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
       ids.push(postsObj[postId].authorId)
       ids.push(postsObj[postId].wallId)
     }
-    console.log(postsObj)
-    console.log("here are the ids in array", ids)
     return ids
   }
 
@@ -43,17 +42,14 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
   })
 
   const isOnFriendsList = currentUser.friends.includes(Number(params.userId)) || currentUser.id === Number(params.userId)
+  const isMine = params && Number(params.userId) === currentUser.id
 
-  console.log(posts)
-  console.log(users)
-  console.log(type)
-  
   return (
     <div className="post-index">
       <div className="header-container">
         Posts
       </div>
-      { (isOnFriendsList || type==="newsfeed") && usersFetched ? (
+      { (isOnFriendsList || isMine || type==="newsfeed") && usersFetched ? (
         <div className="post-items-container">
           {posts && sortedPosts.map((post) => <PostIndexItem key={post.id} post={post} user={users[post.authorId]} />)}
         </div>

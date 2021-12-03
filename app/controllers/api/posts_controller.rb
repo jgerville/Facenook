@@ -21,7 +21,7 @@ class Api::PostsController < ApplicationController
   def index_by_friends
     friend_ids_array = post_params["friend_ids"]
     array_including_self = friend_ids_array + [current_user.id]
-    @posts = Post.find_by_friend_ids(array_including_self)
+    @posts = Post.find_by_friend_ids(array_including_self) #.includes(:author, :wall_owner)
     render "api/posts/index"
   end
 

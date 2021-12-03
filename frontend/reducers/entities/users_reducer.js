@@ -1,3 +1,4 @@
+import { RECEIVE_POSTS } from "../../actions/post_actions";
 import {
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER,
@@ -17,6 +18,8 @@ const usersReducer = (state = {}, action) => {
       return Object.assign({}, state, {
         [action.currentUser.id]: action.currentUser,
       });
+    case RECEIVE_POSTS:
+      return Object.assign({}, state, action.payload.users)
     case RECEIVE_WALL_OWNER:
       return Object.assign({}, state, { [action.user.id]: action.user });
     case RECEIVE_RELATED_USERS:

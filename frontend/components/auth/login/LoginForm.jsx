@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router";
 
 const LoginForm = ({ errors, login, openModal }) => {
+  let navigate = useNavigate();
+
   const [{ email, password }, setValues] = useState({
     email: "",
     password: "",
@@ -26,6 +29,7 @@ const LoginForm = ({ errors, login, openModal }) => {
   const demoLogin = (e) => {
     e.preventDefault();
     login({ email: "fake@fake.fake", password: "fakefake" });
+    navigate('/')
   };
 
   return (
