@@ -1,8 +1,14 @@
-import { connect } from "react-redux"
-import Feed from "./Feed"
+import { connect } from "react-redux";
+import { getWallInfo } from "../../actions/user_actions";
+import Feed from "./Feed";
 
 const mapStateToProps = ({ entities: { users }, session }) => ({
-  currentUser: users[session.id]
-})
+  currentUser: users[session.id],
+  users,
+});
 
-export default connect(mapStateToProps, null)(Feed);
+const mapDispatchToProps = (dispatch) => ({
+  getUserInfo: (userId) => dispatch(getWallInfo(userId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Feed);

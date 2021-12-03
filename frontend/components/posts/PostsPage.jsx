@@ -5,6 +5,7 @@ import PostIndexContainerForWall from "./index/post_index_container_wall";
 import PostIndexContainerForNewsfeed from "./index/post_index_container_newsfeed";
 
 const PostsPage = ({ wallOwner, currentUser, type }) => {
+  console.log(type)
   return (
     <div className="posts-page">
       <CreatePostContainer wallOwner={wallOwner} currentUser={currentUser} type={type} />
