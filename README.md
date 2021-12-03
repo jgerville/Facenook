@@ -59,14 +59,14 @@ const  revealComments  = () =>  setShowComments(true);
       <LikeAndCommentCounts  post={post}  toggleComments={toggleComments}  />
       <PostButtons  toggleComments={toggleComments}  />
       {showComments && (
-	    <>
+	<>
           <CommentIndexContainer  parentPost={post}  />
           <ComposeCommentContainer  
             parentPost={post}  
             showComments={revealComments}  
           />
-	    </>
-	  )}
+	</>
+      )}
     </div>
   );
 };
