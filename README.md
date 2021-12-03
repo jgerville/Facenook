@@ -57,14 +57,14 @@ const  revealComments  = () =>  setShowComments(true);
       <PostHeader  post={post}  user={user}  />
       <PostContent  body={post.body}  />
       <LikeAndCommentCounts  post={post}  toggleComments={toggleComments}  />
-	  <PostButtons  toggleComments={toggleComments}  />
-	  {showComments && (
+      <PostButtons  toggleComments={toggleComments}  />
+      {showComments && (
 	    <>
-		  <CommentIndexContainer  parentPost={post}  />
-		  <ComposeCommentContainer  
-		    parentPost={post}  
-		    showComments={revealComments}  
-		  />
+          <CommentIndexContainer  parentPost={post}  />
+          <ComposeCommentContainer  
+            parentPost={post}  
+            showComments={revealComments}  
+          />
 	    </>
 	  )}
     </div>
