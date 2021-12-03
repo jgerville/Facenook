@@ -10,7 +10,7 @@ import CommentIndexContainer from "./comment_index_container";
 const PostIndexItem = ({ post, user }) => {
   const [showComments, setShowComments] = useState(false);
 
-  const toggleComments = () => setShowComments(prev => !prev);
+  const toggleComments = () => setShowComments((prev) => !prev);
   const revealComments = () => setShowComments(true);
 
   return (
@@ -22,7 +22,10 @@ const PostIndexItem = ({ post, user }) => {
       {showComments && (
         <>
           <CommentIndexContainer parentPost={post} />
-          <ComposeCommentContainer parentPost={post} showComments={revealComments} />
+          <ComposeCommentContainer
+            parentPost={post}
+            showComments={revealComments}
+          />
         </>
       )}
     </div>
