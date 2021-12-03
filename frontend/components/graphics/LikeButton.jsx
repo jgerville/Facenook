@@ -4,17 +4,16 @@ import { connect } from 'react-redux'
 import { createLike, deleteLike } from '../../actions/like_actions'
 
 const LikeButton = ({ post, likes, like, unlike, currentUserId }) => {
+  const [likeObj, setLikeObj] = useState(null)
+
   useEffect(() => {
     likedByUser();
   }, [post, likes])
 
-  const [liked, setLiked] = useState("not-liked")
-  const [likeId, setLikeId] = useState(null)
 
   const handleClick = () => {
-    if (likeId) {
-      unlike(likeId)
-      // setLiked("not-liked")
+    if (likeObj) {
+      unlike(likeObj.id)
     } else {
       const likeData = {
         user_id: currentUserId,
@@ -22,27 +21,25 @@ const LikeButton = ({ post, likes, like, unlike, currentUserId }) => {
         kind: 0,
       }
       like(likeData);
-      // setLiked("liked")
     }
   }
   
   const likedByUser = () => {
-    for (const eachLikeId of post.likes) {
-      if (likes.indexOf(eachLikeId > -1)) {
-        if (likes[likes.indexOf(eachLikeId)].userId === currentUserId) {
-          setLiked("liked");
-          setLikeId(eachLikeId)
-          return;
+    if (likes) {
+      for (const eachLikeId of post.likes) {
+        if (likes[eachLikeId].userId == currentUserId) {
+            setLikeObj(likes[eachLikeId]);
+            return;
         }
       }
     }
-    setLiked("not-liked");
+    setLikeObj(null);
     return;
   }
 
   return (
     <div className="like button-container">
-      <button className={`like-button ${liked}`} onClick={handleClick}>
+      <button className={`like-button`} onClick={handleClick}>
         <i className="far fa-thumbs-up" />
         <span>Like</span>
       </button>
@@ -52,7 +49,7 @@ const LikeButton = ({ post, likes, like, unlike, currentUserId }) => {
 
 LikeButton.propTypes = {
   post: PropTypes.object.isRequired,
-  likes: PropTypes.array.isRequired,
+  likes: PropTypes.object.isRequired,
   like: PropTypes.func.isRequired,
   unlike: PropTypes.func.isRequired,
   currentUserId: PropTypes.number.isRequired,
@@ -60,7 +57,7 @@ LikeButton.propTypes = {
 
 const mapStateToProps = ({ entities: { likes }, session }) => ({
   currentUserId: session.id,
-  likes: Object.values(likes),
+  likes,
 })
 
 const mapDispatchToProps = dispatch => ({
