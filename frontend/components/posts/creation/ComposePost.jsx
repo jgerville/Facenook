@@ -25,7 +25,7 @@ const ComposePost = ({ user, wallOwner, close, createPost, originalPost, edit })
       body,
     };
     if (edit) {
-      post["id"] = originalPost;
+      post["id"] = originalPost.id;
     }
     if (edit) {
       edit(post).then(() => close())
