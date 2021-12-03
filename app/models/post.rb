@@ -26,6 +26,9 @@ class Post < ApplicationRecord
     foreign_key: :parent_post_id,
     class_name: :Post
 
+  has_many :likes,
+    dependent: :destroy
+
   belongs_to :parent_post,
     class_name: :Post,
     optional: true

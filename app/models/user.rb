@@ -51,6 +51,9 @@ class User < ApplicationRecord
     through: :friendreqs_received,
     source: :sender
 
+  has_many :likes,
+    dependent: :destroy
+
   def friendships
     sent = self.friendreqs_sent.where(kind: "accepted")
     received = self.friendreqs_received.where(kind: "accepted")
