@@ -48,7 +48,7 @@ Editing single parts of a user's profile is another feature that Facebook implem
 Here is a snippet that exemplifies the coding style used in Facenook. Components are given meaningful names and should only do one thing each.
 ```javascript
 const  PostIndexItem  = ({ post, user }) => {
-const [showComments, setShowComments] =  useState(false);
+const  [showComments, setShowComments] =  useState(false);
 const  toggleComments  = () =>  setShowComments(prev  =>  !prev);
 const  revealComments  = () =>  setShowComments(true);
 
