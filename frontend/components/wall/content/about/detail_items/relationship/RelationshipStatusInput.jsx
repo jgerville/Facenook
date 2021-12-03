@@ -8,6 +8,7 @@ const RelationshipStatusInput = ({ editInfo, close, wallOwner }) => {
     e.preventDefault();
     const user = { user: wallOwner };
     user.user.relationship_status = relationshipStatus;
+    delete user.user.profpic;
     editInfo(user).then(close());
   };
 

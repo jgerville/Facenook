@@ -8,6 +8,7 @@ const JobsInput = ({ editInfo, close, wallOwner }) => {
     e.preventDefault();
     const user = { user: wallOwner };
     user.user.jobs = jobs;
+    delete user.user.profpic;
     editInfo(user).then(close());
   }
 

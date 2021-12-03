@@ -8,6 +8,7 @@ const SchoolsInput = ({ editInfo, close, wallOwner }) => {
     e.preventDefault();
     const user = { user: wallOwner };
     user.user.schools = schools;
+    delete user.user.profpic;
     editInfo(user).then(close())
   }
 
