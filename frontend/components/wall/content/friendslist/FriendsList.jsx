@@ -5,7 +5,7 @@ import FriendsListIndex from './FriendsListIndex'
 
 const FriendsList = ({ wallOwner }) => {
   return (
-    <div>
+    <div className="friends-list">
       <FriendsHeader />
       <FriendsListIndex friends={wallOwner.friends} />
     </div>

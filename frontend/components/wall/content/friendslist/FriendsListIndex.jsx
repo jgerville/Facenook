@@ -15,7 +15,9 @@ const FriendsListIndex = ({ users, friends, getFriends }) => {
   return (
     <main className="friends-index">
       {ready && hasFriends && friends.map((friendId) => (
-        <UserCard key={friendId} user={users[friendId]} />
+        <div className="friend-index-item">
+          <UserCard key={friendId} user={users[friendId]} />
+        </div>
       ))}
     </main>
   )
