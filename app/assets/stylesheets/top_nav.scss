@@ -303,11 +303,12 @@ $search-icon-bg: #18191A;
         align-items: center;
         height: 100%;
         font-size: 26px;
-        padding: 10px 40px;
+        padding: 4px 40px 8px;
       }
 
       a.active {
-        border-bottom: 3px solid $active-color;
+        border-bottom: 4px solid $active-color;
+        border-radius: 3px;
         i {
           color: $active-text;
         }
