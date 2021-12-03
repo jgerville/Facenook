@@ -1,4 +1,4 @@
-import { RECEIVE_LIKE, REMOVE_LIKE } from "../../actions/like_actions";
+import { RECEIVE_LIKE, RECEIVE_LIKES, REMOVE_LIKE } from "../../actions/like_actions";
 import { RECEIVE_POSTS } from "../../actions/post_actions";
 
 const likesReducer = (state = {}, action) => {
