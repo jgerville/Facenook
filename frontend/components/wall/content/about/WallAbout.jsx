@@ -13,7 +13,7 @@ const WallAbout = ({wallOwner, isMine}) => {
         <ul>
           <li><NavLink end to="">Overview</NavLink></li>
           <li><NavLink to="work_and_education">Work and Education</NavLink></li>
-          <li><NavLink to="places_lived">Places Lived</NavLink></li>
+          {/* <li><NavLink to="places_lived">Places Lived</NavLink></li> */}
           <li><NavLink to="contact_and_basic_info">Contact and Basic Info</NavLink></li>
         </ul>
       </nav>
