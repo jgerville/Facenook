@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import CommentCounter from './CommentCounter'
+import LikeCounter from './LikeCounter'
 
 const LikeAndCommentCounts = ({ post, toggleComments }) => {
   return (
     <div className="like-and-comment-counts">
       <div className="like-counts">
-        {/* replace this div with a component. */}
+        <LikeCounter likes={post.likes} />
       </div>
       <CommentCounter post={post} toggle={toggleComments} />
     </div>

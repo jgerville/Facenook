@@ -9,9 +9,10 @@ import { getSomeUsers } from "../../../actions/user_actions";
 import { withRouter } from "../../../util/RouterUtil";
 import PostIndex from "./PostIndex";
 
-const mapStateToProps = ({ entities: { posts, users }, session: { id } }) => ({
+const mapStateToProps = ({ entities: { posts, users, likes }, session: { id } }) => ({
   posts,
   users,
+  likes,
   currentUser: users[id],
   type: "newsfeed",
 });

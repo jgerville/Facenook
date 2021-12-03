@@ -293,6 +293,27 @@ $cross-color: #A8ABAF;
         display: flex;
         justify-content: space-between;
 
+        .like-counter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          i {
+            margin-right: 5px;
+            padding: 5px;
+            border-radius: 50%;
+            background: $button-blue;
+            font-size: 10px;
+            color: white;
+          }
+
+          span {
+            font-size: 15px;
+            color: $placeholder-text;
+          }
+
+        }
+
         .comment-counts {
           font-size: 15px;
           font-weight: 300;
