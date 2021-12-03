@@ -11,6 +11,7 @@ $separator: #3e3f41;
 
 $active-background: #2B394F;
 $active-color: #4987F7;
+$active-text: #4987F7;
 
 $search-text-placeholder: #8A8D91;
 $search-card-bg-hover: #292A2C;
@@ -19,6 +20,7 @@ $search-icon-bg: #18191A;
 .top-nav {
   position: fixed;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   height: 53px;
   width: 100%;
@@ -279,6 +281,43 @@ $search-icon-bg: #18191A;
         
       }
     }
+  }
+
+  .middle-links {
+    justify-content: center;
+
+    li {
+      margin: 0 10px;
+      padding: 10px 10px 0 10px;
+      border-radius: 20px;
+    }
+
+    li:hover {
+      background: $badge-background;
+    }
+    
+    .home-link, .gh-link, .flower-link {
+      height: 100%;
+      a {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        font-size: 26px;
+        padding: 10px 40px;
+      }
+
+      a.active {
+        border-bottom: 3px solid $active-color;
+        i {
+          color: $active-text;
+        }
+      } 
+    }
+  }
+
+  .dropdown-container {
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
