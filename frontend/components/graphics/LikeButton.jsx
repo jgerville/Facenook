@@ -11,6 +11,20 @@ const LikeButton = ({ post, likes, like, unlike, currentUserId }) => {
   }, [post, likes])
 
 
+  
+  const likedByUser = () => {
+    if (likes) {
+      for (const eachLikeId of post.likes) {
+        if (likes[eachLikeId].userId == currentUserId) {
+          setLikeObj(likes[eachLikeId]);
+          return;
+        }
+      }
+    }
+    setLikeObj(null);
+    return;
+  }
+  
   const handleClick = () => {
     if (likeObj) {
       unlike(likeObj.id)
@@ -23,19 +37,7 @@ const LikeButton = ({ post, likes, like, unlike, currentUserId }) => {
       like(likeData);
     }
   }
-  
-  const likedByUser = () => {
-    if (likes) {
-      for (const eachLikeId of post.likes) {
-        if (likes[eachLikeId].userId == currentUserId) {
-            setLikeObj(likes[eachLikeId]);
-            return;
-        }
-      }
-    }
-    setLikeObj(null);
-    return;
-  }
+  console.log("re-rendering")
 
   return (
     <div className="like button-container">
