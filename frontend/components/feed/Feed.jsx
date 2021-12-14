@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import PostsPage from "../posts/PostsPage";
+import Sponsored from "./Sponsored";
 
 const Feed = ({ currentUser, getUserInfo, users }) => {
   useEffect(() => {
@@ -10,6 +11,7 @@ const Feed = ({ currentUser, getUserInfo, users }) => {
   return (
     <main className="feed">
       {users ? <PostsPage type="newsfeed" wallOwner={currentUser} currentUser={currentUser} /> : null}
+      <Sponsored />
     </main>
   )
 };

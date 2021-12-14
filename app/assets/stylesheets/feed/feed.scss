@@ -3,8 +3,8 @@ $lighter-background: #242526;
 $light-text-color: #b0b3b8;
 $light-grey-bg: #3A3B3C;
 $light-grey-bg-hover: #4E4F50;
-
-
+$sponsored-hover: #303031;
+$sponsored-title: #e4e6eb;
 
 
 .feed {
@@ -12,6 +12,10 @@ $light-grey-bg-hover: #4E4F50;
 
   display: grid;
   grid-template-columns: 1fr 590px 1fr;
+
+  .sponsord-container {
+    display: none;
+  }
 
   .posts-page {
     grid-column: 2;
@@ -89,6 +93,90 @@ $light-grey-bg-hover: #4E4F50;
       textarea {
         width: 100%;
       }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+
+  .feed {
+    grid-template-columns: 1fr 590px 260px 1fr;
+
+    .sponsord-container {
+      margin: 22px 0 0 30px;
+      grid-column: 3;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+  
+      h3 {
+        padding: 8px;
+        font-size: 17px;
+        font-weight: 500;
+        color: $light-text-color;
+      }
+  
+      a {
+        transition: background 0.3s ease-out;
+        padding: 8px;
+        border-radius: 8px;
+      }
+  
+      a:hover {
+        background-color: $sponsored-hover;
+      }
+  
+      .sponsored-item {
+        display: flex;
+        flex-direction: row;
+  
+        img {
+          width: 100px;
+          height: 100px;
+          border-radius: 11px;
+        }
+  
+        .sponsord-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          // align-items: center;
+          padding-left: 15px;
+  
+          .text-title {
+            padding: 5px 0;
+            font-size: 15px;
+            font-weight: 500;
+            color: $sponsored-title;
+          }
+  
+          .text-link {
+            padding: 5px 0;
+            font-size: 13px;
+            color: $light-text-color;
+          }
+        }
+      }
+    }
+  } 
+}
+
+
+@media (min-width: 1330px) {
+
+  .feed {
+    grid-template-columns: 1fr 590px 1fr;
+
+    .sponsord-section {
+      grid-column: 3;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 5px;
+    }
+
+    .sponsord-container {
+      // margin: 22px 0 0 20%;
+      max-width: 330px;
     }
   }
 }

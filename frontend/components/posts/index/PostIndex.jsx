@@ -53,7 +53,6 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
         <div className="post-items-container">
           {posts && sortedPosts.map((post) => <PostIndexItem key={post.id} post={post} user={users[post.authorId]} likes={post.likes} />)}
         </div>
-        // null
       ) : (
         <div className="posts-hidden">
           No posts available

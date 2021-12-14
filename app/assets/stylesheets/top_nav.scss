@@ -298,7 +298,7 @@ $search-icon-bg: #18191A;
       cursor: pointer;
     }
     
-    .home-link, .gh-link, .flower-link {
+    .home-link, .linked-in-link, .gh-link, .flower-link {
       height: 100%;
       a {
         display: flex;
@@ -321,6 +321,27 @@ $search-icon-bg: #18191A;
   .dropdown-container {
     display: flex;
     justify-content: flex-end;
+  }
+}
+
+@media (max-width: 900px) {
+  .top-nav {
+    .middle-links {
+      li {
+        margin: 0 3px;
+        padding: 10px 5px 0 5px;
+        border-radius: 20px;
+      }
+      
+      .home-link, .linked-in-link, .gh-link, .flower-link {
+        height: 100%;
+  
+        a {
+          font-size: 26px;
+          padding: 4px 15px 8px;
+        }
+      }
+    }
   }
 }
 

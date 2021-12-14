@@ -37,6 +37,9 @@ const TopNav = ({ currentUser, dropdown, openDropdown, closeDropdown }) => {
         <li className="gh-link">
           <a href="https://github.com/jgerville"><i className="fab fa-github"></i></a>
         </li>
+        <li className="linked-in-link">
+          <a href="https://www.linkedin.com/in/julian-erville-9a8911224/"><i className="fab fa-linkedin-in"></i></a>
+        </li>
         <li className="flower-link">
           <a href="https://flower-type.herokuapp.com/"><i className="fas fa-gamepad"></i></a>
         </li>
