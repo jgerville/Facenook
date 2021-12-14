@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import FormattedTime from '../../graphics/FormattedTime'
+import LikeButton from '../../graphics/LikeButton'
 
 const CommentFooter = ({ comment, toggleReplies, disableReply }) => {
   return (
     <div className="comment-footer">
-      <span className="like-button">Like</span>
+      {/* <span className="like-button">Like</span> */}
+      <LikeButton post={comment} showIcon={false} />
       <span className="dot">·</span>
       {disableReply ? (
         null

@@ -3,15 +3,13 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { createLike, deleteLike } from '../../actions/like_actions'
 
-const LikeButton = ({ post, likes, like, unlike, currentUserId }) => {
+const LikeButton = ({ post, likes, like, unlike, currentUserId, showIcon }) => {
   const [likeObj, setLikeObj] = useState(null)
 
   useEffect(() => {
     likedByUser();
   }, [post, likes])
 
-
-  
   const likedByUser = () => {
     if (likes) {
       for (const eachLikeId of post.likes) {
@@ -37,12 +35,11 @@ const LikeButton = ({ post, likes, like, unlike, currentUserId }) => {
       like(likeData);
     }
   }
-  console.log("re-rendering")
 
   return (
     <div className="like button-container">
-      <button className={`like-button`} onClick={handleClick}>
-        <i className="far fa-thumbs-up" />
+      <button className={`like-button ${likeObj && 'liked'}`} onClick={handleClick}>
+        {showIcon && <i className="far fa-thumbs-up" />}
         <span>Like</span>
       </button>
     </div>
@@ -55,6 +52,7 @@ LikeButton.propTypes = {
   like: PropTypes.func.isRequired,
   unlike: PropTypes.func.isRequired,
   currentUserId: PropTypes.number.isRequired,
+  showIcon: PropTypes.bool.isRequired,
 }
 
 const mapStateToProps = ({ entities: { likes }, session }) => ({

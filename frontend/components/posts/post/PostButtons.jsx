@@ -6,7 +6,7 @@ import CommentButton from '../../graphics/CommentButton'
 const PostButtons = ({ toggleComments, post }) => {
   return (
     <div className="post-buttons">
-      <LikeButton post={post} />
+      <LikeButton post={post} showIcon={true} />
       <CommentButton toggleComments={toggleComments} />
     </div>
   )
