@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "react-router";
 
 const LoginForm = ({ errors, login, openModal }) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [{ email, password }, setValues] = useState({
     email: "",
@@ -21,9 +21,12 @@ const LoginForm = ({ errors, login, openModal }) => {
     openModal();
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login({ email, password });
+    const response = await login({ email, password });
+    if (response.type !== 'RECEIVE_LOGIN_ERRORS') {
+      navigate('/');
+    }
   };
 
   const demoLogin = (e) => {
@@ -77,7 +80,10 @@ const LoginForm = ({ errors, login, openModal }) => {
 };
 
 LoginForm.propTypes = {
-  errors: PropTypes.array,
+  errors: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+  ]),
   login: PropTypes.func.isRequired,
   openModal: PropTypes.func.isRequired,
 };

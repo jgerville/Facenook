@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from 'prop-types';
+import { useNavigate } from "react-router";
 import moment from "moment";
 
 const MONTHS = [
@@ -36,6 +37,7 @@ const SignupForm = ({ errors, signup, closeModal }) => {
   const [gender, setGender] = useState();
 
   const [ageError, setAgeError] = useState(true);
+  const navigate = useNavigate();
 
   const firstRender = useRef(true);
   const [changedAge, setChangedAge] = useState(false);
@@ -49,7 +51,7 @@ const SignupForm = ({ errors, signup, closeModal }) => {
     }
   }, [month, day, year]);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     if (!changedAge) {
       setChangedAge(true);
@@ -66,7 +68,11 @@ const SignupForm = ({ errors, signup, closeModal }) => {
         gender,
       },
     };
-    signup(user);
+    const response = await signup(user);
+    if (response.type !== 'RECEIVE_SIGNUP_ERRORS') {
+      closeModal();
+      navigate('/');
+    }
   };
 
   const checkAge = () => {
@@ -215,7 +221,10 @@ const SignupForm = ({ errors, signup, closeModal }) => {
 };
 
 SignupForm.propTypes = {
-  errors: PropTypes.array,
+  errors: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+  ]),
   signup: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
 };
