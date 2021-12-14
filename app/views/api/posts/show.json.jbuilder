@@ -6,5 +6,10 @@ if @post
         json.array! @post.child_post_ids
       end
     end
+    json.likes do
+      if @post.likes
+        json.array! @post.like_ids
+      end
+    end
   end
 end
