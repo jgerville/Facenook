@@ -10,6 +10,9 @@ $button-blue-hover: #507FDE;
 $button-disabled: #505151;
 $button-disabled-text: #858686;
 
+$liked-thumb: #2D86FF;
+$liked-text: #3C76EC;
+
 $separator: #3E3F41;
 
 $cross-color: #A8ABAF;
@@ -288,10 +291,31 @@ $cross-color: #A8ABAF;
       }
 
       .like-and-comment-counts {
+        box-sizing: border-box;
         margin: 0 15px 10px;
-        // padding: ;
+        height: 20px;
         display: flex;
         justify-content: space-between;
+
+        .like-counter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          i {
+            margin-right: 5px;
+            padding: 5px;
+            border-radius: 50%;
+            background: $button-blue;
+            font-size: 10px;
+            color: white;
+          }
+
+          span {
+            font-size: 15px;
+            color: $placeholder-text;
+          }
+        }
 
         .comment-counts {
           font-size: 15px;
@@ -334,6 +358,7 @@ $cross-color: #A8ABAF;
             i, span {
               font-size: 15px;
               color: $placeholder-text;
+              transition: color 0.3s ease-out;
             }
 
             i, span {
@@ -344,7 +369,17 @@ $cross-color: #A8ABAF;
           button:hover {
             background: $light-grey-bg;
           }
+
+          button.liked {
+            i {
+              color: $liked-thumb;
+            }
+            span {
+              color: $liked-text;
+            }
+          }
         }
+
       }
 
       .create-comment {
@@ -452,6 +487,7 @@ $cross-color: #A8ABAF;
               }
   
               .post-content {
+                position: relative;
                 background: $light-grey-bg;
                 margin: 0;
                 margin-right: 4px;
@@ -475,6 +511,31 @@ $cross-color: #A8ABAF;
                   overflow-wrap: break-word;
                   white-space: pre-line;
                   max-width: 380px;
+                }
+
+                .like-counts {
+                  position: absolute;
+                  bottom: -3px;
+                  right: -3px;
+                  padding: 1px 5px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border-radius: 16px;
+                  background-color: #3D4041;
+                  i {
+                    margin-right: 5px;
+                    padding: 3px;
+                    border-radius: 50%;
+                    background: $button-blue;
+                    font-size: 10px;
+                    color: white;
+                  }
+        
+                  span {
+                    font-size: 13px;
+                    color: $placeholder-text;
+                  }
                 }
               }
 
@@ -533,6 +594,23 @@ $cross-color: #A8ABAF;
                 color: $placeholder-text;
                 font-size: 12px;
                 padding-left: 71px;
+
+                div.like.button-container{
+                  display: inline;
+                  
+                  button{
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    color: $placeholder-text;
+                    background: $dark-grey-bg;
+
+                    span {
+                      font-size: 12px;
+                      font-weight: 600;
+                    }
+                  }
+                } 
   
                 .like-button, .reply-button {
                   font-weight: 600;

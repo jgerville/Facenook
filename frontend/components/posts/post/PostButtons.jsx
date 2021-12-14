@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import LikeButton from '../../graphics/LikeButton'
 import CommentButton from '../../graphics/CommentButton'
 
-const PostButtons = ({ toggleComments }) => {
+const PostButtons = ({ toggleComments, post }) => {
   return (
     <div className="post-buttons">
-      <LikeButton />
+      <LikeButton post={post} showIcon={true} />
       <CommentButton toggleComments={toggleComments} />
     </div>
   )
@@ -14,6 +14,7 @@ const PostButtons = ({ toggleComments }) => {
 
 PostButtons.propTypes = {
   toggleComments: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired,
 }
 
 export default PostButtons

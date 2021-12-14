@@ -6,7 +6,6 @@ import PostIndexContainerForNewsfeed from "./index/post_index_container_newsfeed
 
 const PostsPage = ({ wallOwner, currentUser, type }) => {
   const friendsOrSelf = currentUser.friends.includes(wallOwner.id) || currentUser.id === wallOwner.id
-  console.log(friendsOrSelf)
 
   return (
     <div className="posts-page">

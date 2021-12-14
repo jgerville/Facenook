@@ -13,8 +13,6 @@ const FriendButton = ({friendreqs, currentUser, user, sendFriendRequest, unfrien
 
   let handleClick, icon, buttonText, close;
 
-  console.log(Object.values(friendreqs))
-
   const addFriend = () => {
     sendFriendRequest({
       sender_id: currentUser.id,

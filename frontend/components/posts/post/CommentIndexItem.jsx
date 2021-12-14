@@ -43,7 +43,7 @@ const CommentIndexItem = ({ comment, author, parent, posts }) => {
           ) : (
             <>
               <Avatar user={author} />
-              <CommentBody body={comment.body} author={author} />
+              <CommentBody body={comment.body} author={author} likes={comment.likes} />
               <EditAndDeleteButtonsContainerComment comment={comment} startEditing={startEditing} />
               {/* <EditAndDeleteButtons comment={comment} startEditing={startEditing} /> */}
             </>
