@@ -17,7 +17,7 @@ const Sponsored = () => {
               />
             </div>
             <div className="sponsord-text">
-              <span className="text-title">ONE SECRET APPLICANT DOCTORS DON'T WANT YOU TO KNOW</span>
+              <span className="text-title">HIRE THIS MAN!</span>
               <span className="text-link">linkedin.com</span>
             </div>
           </div>
