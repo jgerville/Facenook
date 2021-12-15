@@ -16,6 +16,7 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
         getUsers(getUserIdsFromPosts(res.posts)).then(() => setUsersFetched(true))
       });
     }
+    // window.scrollTo(0, 0);
   }, [])
 
   const getUserIdsFromPosts = (postsObj) => {

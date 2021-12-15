@@ -34,6 +34,7 @@ const ComposeComment = ({ parentPost, currentUser, postAction, getPost, showComm
       <Avatar user={currentUser} />
       <div className="comment-input">
         <TextareaAutosize
+          autoFocus
           onKeyDown={handleKeyDown}
           cacheMeasurements
           onChange={handleChange}

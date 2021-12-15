@@ -46,6 +46,7 @@ const ComposePost = ({ user, wallOwner, close, createPost, originalPost, edit })
         <UserCard user={user} />
         <div className="textarea-container">
           <TextareaAutosize
+            autoFocus
             className="textbox"
             cacheMeasurements
             onChange={handleChange}
