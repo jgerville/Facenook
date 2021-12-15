@@ -2,6 +2,8 @@ import React from "react";
 
 const Sponsored = () => {
   return (
+    // sponsored is intentionally misspelled here to get past adblock
+    // this feels perfectly reasonable to me, since these are not real ads
     <div className="sponsord-section">
       <div className="sponsord-container">
         <h3>Sponsored</h3>
@@ -15,7 +17,7 @@ const Sponsored = () => {
               />
             </div>
             <div className="sponsord-text">
-              <span className="text-title">WEB DEVELOPER FOR HIRE</span>
+              <span className="text-title">ONE SECRET APPLICANT DOCTORS DON'T WANT YOU TO KNOW</span>
               <span className="text-link">linkedin.com</span>
             </div>
           </div>
