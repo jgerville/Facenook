@@ -68,11 +68,14 @@ header.wall-header {
   .avatar-container {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
+    justify-self: center;
+    align-self: center;
     text-align: center;
     position: relative;
     display: flex;
     justify-content: center;
     z-index: 3;
+    width: 178px;
 
     .avatar {
       position: absolute;
@@ -87,8 +90,8 @@ header.wall-header {
     i {
       position: absolute;
       z-index: 5;
-      right: 138px;
-      bottom: 40px;
+      right: 10px;
+      bottom: 38px;
       padding: 8px;
       border: none;
       border-radius: 50%;
