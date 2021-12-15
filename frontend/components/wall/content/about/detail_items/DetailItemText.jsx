@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 const DetailItemText = ({ category, info }) => {
   let spanText = "";
 
   if (info === "") {
-    return <span>No {category} info to show</span>
+    return <span>No {category} info to show</span>;
   }
 
   switch (category) {
@@ -22,24 +22,21 @@ const DetailItemText = ({ category, info }) => {
       spanText = `Lives in ${info}`;
       break;
     case "relationship":
-      spanText = `${info}`
+      spanText = `${info}`;
       break;
     case "creation":
-      spanText = `Joined ${info}`
+      spanText = `Joined ${info}`;
+      break;
     default:
-      spanText = ""
+      spanText = "";
   }
-  
-  return (
-    <span>
-      {spanText}
-    </span>
-  )
-}
+
+  return <span>{spanText}</span>;
+};
 
 DetailItemText.propTypes = {
   category: PropTypes.string.isRequired,
   info: PropTypes.string.isRequired,
-}
+};
 
 export default DetailItemText;
