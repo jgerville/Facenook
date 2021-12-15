@@ -609,6 +609,11 @@ $cross-color: #A8ABAF;
                       font-size: 12px;
                       font-weight: 600;
                     }
+
+                    span.liked {
+                      color: $liked-text;
+                      transition: background 0.3s ease-out;
+                    }
                   }
                 } 
   
@@ -619,6 +624,10 @@ $cross-color: #A8ABAF;
                 .like-button:hover, .reply-button:hover {
                   cursor: pointer;
                   text-decoration: underline;
+                }
+
+                .like-button.liked:hover {
+                  text-decoration-color: $liked-text;
                 }
   
                 .dot {

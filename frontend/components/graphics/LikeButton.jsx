@@ -40,7 +40,11 @@ const LikeButton = ({ post, likes, like, unlike, currentUserId, showIcon }) => {
     <div className="like button-container">
       <button className={`like-button ${likeObj && 'liked'}`} onClick={handleClick}>
         {showIcon && <i className="far fa-thumbs-up" />}
-        <span>Like</span>
+        {!showIcon && likeObj ? (
+          <span className="liked">Like</span>
+        ) : (
+          <span>Like</span>
+        )}
       </button>
     </div>
   )

@@ -36,8 +36,9 @@ class Post < ApplicationRecord
   def self.find_by_friend_ids(arr)
     all_posts = Post.all
     on_friend_walls = arr.reduce([]) { |acc, id| acc + all_posts.where(wall_id: id).to_a}
-    posted_by_friends = arr.reduce([]) { |acc, id| acc + all_posts.where(author_id: id).to_a}
-    all = (on_friend_walls + posted_by_friends).uniq
+    # posted_by_friends = arr.reduce([]) { |acc, id| acc + all_posts.where(author_id: id).to_a}
+    # all = (on_friend_walls + posted_by_friends).uniq
+    on_friend_walls.uniq
   end
 
   def self.find_by_wall_owner(wall_id)
