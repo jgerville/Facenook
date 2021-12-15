@@ -26,7 +26,8 @@ const DetailItemText = ({ category, info }) => {
       break;
     case "creation":
       spanText = `Joined ${info}`
-    // default:
+    default:
+      spanText = ""
   }
   
   return (

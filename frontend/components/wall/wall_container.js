@@ -12,8 +12,6 @@ const mapStateToProps = ({ session, entities: { users }, ui }, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getWallInfo: () => dispatch(getWallInfo(ownProps.params.userId)),
-  // fetchPosts,
-  // maybe both are not needed?
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Wall));

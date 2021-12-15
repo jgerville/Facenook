@@ -16,7 +16,7 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
         getUsers(getUserIdsFromPosts(res.posts)).then(() => setUsersFetched(true))
       });
     }
-    // window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
   }, [])
 
   const getUserIdsFromPosts = (postsObj) => {
@@ -27,17 +27,6 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
     }
     return ids
   }
-
-  // const postsArray = Object.values(posts)
-  // const topLevelPosts = [];
-  // const comments = [];
-  // for (let i = 0; i < postsArray.length; i++) {
-  //   if (postsArray[i].parentPostId) {
-  //     comments.push(postsArray[i]);
-  //   } else {
-  //     topLevelPosts.push(postsArray[i]);
-  //   }
-  // }
 
   const formatPostsAndComments = () => {
     const postsArray = Object.values(posts)

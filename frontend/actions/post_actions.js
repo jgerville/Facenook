@@ -50,9 +50,3 @@ export const editPost = (post) => (dispatch) =>
 
 export const deletePost = (postId) => (dispatch) =>
   PostAPI.deletePost(postId).then(() => dispatch(removePost(postId)));
-
-// export const deletePost = (postId, parentPostId) => (dispatch) => 
-//   PostAPI.deletePost(postId).then(() => {
-//     dispatch(removePost(postId, parentPostId));
-//     // dispatch(getPost(parentPostId))
-//   })

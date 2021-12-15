@@ -6,8 +6,4 @@ const mapStateToProps = ({ entities: { posts, users }}) => ({
   users,
 })
 
-// const mapDispatchToProps = dispatch =>  ({
-  
-// })
-
 export default connect(mapStateToProps, null)(CommentIndex);

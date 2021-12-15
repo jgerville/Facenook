@@ -25,16 +25,11 @@ $cross-color: #A8ABAF;
       .inner-modal {
         background: $dark-grey-bg;
         width: 500px;
-        // min-height: 420px;
         border: 1px solid $separator;
-
-        // display: grid;
-        // grid-template-rows: 60px 73px 153px 134px;
         display: flex;
         flex-direction: column;
 
         .compose-header {
-          // grid-row: 1;
           height: 60px;
           position: relative;
           border-bottom: 1px solid $separator;
@@ -146,7 +141,6 @@ $cross-color: #A8ABAF;
 
   .post-index {
     .posts-hidden {
-      // background: $dark-grey-bg;
       margin: 16px 0;
       border-radius: 8px;
       box-sizing: border-box;
@@ -331,7 +325,6 @@ $cross-color: #A8ABAF;
 
       .post-buttons {
         box-sizing: border-box;
-        // margin: 0 15px 0;
         padding: 4px 0;
         display: flex;
         justify-content: space-around;
@@ -352,7 +345,6 @@ $cross-color: #A8ABAF;
             transition: background 0.3s ease-out;
             border-radius: 8px;
             border: none;
-            // padding: 0 10% 0 10%;
             width: 80%;
             
             i, span {
@@ -587,7 +579,6 @@ $cross-color: #A8ABAF;
             }
   
             .comment-bottom {
-              // margin-top: 2px;
               margin-bottom: 8px;
   
               .comment-footer {
@@ -694,16 +685,12 @@ $cross-color: #A8ABAF;
     .inner-modal {
       background: $dark-grey-bg;
       width: 500px;
-      // min-height: 420px;
       border: 1px solid $separator;
 
-      // display: grid;
-      // grid-template-rows: 60px 73px 153px 134px;
       display: flex;
       flex-direction: column;
 
       .compose-header {
-        // grid-row: 1;
         height: 60px;
         position: relative;
         border-bottom: 1px solid $separator;

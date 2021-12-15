@@ -6,10 +6,4 @@ const mapStateToProps = ({ session, entities: { users } }) => ({
   currentUser: users[session.id],
 });
 
-const mapDispatchToProps = {
-  // login: () => dispatch(login()),
-  // logout: () => dispatch(logout()),
-  // signup: () => dispatch(signup()),
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, null)(Home);
