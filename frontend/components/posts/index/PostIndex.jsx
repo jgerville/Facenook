@@ -27,17 +27,31 @@ const PostIndex = ({ posts, users, currentUser, getPosts, getUsers, params, clea
     return ids
   }
 
-  const postsArray = Object.values(posts)
-  const topLevelPosts = [];
-  const comments = [];
-  for (let i = 0; i < postsArray.length; i++) {
-    if (postsArray[i].parentPostId) {
-      comments.push(postsArray[i]);
-    } else {
-      topLevelPosts.push(postsArray[i]);
+  // const postsArray = Object.values(posts)
+  // const topLevelPosts = [];
+  // const comments = [];
+  // for (let i = 0; i < postsArray.length; i++) {
+  //   if (postsArray[i].parentPostId) {
+  //     comments.push(postsArray[i]);
+  //   } else {
+  //     topLevelPosts.push(postsArray[i]);
+  //   }
+  // }
+
+  const formatPostsAndComments = () => {
+    const postsArray = Object.values(posts)
+    const obj = {topLevelPosts: [], comments: []};
+    for (let i = 0; i < postsArray.length; i++) {
+      if (postsArray[i].parentPostId) {
+        obj.comments.push(postsArray[i]);
+      } else {
+        obj.topLevelPosts.push(postsArray[i]);
+      }
     }
+    return obj;
   }
-  const sortedPosts = topLevelPosts.sort((a, b) => {
+
+  const sortedPosts = formatPostsAndComments().topLevelPosts.sort((a, b) => {
     return (new Date(b.createdAt) - new Date(a.createdAt));
   })
 
