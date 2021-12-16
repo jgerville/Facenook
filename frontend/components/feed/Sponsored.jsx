@@ -8,7 +8,7 @@ const Sponsored = () => {
       <div className="sponsord-container">
         <h3>Sponsored</h3>
 
-        <a href="https://www.linkedin.com/in/julian-erville-9a8911224/">
+        <a href="https://www.linkedin.com/in/julian-erville/">
           <div className="sponsored-item">
             <div className="sponsored-picture">
               <img
