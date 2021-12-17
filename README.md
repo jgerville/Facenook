@@ -1,11 +1,13 @@
 # Facenook
 
-  
-
 Facenook is -- brace yourselves --  a Facebook clone! It attempts to mimic Facebook's core functionality and user interface.
 
 ## Live Link
 https://face-nook.herokuapp.com/
+
+## Sample Screenshot
+
+<img width="936" alt="newsfeed" src="https://user-images.githubusercontent.com/79581995/146469927-d6a194fb-5ca7-4ba4-a1d7-f25f0080d245.png">
 
 ## Technologies Employed
 
