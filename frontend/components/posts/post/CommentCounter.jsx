@@ -14,7 +14,6 @@ const CommentCounter = ({ post, posts, toggle }) => {
       let totalComments = numChildren;
       for (let i = 0; i < numChildren; i++) {
         let grandChildrenArray = posts[post.childPosts[i]].childPosts;
-        console.log(post.body, grandChildrenArray)
         totalComments += grandChildrenArray.length;
       }
       return `${totalComments} comments`
