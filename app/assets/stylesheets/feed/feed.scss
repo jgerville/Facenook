@@ -180,3 +180,12 @@ $sponsored-title: #e4e6eb;
     }
   }
 }
+
+@media (max-width: 660px) {
+  .feed {
+    display: flex; 
+    flex-direction: column;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

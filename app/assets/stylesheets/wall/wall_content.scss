@@ -113,3 +113,14 @@ $light-text-color: #b0b3b8;
 .wall-content > * {
   margin-top: 16px;
 }
+
+@media (max-width: 1000px) {
+  .wall-content {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 2rem;
+    // margin-left: 0;
+    // margin-right: 0;
+  }
+}

@@ -799,3 +799,20 @@ $cross-color: #A8ABAF;
     }
   }
 }
+
+@media (max-width: 1000px) {
+  .posts-page .post-index .post-index-item div.create-comment {
+    .comment-input {
+      width: 100%;
+      margin-right: 1rem;
+    }
+    textarea {
+      width: 100%;
+    }
+  }
+
+  .posts-page .post-index .post-index-item .comment-index .comment-index-item-container .comment-index textarea, .posts-page .post-index .post-index-item .comment-index .comment-index-item-container .create-comment textarea {
+    width: 100%;
+  }
+
+}
