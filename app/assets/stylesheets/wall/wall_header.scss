@@ -311,3 +311,9 @@ header.wall-header {
     }
   }
 }
+
+@media (max-width: 977px) {
+  header.wall-header div.cover-photo-container img {
+    height: 100%;
+  }
+}

@@ -345,6 +345,12 @@ $search-icon-bg: #18191A;
   }
 }
 
+@media (max-width: 600px) {
+  .top-nav ul.middle-links {
+    display: none;
+  }
+}
+
   
 
 .top-nav + * {
