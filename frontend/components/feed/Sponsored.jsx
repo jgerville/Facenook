@@ -27,7 +27,7 @@ const Sponsored = () => {
           <div className="sponsored-item">
             <div className="sponsored-picture">
               <img
-                src="https://teacherspet.io/static/media/logo_blue.ecf60880.png"
+                src="https://i.imgur.com/M7FrSXR.png"
                 alt="teacherspet logo"
               />
             </div>
