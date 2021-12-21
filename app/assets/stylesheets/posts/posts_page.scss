@@ -816,3 +816,12 @@ $cross-color: #A8ABAF;
   }
 
 }
+
+@media (max-width: 600px) {
+  .posts-page .create-post .outer-modal.compose .inner-modal,
+  .posts-page .create-post .outer-modal.compose .inner-modal .textarea-container textarea,
+  .posts-page .outer-modal.compose .inner-modal,
+  .posts-page .outer-modal.compose .inner-modal .textarea-container textarea {
+    width: 83vw;
+  }
+}
