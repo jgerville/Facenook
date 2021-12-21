@@ -29,6 +29,7 @@ $border: 1px solid $light-grey !default;
     box-shadow: 0 0 6px -4px;
 
     input {
+      // box-sizing: border-box;
       padding: 10px;
       margin: 0 15px 10px;
       border: $border;
@@ -71,31 +72,40 @@ $border: 1px solid $light-grey !default;
     }
     
     .signup-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       border-top: $border;
       padding-top: 20px;
 
-      * {
-        margin-left: 15px;
-      }
+      // * {
+      //   margin-left: 15px;
+      // }
 
       input[type=email], input[type=password] {
         width: 378px;
         background-color: $middle-grey;
         font-size: 15px;
       }
-      
-      .signup-fname {
-        width: 173px;
-        margin: 0 5px 10px 15px;
-        font-size: 15px;
-        background-color: $middle-grey;
-      }
 
-      .signup-lname {
-        width: 173px;
-        font-size: 15px;
-        margin: 0 5px 10px;
-        background-color: $middle-grey;
+      .name-inputs, .birthday-inputs, .gender-inputs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 0.63rem;
+
+        .signup-fname {
+          width: 173px;
+          margin: 0;
+          font-size: 15px;
+          background-color: $middle-grey;
+        }
+  
+        .signup-lname {
+          width: 173px;
+          font-size: 15px;
+          margin: 0;
+          background-color: $middle-grey;
+        }  
       }
 
       label {
@@ -121,8 +131,9 @@ $border: 1px solid $light-grey !default;
       }
 
       .gender-label {
-        position: relative;
-        display: inline-block;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         font-size: 15px;
         color: $black-ish;
         border: $border;
@@ -131,8 +142,9 @@ $border: 1px solid $light-grey !default;
         width: 111px;
 
         input {
-          position: absolute;
-          right: -8px;
+          position: relative;
+          margin: 0;
+          margin-right: 0.3em;
         }
       }
 
@@ -149,8 +161,6 @@ $border: 1px solid $light-grey !default;
       }
 
       .signup-button {
-        position: relative;
-        left: 25%;
         border: $border;
         border-radius: 8px;
         border: none;
@@ -166,7 +176,48 @@ $border: 1px solid $light-grey !default;
   }
 }
 
+@media (max-width: 498px) {
+  .outer-modal .inner-modal {
+    width: 86vw;
 
+    .signup-form {
 
+      input {
+        margin: 0;
+        box-sizing: border-box;
+        padding: 10px;
+        width: 90;
+      }
 
+      .name-inputs {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
 
+        input.signup-lname, input.signup-fname {
+          width: 90%;
+        }
+      }
+
+      input[type=email], input[type=password] {
+        // box-sizing: border-box;
+        width: 90%;
+        margin-bottom: 0.63rem;
+      }
+
+      .birthday, .gender {
+        width: 90%;
+      }
+
+      .gender-label {
+        box-sizing: border-box;
+
+        input {
+          position: relative;
+          right: 0;
+          margin-right: 0.3em;
+        }
+      }
+    }
+  }
+}

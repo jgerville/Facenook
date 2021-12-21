@@ -168,3 +168,25 @@ $border: 1px solid $light-grey !default;
     height: 140px;
   }
 }
+
+
+@media (max-width: 438px) {
+  .login-page{
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    .login-form {
+      width: 91vw;
+      padding-top: 1rem;
+      gap: 1rem;
+    }
+  }
+
+  .login-footer {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+}

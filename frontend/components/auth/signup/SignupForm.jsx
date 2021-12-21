@@ -106,24 +106,26 @@ const SignupForm = ({ errors, signup, closeModal }) => {
       </div>
 
       <form className="signup-form" onSubmit={submit}>
-        <input
-          autoFocus
-          required
-          className="signup-fname"
-          type="text"
-          placeholder="First name"
-          value={fname}
-          onChange={setName(setFname)}
-        />
+        <div className="name-inputs">
+          <input
+            autoFocus
+            required
+            className="signup-fname"
+            type="text"
+            placeholder="First name"
+            value={fname}
+            onChange={setName(setFname)}
+          />
 
-        <input
-          required
-          className="signup-lname"
-          type="text"
-          placeholder="Last name"
-          value={lname}
-          onChange={setName(setLname)}
-        />
+          <input
+            required
+            className="signup-lname"
+            type="text"
+            placeholder="Last name"
+            value={lname}
+            onChange={setName(setLname)}
+          />
+        </div>
 
         <input
           required
@@ -141,65 +143,72 @@ const SignupForm = ({ errors, signup, closeModal }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        {ageError && changedAge && (
-          <p className="signup-error">
-            {"You must be at least 13 years old to sign up."}
-          </p>
-        )}
+        <div className="birthday">
+          {ageError && changedAge && (
+            <p className="signup-error">
+              {"You must be at least 13 years old to sign up."}
+            </p>
+          )}
+          <label htmlFor="months">Birthday</label>
+          <div className="birthday-inputs">
+            <select id="months" value={month} onChange={setBirthDate(setMonth)}>
+              {MONTHS.map((month) => (
+                <option key={month} value={month}>
+                  {month}
+                </option>
+              ))}
+            </select>
 
-        <label htmlFor="months">Birthday</label>
-        <select id="months" value={month} onChange={setBirthDate(setMonth)}>
-          {MONTHS.map((month) => (
-            <option key={month} value={month}>
-              {month}
-            </option>
-          ))}
-        </select>
+            <select value={day} onChange={setBirthDate(setDay)}>
+              {DAYS.map((day) => (
+                <option key={day} value={day}>
+                  {day}
+                </option>
+              ))}
+            </select>
 
-        <select value={day} onChange={setBirthDate(setDay)}>
-          {DAYS.map((day) => (
-            <option key={day} value={day}>
-              {day}
-            </option>
-          ))}
-        </select>
+            <select value={year} onChange={setBirthDate(setYear)}>
+              {YEARS.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
 
-        <select value={year} onChange={setBirthDate(setYear)}>
-          {YEARS.map((year) => (
-            <option key={year} value={year}>
-              {year}
-            </option>
-          ))}
-        </select>
-
-        <label className="general-gender-label">Gender</label>
-        <label className="gender-label">
-          Female
-          <input
-            type="radio"
-            value="Female"
-            onChange={(e) => setGender(e.target.value)}
-            checked={gender === "Female"}
-          />
-        </label>
-        <label className="gender-label">
-          Male
-          <input
-            type="radio"
-            value="Male"
-            onChange={(e) => setGender(e.target.value)}
-            checked={gender === "Male"}
-          />
-        </label>
-        <label className="gender-label">
-          Custom
-          <input
-            type="radio"
-            value="Custom"
-            onChange={(e) => setGender(e.target.value)}
-            checked={gender === "Custom"}
-          />
-        </label>
+        <div className="gender">
+          <label className="general-gender-label">Gender</label>
+          <div className="gender-inputs">
+            <label className="gender-label">
+              Female
+              <input
+                type="radio"
+                value="Female"
+                onChange={(e) => setGender(e.target.value)}
+                checked={gender === "Female"}
+              />
+            </label>
+            <label className="gender-label">
+              Male
+              <input
+                type="radio"
+                value="Male"
+                onChange={(e) => setGender(e.target.value)}
+                checked={gender === "Male"}
+              />
+            </label>
+            <label className="gender-label">
+              Custom
+              <input
+                type="radio"
+                value="Custom"
+                onChange={(e) => setGender(e.target.value)}
+                checked={gender === "Custom"}
+              />
+            </label>
+          </div>
+        </div>
 
         <p className="disclaimer">
           By clicking Sign Up, you agree to absolutely no policies whatsoever.
