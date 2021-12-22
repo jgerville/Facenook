@@ -23,7 +23,7 @@ const Sponsored = () => {
           </div>
         </a>
 
-        <a href="https://www.teacherspet.com/">
+        <a href="https://www.teacherspet.io/">
           <div className="sponsored-item">
             <div className="sponsored-picture">
               <img

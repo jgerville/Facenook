@@ -37,10 +37,13 @@ const SignupForm = ({ errors, signup, closeModal }) => {
   const [gender, setGender] = useState();
 
   const [ageError, setAgeError] = useState(true);
+  const [changedAge, setChangedAge] = useState(false);
+
+  
+  
   const navigate = useNavigate();
 
   const firstRender = useRef(true);
-  const [changedAge, setChangedAge] = useState(false);
 
   useEffect(() => {
     if (firstRender.current) {
