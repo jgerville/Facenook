@@ -35,13 +35,13 @@ const TopNav = ({ currentUser, dropdown, openDropdown, closeDropdown }) => {
           </NavLink>
         </li>
         <li className="gh-link">
-          <a href="https://github.com/jgerville"><i className="fab fa-github"></i></a>
+          <a href="https://github.com/jgerville" target="_blank"><i className="fab fa-github"></i></a>
         </li>
         <li className="linked-in-link">
-          <a href="https://www.linkedin.com/in/julian-erville-9a8911224/"><i className="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/julian-erville-9a8911224/" target="_blank"><i className="fab fa-linkedin-in"></i></a>
         </li>
         <li className="flower-link">
-          <a href="https://flower-type.herokuapp.com/"><i className="fas fa-gamepad"></i></a>
+          <a href="https://flower-type.herokuapp.com/" target="_blank"><i className="fas fa-gamepad"></i></a>
         </li>
       </ul>
       <ul className="dropdown-container">
