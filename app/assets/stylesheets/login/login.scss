@@ -4,6 +4,11 @@ $light-green: #42b72a;
 $footer: #8B8D91;
 $border: 1px solid $light-grey !default;
 
+@font-face {
+  font-family: 'Klavika Bold';
+  src: url(asset-path('klavika-bold.otf'));
+}
+
 .login-container {
   background-color: rgb(240, 242, 245);
   height: 100vh;

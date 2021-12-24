@@ -5,6 +5,8 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_LOGIN_ERRORS = "RECEIVE_LOGIN_ERRORS";
 export const RECEIVE_SIGNUP_ERRORS = 'RECEIVE_SIGNUP_ERRORS';
+export const CLEAR_SIGNUP_ERRORS = 'CLEAR_SIGNUP_ERRORS';
+export const CLEAR_LOGIN_ERRORS = 'CLEAR_LOGIN_ERRORS';
 
 const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
@@ -24,6 +26,14 @@ const receiveSignupErrors = (errors) => ({
   type: RECEIVE_SIGNUP_ERRORS,
   errors,
 });
+
+export const clearSignupErrors = () => ({
+  type: CLEAR_SIGNUP_ERRORS,
+})
+
+export const clearLoginErrors = () => ({
+  type: CLEAR_LOGIN_ERRORS,
+})
 
 export const login = (user) => (dispatch) =>
   SessionApiUtil.login(user)

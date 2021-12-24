@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router";
 
-const LoginForm = ({ errors, login, openModal }) => {
+const LoginForm = ({ errors, clearErrors, login, openModal }) => {
   const navigate = useNavigate();
 
   const [{ email, password }, setValues] = useState({
@@ -18,6 +18,7 @@ const LoginForm = ({ errors, login, openModal }) => {
 
   const openSignup = (e) => {
     e.preventDefault();
+    clearErrors();
     openModal();
   };
 
@@ -84,6 +85,7 @@ LoginForm.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]),
+  clearErrors: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
   openModal: PropTypes.func.isRequired,
 };

@@ -26,7 +26,7 @@ for (let i = 2021; i >= 1905; i--) {
   YEARS.push(i);
 }
 
-const SignupForm = ({ errors, signup, closeModal }) => {
+const SignupForm = ({ errors, clearErrors, signup, closeModal }) => {
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
@@ -100,11 +100,16 @@ const SignupForm = ({ errors, signup, closeModal }) => {
     setter(e.target.value);
   };
 
+  const handleClose = () => {
+    clearErrors();
+    closeModal();
+  }
+
   return (
     <>
       <div className="signup-header">
         <h3>Sign Up</h3>
-        <i onClick={closeModal} className="fas fa-times close-signup-page" />
+        <i onClick={handleClose} className="fas fa-times close-signup-page" />
         <p>It's quick and easy.</p>
       </div>
 
@@ -237,6 +242,7 @@ SignupForm.propTypes = {
     PropTypes.array,
     PropTypes.object,
   ]),
+  clearErrors: PropTypes.func.isRequired,
   signup: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
 };

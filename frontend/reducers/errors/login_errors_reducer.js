@@ -1,4 +1,5 @@
 import {
+  CLEAR_LOGIN_ERRORS,
   RECEIVE_CURRENT_USER,
   RECEIVE_LOGIN_ERRORS,
 } from "../../actions/session_actions";
@@ -10,6 +11,8 @@ const loginErrorsReducer = (state = [], action) => {
     case RECEIVE_LOGIN_ERRORS:
       return action.errors;
     case RECEIVE_CURRENT_USER:
+      return [];
+    case CLEAR_LOGIN_ERRORS:
       return [];
     default:
       return state;
