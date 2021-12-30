@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment";
 
 const Footer = () => (
   <footer className="login-footer">
@@ -19,7 +18,7 @@ const Footer = () => (
       <span>Git</span>
     </p>
     <div className="separator" />
-    <p>Julian Erville © {moment().year()}</p>
+    <p>Julian Erville © {new Date().getFullYear()}</p>
   </footer>
 );
 

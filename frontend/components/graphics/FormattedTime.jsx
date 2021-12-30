@@ -7,8 +7,12 @@ const FormattedTime = ({ postTime, editTime, isComment }) => {
     const now = moment();
     const oneWeekAgo = now.subtract(7, "days");
     const postTime = moment(dateTime);
-    if (moment(dateTime) > oneWeekAgo) {
-      return postTime.fromNow();
+    if (postTime > oneWeekAgo) {
+      if (postTime > now) {
+        return "a few seconds ago"
+      } else {
+        return postTime.fromNow();
+      }
     } else {
       if (postTime.year() < now.year()) {
         return postTime.format("MMMM Do YY")
