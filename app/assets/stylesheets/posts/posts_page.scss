@@ -282,6 +282,12 @@ $cross-color: #A8ABAF;
         font-weight: 300;
         color: $text-color;
         line-height: 1.5;
+
+        pre {
+          white-space: pre-line;
+          word-wrap: break-word;
+          text-align: justify;
+        }
       }
 
       .like-and-comment-counts {
@@ -823,5 +829,17 @@ $cross-color: #A8ABAF;
   .posts-page .outer-modal.compose .inner-modal,
   .posts-page .outer-modal.compose .inner-modal .textarea-container textarea {
     width: 83vw;
+  }
+}
+
+@media (max-width: 720px) {
+  .posts-page .post-index .post-index-item .post-header .panel {
+    right: 0;
+  }
+
+  .posts-page .create-post .outer-modal.compose .inner-modal .textarea-container textarea,
+  .posts-page .post-index .post-index-item .create-comment textarea,
+  .posts-page .outer-modal.compose .inner-modal .textarea-container textarea {
+    font-size: 16px;
   }
 }
