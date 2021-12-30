@@ -25,6 +25,14 @@ $border: 1px solid $light-grey !default;
   }
 }
 
+.login-container {
+  background-color: white;
+}
+
+.login-page {
+  background-color: rgb(240, 242, 245);
+}
+
 .login-form {
   background-color: white;
   border-radius: 8px;
@@ -153,6 +161,7 @@ $border: 1px solid $light-grey !default;
 @media only screen and (min-width: 849px) {
   .login-page {
     padding-top: 100px;
+    padding-bottom: 245px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -168,7 +177,7 @@ $border: 1px solid $light-grey !default;
   }
 
   .login-footer {
-    margin-top: 245px;
+    // margin-top: 245px;
     background: white;
     height: 140px;
   }
@@ -177,7 +186,7 @@ $border: 1px solid $light-grey !default;
 
 @media (max-width: 438px) {
   .login-page{
-    margin: 3rem 0;
+    padding: 3rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
