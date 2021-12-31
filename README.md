@@ -76,5 +76,5 @@ const  PostIndexItem  = ({ post, user }) => {
 
 ## Future directions
 
-* Users should be able to like a post or comment.
+* Users should be able to like a post or comment. (done)
 * Users should be able to attach images to their posts.
