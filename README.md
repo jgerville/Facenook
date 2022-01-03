@@ -21,7 +21,7 @@ Each React component that may have props is checked using PropTypes.
 Redux is utilized in order to manage Facenook's application state. The state is carefully organized and aims to be as flat as possible.
 
 ### Amazon Web Services
-Facenook stores all images on the cloud using AWS, rather than inside its own asset pipeline.
+Facenook stores all images on the cloud using AWS S3, rather than inside its own asset pipeline.
 
 ### Rails
 Facenook's entire backend API is handled by Rails. The majority of the API endpoints are RESTful, along with some custom routes for different types of searches.
@@ -76,5 +76,5 @@ const  PostIndexItem  = ({ post, user }) => {
 
 ## Future directions
 
-* Users should be able to like a post or comment.
+* Users should be able to like a post or comment. (done)
 * Users should be able to attach images to their posts.
