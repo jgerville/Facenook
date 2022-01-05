@@ -74,6 +74,22 @@ const  PostIndexItem  = ({ post, user }) => {
 };
 ```
 
+## Preventing Too Many Search Requests
+I wanted to add some optimization to my search feature. If users are typing out a name quickly, we don't necessarily want to fire off a request to the database for every single character that they type. I implemented Axios's cancel tokens to ensure that if one request is already in progress while the user makes a new request, the old request gets cancelled.
+```javascript
+  useEffect(() => {
+    if (query) {
+      if (Object.keys(cancelToken).length > 0) {
+        cancelToken.cancel("Canceling prev search")
+      }
+
+      cancelToken = axios.CancelToken.source();
+      updateCancelToken(cancelToken);
+      search(query, cancelToken);
+    } 
+  }, [query]);
+```
+
 ## Future directions
 
 * Users should be able to like a post or comment. (done)
