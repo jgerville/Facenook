@@ -78,3 +78,4 @@ const  PostIndexItem  = ({ post, user }) => {
 
 * Users should be able to like a post or comment. (done)
 * Users should be able to attach images to their posts.
+* Add a notifications feature, possibly with websockets.
