@@ -13,13 +13,12 @@ const WallNavButtons = ({
   isMine,
   acceptFriendRequest,
 }) => {
-
   useEffect(
     () => {
       getRelatedFriendReqs(wallOwner.id);
     },
     [params.userId],
-    [friendreqs]
+    [friendreqs],
   );
 
   return (

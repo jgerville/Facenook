@@ -10,6 +10,6 @@ export const makeAnOffer = (amount: number, name: string):string =>{
   }
 }
 
-const testfn = (str: string) => {
+export const testfn = (str: string) => {
     return str.length;
 }
