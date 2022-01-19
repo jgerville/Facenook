@@ -18,11 +18,16 @@ module.exports = {
             presets: ['@babel/env', '@babel/react']
           }
         },
+      },
+      {
+        test: /\.tsx?$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader'
       }
     ]
   },
   devtool: 'source-map',
   resolve: {
-    extensions: [".js", ".jsx", "*"]
+    extensions: [".js", ".jsx", ".ts", ".tsx", "*"]
   }
 };
